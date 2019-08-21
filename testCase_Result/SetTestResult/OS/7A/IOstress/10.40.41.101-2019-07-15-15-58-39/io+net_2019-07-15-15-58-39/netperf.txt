@@ -1,0 +1,1126 @@
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.21    275.01   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     382127      0     667.52
+124928           300.00      11711             20.46
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1451.63   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.52   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     32.84   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.02    403.47   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     385878      0     674.07
+124928           300.00      12021             21.00
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1638.27   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      2.82   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     12.49   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.28    280.48   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     393072      0     686.64
+124928           300.00      11549             20.17
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1695.13   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.14   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     19.92   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    303.09    106.09   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     365548      0     638.56
+124928           300.00      18323             32.01
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1636.43   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.37   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     21.55   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.19    289.80   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     375600      0     656.12
+124928           300.00      16691             29.16
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1250.75   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.01   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     13.70   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.09    318.69   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     398771      0     696.59
+124928           300.00      17852             31.18
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1741.00   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.32   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     12.40   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.07    322.63   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     392971      0     686.46
+124928           300.00      20805             36.34
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1295.59   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.31   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     13.80   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.06    255.53   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     379934      0     663.69
+124928           300.00      29339             51.25
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00    939.92   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.58   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     16.71   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.06    255.52   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     386254      0     674.73
+124928           300.00      23150             40.44
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1472.67   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      3.72   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00      8.14   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    301.07    327.86   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     387583      0     677.05
+124928           300.00      13602             23.76
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1544.29   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.17   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     15.18   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.26    304.72   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     368329      0     643.42
+124928           300.00      12717             22.21
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00    914.50   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.55   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     23.61   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.27    265.64   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380327      0     664.38
+124928           300.00      14711             25.70
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1569.48   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.35   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     39.08   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.06    270.00   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380923      0     665.42
+124928           300.00      15881             27.74
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1147.98   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.35   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     35.36   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.22    287.97   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     367362      0     641.73
+124928           300.00      19954             34.86
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1139.70   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.34   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     22.94   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.23    335.81   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     399557      0     697.97
+124928           300.00      20638             36.05
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1083.96   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.32   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     33.71   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.03    334.18   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     386324      0     674.85
+124928           300.00      21929             38.31
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1431.38   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00     19.85   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     34.07   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.05    327.31   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380107      0     663.99
+124928           300.00      22808             39.84
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2102.83   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.23   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     63.35   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.23    337.72   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     404638      0     706.84
+124928           300.00      21384             37.35
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2853.49   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.92   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     76.56   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.06    250.31   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     386896      0     675.85
+124928           300.00      27327             47.74
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2712.32   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00     52.62   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     90.95   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.10    340.08   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380407      0     664.51
+124928           300.00      20825             36.38
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2676.56   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.22   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     83.56   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.02    340.46   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     393176      0     686.82
+124928           300.00      16702             29.18
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   3111.97   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      6.61   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     68.59   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.00    335.82   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380682      0     665.00
+124928           300.00      11486             20.06
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   3024.19   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.48   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     56.85   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.04    336.77   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     393281      0     687.00
+124928           300.00       9879             17.26
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2715.00   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      4.94   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     57.36   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.03    345.02   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     380901      0     665.38
+124928           300.00      15962             27.88
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1903.87   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00     23.49   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     59.83   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.03    351.64   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     374668      0     654.49
+124928           300.00      15981             27.92
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2896.11   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      1.83   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     58.94   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.10    383.24   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     374580      0     654.34
+124928           300.00      16521             28.86
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2360.87   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      0.26   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     48.40   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.03    340.19   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     387307      0     676.57
+124928           300.00       9846             17.20
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   1541.21   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00     14.30   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     52.00   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    301.28    288.89   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     483516      0     844.63
+124928           300.00         71              0.12
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00   2137.49   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      5.26   
+124928 124928
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00     89.29   
+16384  87380 
+TCP STREAM TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Recv   Send    Send                          
+Socket Socket  Message  Elapsed              
+Size   Size    Size     Time     Throughput  
+bytes  bytes   bytes    secs.    10^6bits/sec  
+
+ 87380  16384  16384    300.24    612.25   
+UDP UNIDIRECTIONAL SEND TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Socket  Message  Elapsed      Messages                
+Size    Size     Time         Okay Errors   Throughput
+bytes   bytes    secs            #      #   10^6bits/sec
+
+212992   65507   300.00     400423      0     699.48
+124928           300.00      45306             79.14
+
+TCP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+16384  87380  1        1       300.00    985.27   
+16384  87380 
+UDP REQUEST/RESPONSE TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+Local /Remote
+Socket Size   Request  Resp.   Elapsed  Trans.
+Send   Recv   Size     Size    Time     Rate         
+bytes  Bytes  bytes    bytes   secs.    per sec   
+
+212992 212992 1        1       300.00      9.92   
+124928 124928
+netperf: data socket connect failed: Connection timed out
+TCP Connect/Request/Response TEST from 0.0.0.0 (0.0.0.0) port 0 AF_INET to test405.loongson.cn (10.40.40.1) port 0 AF_INET
+	attempted to connect on socket 4 to port 56528 from port 51047 

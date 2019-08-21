@@ -1,0 +1,36 @@
+#第一组测试
+sh set_result_tag.sh $TestType $Platform "ping"
+sh set_result_tag.sh $TestType $Platform "wget"
+sh set_result_tag.sh $TestType $Platform "iozone"
+sh set_result_tag.sh $TestType $Platform "disk_unzip_copy"
+sh set_result_tag.sh $TestType $Platform "netperf"
+sh set_result_tag.sh $TestType $Platform "BasicSystemInfo"
+#第二组测试
+sh set_result_tag.sh $TestType $Platform "scp-dir"
+sh set_result_tag.sh $TestType $Platform "lmbench"
+sh set_result_tag.sh $TestType $Platform "stressapptest"
+#第三组测试
+sh set_result_tag.sh $TestType $Platform "scp-2"
+sh set_result_tag.sh $TestType $Platform "scp-1"
+sh set_result_tag.sh $TestType $Platform "spec2000-1core"
+sh set_result_tag.sh $TestType $Platform "spec2000-ncore"
+#第四组测试
+sh set_result_tag.sh $TestType $Platform "spec2006-1core"
+sh set_result_tag.sh $TestType $Platform "spec2006-ncore"
+#第五组测试
+#第六组测试
+sh set_result_tag.sh $TestType $Platform "runltp"
+#第七组测试
+#第八组测试
+sh set_result_tag.sh $TestType $Platform "scp-BigFile"
+#第九组测试
+sh set_result_tag.sh $TestType $Platform "ltpstress"
+#第十组测试
+sh set_result_tag.sh $TestType $Platform "IOstress"
+#第十五组测试
+sh set_result_tag.sh $TestType $Platform "gcc"
+sh set_result_tag.sh $TestType $Platform "glibc"
+sh set_result_tag.sh $TestType $Platform "binutils"
+sh set_result_tag.sh $TestType $Platform "openssl"
+sh set_result_tag.sh $TestType $Platform "SpecJvm2008"
+

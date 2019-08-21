@@ -1,0 +1,115 @@
+make[1]: Entering directory '/home/lmbench-3.0-a9/results'
+
+                 L M B E N C H  3 . 0   S U M M A R Y
+                 ------------------------------------
+		 (Alpha software, do not distribute)
+
+Basic system parameters
+------------------------------------------------------------------------------
+Host                 OS Description              Mhz  tlb  cache  mem   scal
+                                                     pages line   par   load
+                                                           bytes  
+--------- ------------- ----------------------- ---- ----- ----- ------ ----
+localhost Linux 3.10.0+      mips64el-linux-gnu 1199          64           1
+localhost Linux 3.10.0-      mips64el-linux-gnu  791    64    64 5.1400    1
+localhost Linux 3.10.0+      mips64el-linux-gnu 1199          64 7.2700    1
+
+Processor, Processes - times in microseconds - smaller is better
+------------------------------------------------------------------------------
+Host                 OS  Mhz null null      open slct sig  sig  fork exec sh  
+                             call  I/O stat clos TCP  inst hndl proc proc proc
+--------- ------------- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+localhost Linux 3.10.0+ 1199 0.38 0.50 6.21 10.6 12.9 0.71 3.78 398. 1220 4034
+localhost Linux 3.10.0-  791 1.21 1.50 12.4 22.7 23.7 1.72 7.00 810. 2891 9966
+localhost Linux 3.10.0+ 1199 0.38 0.50 6.23 10.6 13.3 0.71 3.77 393. 1226 4013
+
+Basic integer operations - times in nanoseconds - smaller is better
+-------------------------------------------------------------------
+Host                 OS  intgr intgr  intgr  intgr  intgr  
+                          bit   add    mul    div    mod   
+--------- ------------- ------ ------ ------ ------ ------ 
+localhost Linux 3.10.0+ 0.8400 0.8300 4.1700   14.6 8.3400
+localhost Linux 3.10.0- 1.2600 1.2800 6.3100   20.9   11.4
+localhost Linux 3.10.0+ 0.8400 0.8400 4.1800   14.6 8.3500
+
+Basic uint64 operations - times in nanoseconds - smaller is better
+------------------------------------------------------------------
+Host                 OS int64  int64  int64  int64  int64  
+                         bit    add    mul    div    mod   
+--------- ------------- ------ ------ ------ ------ ------ 
+localhost Linux 3.10.0+  0.830        5.0100   17.5 8.3400
+localhost Linux 3.10.0-  1.270          10.1   25.8   11.4
+localhost Linux 3.10.0+  0.840        5.0100   17.5 8.3500
+
+Basic float operations - times in nanoseconds - smaller is better
+-----------------------------------------------------------------
+Host                 OS  float  float  float  float
+                         add    mul    div    bogo
+--------- ------------- ------ ------ ------ ------ 
+localhost Linux 3.10.0+ 4.1700 5.0100   11.7   10.4
+localhost Linux 3.10.0- 8.8700 8.8300   20.2   20.2
+localhost Linux 3.10.0+ 4.1700 5.0100   11.7   10.4
+
+Basic double operations - times in nanoseconds - smaller is better
+------------------------------------------------------------------
+Host                 OS  double double double double
+                         add    mul    div    bogo
+--------- ------------- ------  ------ ------ ------ 
+localhost Linux 3.10.0+ 4.1700 5.0100   17.5   15.8
+localhost Linux 3.10.0- 8.8400 8.8700   29.1   29.6
+localhost Linux 3.10.0+ 4.1700 5.0100   17.6   15.8
+
+Context switching - times in microseconds - smaller is better
+-------------------------------------------------------------------------
+Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K
+                         ctxsw  ctxsw  ctxsw ctxsw  ctxsw   ctxsw   ctxsw
+--------- ------------- ------ ------ ------ ------ ------ ------- -------
+localhost Linux 3.10.0+                                                   
+localhost Linux 3.10.0- 4.0400 6.1200   16.2   10.9   15.2    12.3    31.6
+localhost Linux 3.10.0+ 1.6600 1.7000 2.3200 3.6300 5.2900 4.84000 5.22000
+
+*Local* Communication latencies in microseconds - smaller is better
+---------------------------------------------------------------------
+Host                 OS 2p/0K  Pipe AF     UDP  RPC/   TCP  RPC/ TCP
+                        ctxsw       UNIX         UDP         TCP conn
+--------- ------------- ----- ----- ---- ----- ----- ----- ----- ----
+localhost Linux 3.10.0+       9.630 18.0                             
+localhost Linux 3.10.0- 4.040  23.7 38.3  72.2       105.6       188.
+localhost Linux 3.10.0+ 1.660 9.530 16.9  32.5        44.4       172.
+
+*Remote* Communication latencies in microseconds - smaller is better
+---------------------------------------------------------------------
+Host                 OS   UDP  RPC/  TCP   RPC/ TCP
+                               UDP         TCP  conn
+--------- ------------- ----- ----- ----- ----- ----
+localhost Linux 3.10.0+                             
+localhost Linux 3.10.0-                             
+localhost Linux 3.10.0+                             
+
+File & VM system latencies in microseconds - smaller is better
+-------------------------------------------------------------------------------
+Host                 OS   0K File      10K File     Mmap    Prot   Page   100fd
+                        Create Delete Create Delete Latency Fault  Fault  selct
+--------- ------------- ------ ------ ------ ------ ------- ----- ------- -----
+localhost Linux 3.10.0+                                     0.886         3.533
+localhost Linux 3.10.0-   93.1   77.3  156.3  104.6   81.8K 0.311 1.50100 8.392
+localhost Linux 3.10.0+   44.3   41.4   70.0   54.2  110.6K 0.914         3.494
+
+*Local* Communication bandwidths in MB/s - bigger is better
+-----------------------------------------------------------------------------
+Host                OS  Pipe AF    TCP  File   Mmap  Bcopy  Bcopy  Mem   Mem
+                             UNIX      reread reread (libc) (hand) read write
+--------- ------------- ---- ---- ---- ------ ------ ------ ------ ---- -----
+localhost Linux 3.10.0+                                                      
+localhost Linux 3.10.0- 459. 509. 256.  577.4 1736.7  824.9  588.0 932. 2154.
+localhost Linux 3.10.0+ 2317 1919 586. 2858.0 5661.3 2906.9  626.7 4561 634.4
+
+Memory latencies in nanoseconds - smaller is better
+    (WARNING - may not be correct, check graphs)
+------------------------------------------------------------------------------
+Host                 OS   Mhz   L1 $   L2 $    Main mem    Rand mem    Guesses
+--------- -------------   ---   ----   ----    --------    --------    -------
+localhost Linux 3.10.0+  1199     -      -           -    Bad mhz?
+localhost Linux 3.10.0-   791 5.0710   38.6        62.9       551.6
+localhost Linux 3.10.0+  1199 3.3380   20.3       149.4       305.6
+make[1]: Leaving directory '/home/lmbench-3.0-a9/results'

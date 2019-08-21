@@ -1,0 +1,25 @@
+test_add (test_hello.TestHello) ... ok
+test_say_hello (test_hello.TestHello) ... ok
+test_one_equation (test_fk_math.TestFkMath) ... FAIL
+test_two_equation (test_fk_math.TestFkMath) ... ERROR
+
+======================================================================
+ERROR: test_two_equation (test_fk_math.TestFkMath)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/loongson/chenhaoxuan/我自己测试用/ini文件读写/自动生成测试报告/详细使用例子_html版本/test_fk_math.py", line 23, in test_two_equation
+    self.assertCountEqual((r1, r2), (1.0, 2.0), '求解出错')
+AttributeError: 'TestFkMath' object has no attribute 'assertCountEqual'
+
+======================================================================
+FAIL: test_one_equation (test_fk_math.TestFkMath)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/loongson/chenhaoxuan/我自己测试用/ini文件读写/自动生成测试报告/详细使用例子_html版本/test_fk_math.py", line 12, in test_one_equation
+    self.assertEqual(one_equation(5 , 9) , -1.8)
+AssertionError: 1 != -1.8
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=1, errors=1)

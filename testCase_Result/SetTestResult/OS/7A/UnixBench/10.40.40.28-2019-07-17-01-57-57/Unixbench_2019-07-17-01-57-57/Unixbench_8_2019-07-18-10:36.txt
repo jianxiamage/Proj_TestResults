@@ -1,0 +1,121 @@
+gcc -o ./pgms/arithoh -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Darithoh ./src/arith.c
+gcc -o ./pgms/register -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum='register int' ./src/arith.c
+gcc -o ./pgms/short -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum=short ./src/arith.c
+gcc -o ./pgms/int -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum=int ./src/arith.c
+gcc -o ./pgms/long -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum=long ./src/arith.c
+gcc -o ./pgms/float -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum=float ./src/arith.c
+gcc -o ./pgms/double -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -Ddatum=double ./src/arith.c
+gcc -o ./pgms/hanoi -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/hanoi.c
+gcc -o ./pgms/syscall -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/syscall.c
+gcc -o ./pgms/context1 -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/context1.c
+gcc -o ./pgms/pipe -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/pipe.c
+gcc -o ./pgms/spawn -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/spawn.c
+gcc -o ./pgms/execl -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/execl.c
+cd ./src; gcc -c -DTIME -Wall -pedantic -ansi -DHZ= -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall dhry_1.c
+cd ./src; gcc -c -DTIME -Wall -pedantic -ansi -DHZ= -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall dhry_2.c
+gcc -o ./pgms/dhry2 -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/dhry_1.o ./src/dhry_2.o
+cd ./src; rm -f dhry_1.o dhry_2.o
+cd ./src; gcc -c -DTIME -Wall -pedantic -ansi -DREG=register -DHZ= -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall dhry_1.c -o dhry_1_reg.o
+cd ./src; gcc -c -DTIME -Wall -pedantic -ansi -DREG=register -DHZ= -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall dhry_2.c -o dhry_2_reg.o
+gcc -o ./pgms/dhry2reg -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/dhry_1_reg.o ./src/dhry_2_reg.o
+cd ./src; rm -f dhry_1_reg.o dhry_2_reg.o
+gcc -o ./pgms/looper -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/looper.c
+gcc -o ./pgms/fstime -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall ./src/fstime.c
+gcc -o ./pgms/whetstone-double -DTIME -Wall -pedantic -ansi -O2 -fomit-frame-pointer -fforce-addr -ffast-math -Wall -DDP -DUNIX -DUNIXBENCH ./src/whets.c -lm
+make all
+make[1]: Entering directory '/home/UnixBench'
+Checking distribution of files
+./pgms  exists
+./src  exists
+./testdir  exists
+./results  exists
+make[1]: Leaving directory '/home/UnixBench'
+
+   #    #  #    #  #  #    #          #####   ######  #    #   ####   #    #
+   #    #  ##   #  #   #  #           #    #  #       ##   #  #    #  #    #
+   #    #  # #  #  #    ##            #####   #####   # #  #  #       ######
+   #    #  #  # #  #    ##            #    #  #       #  # #  #       #    #
+   #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
+    ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+
+1 x Dhrystone 2 using register variables  1 2 3 4 5 6 7 8 9 10
+
+1 x Double-Precision Whetstone  1 2 3 4 5 6 7 8 9 10
+
+1 x Execl Throughput  1 2 3
+
+1 x File Copy 1024 bufsize 2000 maxblocks  1 2 3
+
+1 x File Copy 256 bufsize 500 maxblocks  1 2 3
+
+1 x File Copy 4096 bufsize 8000 maxblocks  1 2 3
+
+1 x Pipe Throughput  1 2 3 4 5 6 7 8 9 10
+
+1 x Pipe-based Context Switching  1 2 3 4 5 6 7 8 9 10
+
+1 x Process Creation  1 2 3
+
+1 x System Call Overhead  1 2 3 4 5 6 7 8 9 10
+
+1 x Shell Scripts (1 concurrent)  1 2 3
+
+1 x Shell Scripts (8 concurrent)  1 2 3
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: localhost.localdomain: GNU/Linux
+   OS: GNU/Linux -- 3.10.84-22.fc21.loongson.6.mips64el -- #1 SMP PREEMPT Sat Jul 13 11:14:48 CST 2019
+   Machine: mips64 (mips64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 1: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 2: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 3: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   10:36:46 up 55 min,  2 users,  load average: 0.42, 0.25, 0.15; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: 四 7月 18 2019 10:36:46 - 11:04:45
+4 CPUs in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables        8443741.0 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     1058.9 MWIPS (9.8 s, 7 samples)
+Execl Throughput                               1612.7 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        238122.2 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks           62007.5 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks        732581.0 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              488029.7 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 141035.1 lps   (10.0 s, 7 samples)
+Process Creation                               4238.7 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   2774.2 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    883.7 lpm   (60.1 s, 2 samples)
+System Call Overhead                         578097.3 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0    8443741.0    723.5
+Double-Precision Whetstone                       55.0       1058.9    192.5
+Execl Throughput                                 43.0       1612.7    375.0
+File Copy 1024 bufsize 2000 maxblocks          3960.0     238122.2    601.3
+File Copy 256 bufsize 500 maxblocks            1655.0      62007.5    374.7
+File Copy 4096 bufsize 8000 maxblocks          5800.0     732581.0   1263.1
+Pipe Throughput                               12440.0     488029.7    392.3
+Pipe-based Context Switching                   4000.0     141035.1    352.6
+Process Creation                                126.0       4238.7    336.4
+Shell Scripts (1 concurrent)                     42.4       2774.2    654.3
+Shell Scripts (8 concurrent)                      6.0        883.7   1472.9
+System Call Overhead                          15000.0     578097.3    385.4
+                                                                   ========
+System Benchmarks Index Score                                         502.1
+

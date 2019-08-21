@@ -1,0 +1,16 @@
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0    8443741.0    723.5
+Double-Precision Whetstone                       55.0       1058.9    192.5
+Execl Throughput                                 43.0       1612.7    375.0
+File Copy 1024 bufsize 2000 maxblocks          3960.0     238122.2    601.3
+File Copy 256 bufsize 500 maxblocks            1655.0      62007.5    374.7
+File Copy 4096 bufsize 8000 maxblocks          5800.0     732581.0   1263.1
+Pipe Throughput                               12440.0     488029.7    392.3
+Pipe-based Context Switching                   4000.0     141035.1    352.6
+Process Creation                                126.0       4238.7    336.4
+Shell Scripts (1 concurrent)                     42.4       2774.2    654.3
+Shell Scripts (8 concurrent)                      6.0        883.7   1472.9
+System Call Overhead                          15000.0     578097.3    385.4
+                                                                   ========
+System Benchmarks Index Score                                         502.1
+
