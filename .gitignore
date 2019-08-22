@@ -5,3 +5,4 @@ TestResult_Project/GetResultsXls/KVM
 TestResult_Project/SetTestResult/OS
 TestResult_Project/SetTestResult/Kernel
 TestResult_Project/SetTestResult/KVM
+TestResult_Project/TestReport/*/report.html
