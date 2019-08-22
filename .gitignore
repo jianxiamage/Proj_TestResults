@@ -1,0 +1,7 @@
+*.pyc
+TestResult_Project/GetResultsXls/OS
+TestResult_Project/GetResultsXls/Kernel
+TestResult_Project/GetResultsXls/KVM
+TestResult_Project/SetTestResult/OS
+TestResult_Project/SetTestResult/Kernel
+TestResult_Project/SetTestResult/KVM
