@@ -1,0 +1,157 @@
+##############################################################################
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+#                                                                            #
+# 'reportable' flag not set during run                                       #
+#                                                                            #
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+##############################################################################
+                             SPEC CFP2006 Summary
+                                  ICT 3A2000
+                           Mon Jul 15 04:24:23 2019
+
+SPEC License #0     Test date: Feb-2015     Hardware availability: Feb-2015
+Test sponsor: ICT                           Software availability: Feb-2015
+
+                                  Estimated                       Estimated
+                Base     Base       Base        Peak     Peak       Peak
+Benchmarks     Copies  Run Time     Rate       Copies  Run Time     Rate 
+-------------- ------  ---------  ---------    ------  ---------  ---------
+410.bwaves          4       1635      33.2  S                                  
+410.bwaves          4       1668      32.6  S                                  
+410.bwaves          4       1663      32.7  *                                  
+416.gamess          4       2385      32.8  S                                  
+416.gamess          4       2390      32.8  *                                  
+416.gamess          4       2390      32.8  S                                  
+433.milc            4       1559      23.6  S                                  
+433.milc            4       1564      23.5  S                                  
+433.milc            4       1562      23.5  *                                  
+434.zeusmp          4        951      38.3  S                                  
+434.zeusmp          4        979      37.2  S                                  
+434.zeusmp          4        973      37.4  *                                  
+435.gromacs         4        875      32.6  S                                  
+435.gromacs         4        875      32.6  S                                  
+435.gromacs         4        875      32.6  *                                  
+436.cactusADM       4       2795      17.1  S                                  
+436.cactusADM       4       6408       7.46 *                                  
+436.cactusADM       4       6415       7.45 S                                  
+437.leslie3d        4       1489      25.3  S                                  
+437.leslie3d        4       1501      25.1  *                                  
+437.leslie3d        4       1505      25.0  S                                  
+444.namd            4        987      32.5  *                                  
+444.namd            4        985      32.6  S                                  
+444.namd            4        987      32.5  S                                  
+447.dealII          4        960      47.7  S                                  
+447.dealII          4        964      47.5  S                                  
+447.dealII          4        960      47.7  *                                  
+450.soplex          4       1365      24.4  S                                  
+450.soplex          4       1359      24.6  *                                  
+450.soplex          4       1357      24.6  S                                  
+453.povray          4        843      25.2  S                                  
+453.povray          4        844      25.2  *                                  
+453.povray          4        844      25.2  S                                  
+454.calculix        4       1048      31.5  S                                  
+454.calculix        4       1048      31.5  *                                  
+454.calculix        4       1049      31.5  S                                  
+459.GemsFDTD        4       2319      18.3  S                                  
+459.GemsFDTD        4       2325      18.3  S                                  
+459.GemsFDTD        4       2323      18.3  *                                  
+465.tonto           4       2176      18.1  S                                  
+465.tonto           4       2173      18.1  *                                  
+465.tonto           4       2166      18.2  S                                  
+470.lbm             4       2864      19.2  *                                  
+470.lbm             4       2878      19.1  S                                  
+470.lbm             4       2856      19.2  S                                  
+481.wrf             4       1927      23.2  *                                  
+481.wrf             4       1926      23.2  S                                  
+481.wrf             4       1929      23.2  S                                  
+482.sphinx3         4       2383      32.7  *                                  
+482.sphinx3         4       2385      32.7  S                                  
+482.sphinx3         4       2382      32.7  S                                  
+==============================================================================
+410.bwaves          4       1663      32.7  *                                  
+416.gamess          4       2390      32.8  *                                  
+433.milc            4       1562      23.5  *                                  
+434.zeusmp          4        973      37.4  *                                  
+435.gromacs         4        875      32.6  *                                  
+436.cactusADM       4       6408       7.46 *                                  
+437.leslie3d        4       1501      25.1  *                                  
+444.namd            4        987      32.5  *                                  
+447.dealII          4        960      47.7  *                                  
+450.soplex          4       1359      24.6  *                                  
+453.povray          4        844      25.2  *                                  
+454.calculix        4       1048      31.5  *                                  
+459.GemsFDTD        4       2323      18.3  *                                  
+465.tonto           4       2173      18.1  *                                  
+470.lbm             4       2864      19.2  *                                  
+481.wrf             4       1927      23.2  *                                  
+482.sphinx3         4       2383      32.7  *                                  
+ Est. SPECfp_rate_base2006            25.5 
+ Est. SPECfp_rate2006                                               Not Run
+
+
+                                   HARDWARE
+                                   --------
+            CPU Name: Loongson
+ CPU Characteristics:  
+             CPU MHz: 1000
+                 FPU: Integrated
+      CPU(s) enabled: 1 core, 1 chip, 1 core/chip
+    CPU(s) orderable: 1
+       Primary Cache: 64KB I + 64KB D
+     Secondary Cache: 4096KB(I + D)
+            L3 Cache: --
+         Other Cache: --
+              Memory: 2 x 2GB DDR600 
+      Disk Subsystem: --
+      Other Hardware: --
+
+
+                                   SOFTWARE
+                                   --------
+    Operating System: Centos
+            Compiler: gcc , g++ & gfortran 4.8
+       Auto Parallel: --
+         File System: ext3
+        System State: runlevel 3
+      Other Software: --
+
+
+                                General Notes
+                                -------------
+    
+     C/C++ base flags:   -flto -Ofast
+     Fortran base flags: -flto -Ofast
+     The gcc-4.8.3 should include cstdedf, gcc-4.4.7 is ok.
+     despite compiling with -m32, wrf needs wrf_data_header_size=8
+     to read the unformatted data input file correctly
+     This means that the default 64 bit compiler still expects 8 byte
+     by default (at least with the 20060325 snapshot)
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+     
+
+##############################################################################
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+#                                                                            #
+# 'reportable' flag not set during run                                       #
+#                                                                            #
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+##############################################################################
+-----------------------------------------------------------------------------
+For questions about this result, please contact the tester.
+For other inquiries, please contact webmaster@spec.org.
+Copyright 2006 Standard Performance Evaluation Corporation
+Generated on Tue Jul 16 21:39:18 2019 by SPEC CPU2006 ASCII formatter v4286
