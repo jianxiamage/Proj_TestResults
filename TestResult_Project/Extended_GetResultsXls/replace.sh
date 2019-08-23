@@ -5,7 +5,7 @@
 #只需要修改一个文件即可
 
 newstr="resultsPath=\$(cat data_path.txt)"
-oldstr="resultsPath='/data'"
+oldstr="resultsPath='/data-std'"
 
 #sed -i  "s#${oldstr}#${newstr}#g" $(find -type f -name "*.sh")
 

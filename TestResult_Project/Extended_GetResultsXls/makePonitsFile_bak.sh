@@ -145,11 +145,65 @@ case $TestCase in
     if [ -n "$testcase_file" ];
     then
         echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
-        #旧版本
-        sh UnixBench_makePoints.sh $TestType $Platform $TestCase $TestCase_absdir $Node_num 
+        ls $TestCase_absdir  | grep "Unixbench_1_"
+        if [ $? -eq 0 ];
+        then
+          echo 测试用例:$TestCase 的单线程测试结果文件内容为:
+          echo --------------------------------------------------------------------------------
+          cat ${TestCase_absdir}/Unixbench_1_*.ini
+          \cp ${TestCase_absdir}/Unixbench_1_*.ini $destPath/${TestCase}_1thread_${Node_num}.ini -f
 
-        #新版本
-        sh UnixBench_makePoints_new.sh $TestType $Platform $TestCase $TestCase_absdir $Node_num 
+          #testcase_pointsFile_1thread="$curPointsIniDir/${TestCase}_1thread.ini"
+          #\cp $testcase_pointsFile_1thread $destPath/${TestCase}_1thread_${Node_num}.ini -f
+        fi
+
+        ls $TestCase_absdir | grep "Unixbench_2_"
+        if [ $? -eq 0 ];
+        then
+          echo 测试用例:$TestCase 的2线程测试结果文件内容为:
+          echo --------------------------------------------------------------------------------
+          cat ${TestCase_absdir}/Unixbench_2_*.ini
+          \cp ${TestCase_absdir}/Unixbench_2_*.ini $destPath/${TestCase}_2thread_${Node_num}.ini -f
+
+          #testcase_pointsFile_2thread="$curPointsIniDir/${TestCase}_2thread.ini"
+          #\cp $testcase_pointsFile_2thread $destPath/${TestCase}_2thread_${Node_num}.ini -f
+        fi
+
+        ls $TestCase_absdir | grep "Unixbench_4_"
+        if [ $? -eq 0 ];
+        then
+          echo 测试用例:$TestCase 的4线程测试结果文件内容为:
+          echo --------------------------------------------------------------------------------
+          cat ${TestCase_absdir}/Unixbench_4_*.ini
+          \cp ${TestCase_absdir}/Unixbench_4_*.ini $destPath/${TestCase}_4thread_${Node_num}.ini -f
+
+          #testcase_pointsFile_4thread="$curPointsIniDir/${TestCase}_4thread.ini"
+          #\cp $testcase_pointsFile_4thread $destPath/${TestCase}_4thread_${Node_num}.ini -f
+        fi
+
+        ls $TestCase_absdir | grep "Unixbench_8_"
+        if [ $? -eq 0 ];
+        then
+          echo 测试用例:$TestCase 的8线程测试结果文件内容为:
+          echo --------------------------------------------------------------------------------
+          cat ${TestCase_absdir}/Unixbench_8_*.ini
+          \cp ${TestCase_absdir}/Unixbench_8_*.ini $destPath/${TestCase}_8thread_${Node_num}.ini -f
+
+          #testcase_pointsFile_8thread="$curPointsIniDir/${TestCase}_8thread.ini"
+          #\cp $testcase_pointsFile_8thread $destPath/${TestCase}_8thread_${Node_num}.ini -f
+        fi
+
+        ls $TestCase_absdir | grep "Unixbench_16_"
+        if [ $? -eq 0 ];
+        then
+          echo 测试用例:$TestCase 的16线程测试结果文件内容为:
+          echo --------------------------------------------------------------------------------
+          cat ${TestCase_absdir}/Unixbench_16_*.ini
+          \cp ${TestCase_absdir}/Unixbench_16_*.ini $destPath/${TestCase}_16thread_${Node_num}.ini -f
+
+          #testcase_pointsFile_16thread="$curPointsIniDir/${TestCase}_16thread.ini"
+          #\cp $testcase_pointsFile_16thread $destPath/${TestCase}_16thread_${Node_num}.ini -f
+        fi
 
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num]测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
