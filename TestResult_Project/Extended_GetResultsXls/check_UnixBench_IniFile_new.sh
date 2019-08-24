@@ -49,11 +49,12 @@ fi
 echo -------------------------------------------------------------
 
 
+#----------------------------UnixBench 单线程----------------------------------------
 ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_1_" | grep "BASELINE"
 
 if [ $? -eq 0 ];
 then
-  echo "Begin to create Excel file for UnixBench 1 thread..."
+  echo "Begin to create Excel file for UnixBench 1 thread,[BASELINE]..."
   sh create_Excel_Points_UnixBench_1thread_BASELINE.sh $TestType $Platform $TestCase
 fi
 
@@ -61,7 +62,7 @@ ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_1_" | grep "RESULT
 
 if [ $? -eq 0 ];
 then
-  echo "Begin to create Excel file for UnixBench 1 thread..."
+  echo "Begin to create Excel file for UnixBench 1 thread,[RESULT]..."
   sh create_Excel_Points_UnixBench_1thread_RESULT.sh $TestType $Platform $TestCase
 fi
 
@@ -69,8 +70,108 @@ ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_1_" | grep "INDEX"
 
 if [ $? -eq 0 ];
 then
-  echo "Begin to create Excel file for UnixBench 1 thread..."
+  echo "Begin to create Excel file for UnixBench 1 thread,[INDEX]..."
   sh create_Excel_Points_UnixBench_1thread_INDEX.sh $TestType $Platform $TestCase
 fi
 
+
+#----------------------------UnixBench 2线程----------------------------------------
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_2_" | grep "BASELINE"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 2 threads,[BASELINE]..."
+  sh create_Excel_Points_UnixBench_2thread_BASELINE.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_2_" | grep "RESULT"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 2 threads,[RESULT]..."
+  sh create_Excel_Points_UnixBench_2thread_RESULT.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_2_" | grep "INDEX"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 2 thread,[INDEX]..."
+  sh create_Excel_Points_UnixBench_2thread_INDEX.sh $TestType $Platform $TestCase
+fi
+
+#----------------------------UnixBench 4线程----------------------------------------
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_4_" | grep "BASELINE"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 4 threads,[BASELINE]..."
+  sh create_Excel_Points_UnixBench_4thread_BASELINE.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_4_" | grep "RESULT"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 4 threads,[RESULT]..."
+  sh create_Excel_Points_UnixBench_4thread_RESULT.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_4_" | grep "INDEX"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 4 threads,[INDEX]..."
+  sh create_Excel_Points_UnixBench_4thread_INDEX.sh $TestType $Platform $TestCase
+fi
+
+#----------------------------UnixBench 8线程----------------------------------------
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_8_" | grep "BASELINE"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 8 threads,[BASELINE]..."
+  sh create_Excel_Points_UnixBench_8thread_BASELINE.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_8_" | grep "RESULT"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 8 threads,[RESULT]..."
+  sh create_Excel_Points_UnixBench_8thread_RESULT.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_8_" | grep "INDEX"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 8 threads,[INDEX]..."
+  sh create_Excel_Points_UnixBench_8thread_INDEX.sh $TestType $Platform $TestCase
+fi
+
+#----------------------------UnixBench 16线程----------------------------------------
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_16_" | grep "BASELINE"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 16 threads,[BASELINE]..."
+  sh create_Excel_Points_UnixBench_16thread_BASELINE.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_16_" | grep "RESULT"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 16 threads,[RESULT]..."
+  sh create_Excel_Points_UnixBench_16thread_RESULT.sh $TestType $Platform $TestCase
+fi
+
+ls $destResultPath/ | grep "${TestCase}" |grep "ini" | grep "_16_" | grep "INDEX"
+
+if [ $? -eq 0 ];
+then
+  echo "Begin to create Excel file for UnixBench 16 threads,[INDEX]..."
+  sh create_Excel_Points_UnixBench_16thread_INDEX.sh $TestType $Platform $TestCase
+fi
 

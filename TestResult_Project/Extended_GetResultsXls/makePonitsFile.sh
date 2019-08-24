@@ -142,6 +142,8 @@ case $TestCase in
     echo $cmdStr
     testcase_file=`ls $TestCase_absdir|grep .ini`
 
+    #初始化ini文件,防止在未生成Excel结果文件时发生读取错误
+    sh init_UnixBench_ini.sh $TestType $Platform $TestCase $Node_num
     if [ -n "$testcase_file" ];
     then
         echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
