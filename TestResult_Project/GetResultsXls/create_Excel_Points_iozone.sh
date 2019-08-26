@@ -65,11 +65,9 @@ echo -------------------------------------------------------------
 
 python -c 'import write_Excel_iozone; write_Excel_iozone.writeResult("'$TestType'","'$Platform'","'$TestCase'","'$Node_count'")'
 
+ExcelPath="${resultsPath}/${TestType}/${Platform}/Results_Excel"
 
-#function write_Excel_iozone()
-#{
-#
-#  #python -c 'import write_Excel_iozone; write_Excel_iozone.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_count'")'
-#
-#}
+mkdir $ExcelPath -p
+
+\cp $destResultPath/${TestCase}*.xls $ExcelPath
 

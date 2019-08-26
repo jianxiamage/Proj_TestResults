@@ -66,10 +66,3 @@ echo -------------------------------------------------------------
 python -c 'import write_Excel_iozone; write_Excel_iozone.writeResult("'$TestType'","'$Platform'","'$TestCase'","'$Node_count'")'
 
 
-#function write_Excel_iozone()
-#{
-#
-#  #python -c 'import write_Excel_iozone; write_Excel_iozone.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_count'")'
-#
-#}
-
