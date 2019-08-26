@@ -14,7 +14,7 @@ merge_path='merge_Excel'
 
 resultXls_path = 'Results_Excel'
 
-def mergeTestExcel(TestType,TestPlat):
+def summaryExcel(TestType,TestPlat):
 
     Excel_File = ResultPath + str(TestType) +  '/' + TestPlat + '/' + resultXls_path + '/' + TestPlat + '_' + TestType + '.xls'
     print Excel_File
@@ -52,7 +52,7 @@ if __name__=='__main__':
       test_type = sys.argv[1]
       test_plat = sys.argv[2]
       
-      retCode = mergeTestExcel(test_type,test_plat)
+      retCode = summaryExcel(test_type,test_plat)
 
       print retCode
   

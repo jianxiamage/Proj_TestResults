@@ -65,9 +65,3 @@ echo -------------------------------------------------------------
 
 python -c 'import write_Excel_iozone; write_Excel_iozone.writeResult("'$TestType'","'$Platform'","'$TestCase'","'$Node_count'")'
 
-ExcelPath="${resultsPath}/${TestType}/${Platform}/Results_Excel"
-
-mkdir $ExcelPath -p
-
-\cp $destResultPath/${TestCase}*.xls $ExcelPath
-
