@@ -115,7 +115,8 @@ case $TestCase in
     echo $cmdStr
 
     #SpecJvm2008测试
-    sh create_Excel_Points_SpecJvm2008.sh $TestType $Platform $TestCase
+    #sh create_Excel_Points_SpecJvm2008.sh $TestType $Platform $TestCase
+    sh get_score_2config_SpecJvm2008.sh $TestType $Platform $TestCase
 
     echo --------------------------------------------------------------------------------
     ;;
