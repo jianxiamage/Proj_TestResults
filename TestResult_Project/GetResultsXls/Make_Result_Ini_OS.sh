@@ -13,13 +13,12 @@ set -e
 #目前支持5个平台
 #----------------------------------------------------------------------------------------
 
-sh Make_Result_Ini_OS_2K.sh
-
-sh Make_Result_Ini_OS_780.sh
-
-sh Make_Result_Ini_OS_7A_2way.sh
+sh Make_Result_Ini_OS_7A.sh
 
 sh Make_Result_Ini_OS_7A_Integrated.sh
 
-sh Make_Result_Ini_OS_7A.sh
+sh Make_Result_Ini_OS_7A_2way.sh
 
+sh Make_Result_Ini_OS_780.sh
+
+sh Make_Result_Ini_OS_2K.sh

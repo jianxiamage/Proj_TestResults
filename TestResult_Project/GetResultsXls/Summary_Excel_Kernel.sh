@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 #if [ $# -ne 3 ];then
 # echo "usage: $0 TestType Platform TestCase" 
@@ -7,22 +6,18 @@ set -e
 #fi
 
 #----------------------------------------------------------------------------------------
-TestType="Kernel"
-#Platform="7A"
+#测试类型:"Kernel"
+
+#测试平台:[7A,7A_Integrated,7A_2way,780,2K]
+#目前支持5个平台
 #----------------------------------------------------------------------------------------
 
-Platform="7A"
-sh summary_Excel_Results_all.sh $TestType $Platform
+sh Summary_Excel_Kernel_7A.sh
 
-Platform="7A_Integrated"
-sh summary_Excel_Results_all.sh $TestType $Platform
+sh Summary_Excel_Kernel_7A_Integrated.sh
 
-Platform="7A_2way"
-sh summary_Excel_Results_all.sh $TestType $Platform
+sh Summary_Excel_Kernel_7A_2way.sh
 
-Platform="780"
-sh summary_Excel_Results_all.sh $TestType $Platform
+sh Summary_Excel_Kernel_780.sh
 
-Platform="2K"
-sh summary_Excel_Results_all.sh $TestType $Platform
-
+sh Summary_Excel_Kernel_2K.sh
