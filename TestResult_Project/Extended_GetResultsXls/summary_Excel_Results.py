@@ -9,7 +9,7 @@ import xlwt
 import xlrd
 import os
 
-ResultPath='/data/'
+ResultPath='/data-std/'
 merge_path='merge_Excel'
 
 resultXls_path = 'Results_Excel'
