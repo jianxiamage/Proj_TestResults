@@ -24,7 +24,7 @@ sh init_IPListFile.sh
 #TestcaseGroup_OS.ini
 #TestcaseGroup_Kernel.ini
 #TestcaseGroup_KVM.ini
-#复制文件到:/data-std/测试类型/_测试类型.ini
+#复制文件到:/data/测试类型/_测试类型.ini
 #------------------------------------------------------------------------
 sh init_TestGroupFile.sh
 
@@ -32,14 +32,14 @@ sh init_TestGroupFile.sh
 #------------------------------------------------------------------------
 #3.放置所有测试用例存储文件
 #文件名:TestResults.ini
-#复制文件到:/data-std/测试类型/测试平台/TestResults.ini
+#复制文件到:/data/测试类型/测试平台/TestResults.ini
 #------------------------------------------------------------------------
 sh init_TestResultsFile_All.sh
 
 
 #------------------------------------------------------------------------
 #4.创建测试结果Excel文件的存储目录(多个Excel合并目录以及最终结果目录)
-#合并目录:/data-std/测试类型/测试平台/merge-Excel
-#最终目录:/data-std/测试类型/测试平台/Results-Excel
+#合并目录:/data/测试类型/测试平台/merge-Excel
+#最终目录:/data/测试类型/测试平台/Results-Excel
 #------------------------------------------------------------------------
 sh init_Excel_Dirs_All.sh

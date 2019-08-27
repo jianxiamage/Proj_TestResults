@@ -11,7 +11,7 @@ TestType=$1
 srcResultFile="TestResults.ini"
 #-----------------------------------------------------
 
-resultsPath=$(cat data_path.txt)
+ResultPath='/data'
 ResultIniFile=$srcResultFile
 echo srcFile:$ResultIniFile
 
@@ -19,7 +19,7 @@ destPath=''
 
 #rm -rf /data
 
-mkdir $resultsPath/$TestType -p
+mkdir $ResultPath/$TestType -p
 
 #TestType=("OS" "Kernel" "KVM")
 
@@ -31,9 +31,9 @@ for item_plat in ${Platform[@]}; do
 
   #echo 当前平台:$item_plat
   
-  destPath="${resultsPath}/${TestType}/${item_plat}"
+  destPath="${ResultPath}/${TestType}/${item_plat}"
   mkdir $destPath -p
-  destResultFile="${resultsPath}/${TestType}/${item_plat}/${srcResultFile}"
+  destResultFile="${ResultPath}/${TestType}/${item_plat}/${srcResultFile}"
   echo destResultFile:$destResultFile
  
   \cp $srcResultFile $destResultFile -f

@@ -3,13 +3,15 @@
 
 srcGroupFile='TestcaseGroup.ini'
 
-resultsPath=$(cat data_path.txt)
+ResultPath='/data'
 #GroupIniFile=$srcGroupFile
 echo copy the [$srcGroupFile] to dest Dir
 
 destPath=''
 
-mkdir $resultsPath -p
+#rm -rf /data
+
+mkdir $ResultPath -p
 
 TestType=("OS" "Kernel" "KVM")
 i=1
@@ -19,9 +21,9 @@ for item_type in ${TestType[@]}; do
     echo 这是第$i个ini文件
     #echo 当前平台:$item_plat
     
-    destPath="${resultsPath}/${item_type}"
+    destPath="${ResultPath}/${item_type}"
     mkdir $destPath -p
-    destGroupFile="${resultsPath}/${item_type}/"
+    destGroupFile="${ResultPath}/${item_type}/"
     echo destGroupFile:$destGroupFile
  
     srcGroupFile="TestcaseGroup_${item_type}.ini"
