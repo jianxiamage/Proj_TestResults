@@ -49,7 +49,7 @@ def exec_cmd():
 def creatsuite():
 
     package_tests_new = []
-    test_suite_new = [] 
+    test_case_new = [] 
    
     testunit = unittest.TestSuite()
     # 定义测试文件查找的目录
@@ -60,37 +60,6 @@ def creatsuite():
                                                    top_level_dir=None)
     # package_tests=TestLoader.discover(start_dir=test_dir, pattern='Test*.py')
     # discover 方法筛选出来的用例，循环添加到测试套件中
-
-
-    #----------------------------------------------------------------------------
-    result=[]
-    with open('Std_CaseList.txt','r') as f:
-        for line in f:
-            result.append(list(line.strip('\n').split(',')))
-    #print(result)
-    
-    for i in xrange(len(result)):
-        print i, result[i]
-        str_case = ''.join(result[i])
-    
-        for test_suite in package_tests:
-            for test_case in test_suite:
-                #testunit.addTests(test_case)
-                test_str=str(test_case)
-                write_file(test_str)
-                ret_code,ret_str = exec_cmd()
-                if ret_str == str_case:
-                   test_suite_new.append(test_case)         
-    j = 0
-    for j in xrange(len(test_suite_new)):
-    #for test_case in test_suite_new:
-        j = j + 1
-
-    print('yyyyyyyyyyyyyyyyyyyyy')    
-    print(j)
-    print('yyyyyyyyyyyyyyyyyyyyy')    
-
-    #----------------------------------------------------------------------------
     i = 0
     for test_suite in package_tests:
         for test_case in test_suite:
