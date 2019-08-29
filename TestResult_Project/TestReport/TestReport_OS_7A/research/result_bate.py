@@ -27,6 +27,28 @@ test_suite_dir=curDir + '/' + case_dir
 #报告目录
 Report_dir= curDir
 
+def write_file(input_str):
+    retCode = 0
+    txtFile=str(input_str)
+    name = "tmp_file.txt"
+    f = open(name, "wb")
+    f.write(txtFile)
+    f.close()
+    return retCode
+
+
+#---------------------------------------------------------------------------
+def exec_cmd():
+
+    cmd_str = 'get_case_name.sh'
+    #cmdInput = 'sh ' + str(cmd_str) + ' ' + str(input_str)
+    cmdInput = 'sh ' + str(cmd_str)
+    retCode,output = commands.getstatusoutput(cmdInput)
+    #print  retCode
+    #print  output
+
+    return retCode,output
+#---------------------------------------------------------------------------
 def creatsuite():
 
     package_tests_new = []
@@ -42,6 +64,7 @@ def creatsuite():
     # package_tests=TestLoader.discover(start_dir=test_dir, pattern='Test*.py')
     # discover 方法筛选出来的用例，循环添加到测试套件中
 
+
     #----------------------------------------------------------------------------
     for test_suite in package_tests:
       for test_case in test_suite:
@@ -52,6 +75,7 @@ def creatsuite():
     with open('Std_CaseList.txt','r') as f:
         for line in f:
             result.append(list(line.strip('\n').split(',')))
+    #print(result)
     
     for i in xrange(len(result)):
         print i + 1, result[i]
@@ -72,9 +96,31 @@ def creatsuite():
         j = j + 1
 
     print('******************************************')    
-    print('Test Case count is:')    
+    print('test case count is:')    
     print(j)
     print('******************************************')    
+
+    #----------------------------------------------------------------------------
+#    i = 0
+#    for test_suite in package_tests:
+#        for test_case in test_suite:
+#            testunit.addTests(test_case)
+#            #print(testunit)
+#            if i == 0:
+#              print('==========================')
+#              print(test_case)
+#              print('==========================')
+#              test_str=str(test_case)
+#              write_file(test_str)
+#              ret_code,ret_str = exec_cmd()
+#              print('ret_code:--------')
+#              print ret_code
+#              print('ret_str:--------')
+#              print ret_str
+#              print('==========================')
+#            i = i + 1
+
+    #----------------------------------------------------------------------------
 
     #for test_suite_new in package_tests_new:
     for test_case_new in test_suite_new:
@@ -92,10 +138,10 @@ if __name__ == "__main__":
       test_report = Report_dir
       #filename = test_report + now + 'result.html'
       filename = test_report + '/' + 'report.html'
-      print("******************************************")
+      print("***********************************")
       print("The test report file is:")
       print filename
-      print("******************************************")
+      print("***********************************")
       fp = open(filename, 'wb')
       runner = HTMLTestRunner(
           stream=fp,
