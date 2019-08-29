@@ -1,84 +1,167 @@
-#!/usr/bin/env python
-#coding:utf-8
+##!/usr/bin/env python
+# coding=utf-8
+
+import commands
 import sys
+import traceback
 import os
-reload(sys)
-sys.setdefaultencoding('utf8')
 
-import webbrowser
-
+from get_testcase import *
+import re
+import copy
 import unittest
 #from HTMLTestRunner import HTMLTestRunner
 from ExtentHTMLTestRunner import HTMLTestRunner
 import time
+from unittest import TestLoader
 
-#from testcase.test_hello import TestHello
-from testcase.test_ping import ping
-from testcase.test_wget import wget
-from testcase.test_iozone import iozone
-from testcase.test_disk_unzip_copy import disk_unzip_copy
+import webbrowser
+ 
+curDir=os.getcwd()
+print('--------------------------') 
+print curDir
+print('--------------------------') 
+#用例目录
+case_dir = 'testcase'
+test_suite_dir=curDir + '/' + case_dir
+#报告目录
+Report_dir= curDir
 
-from testcase.test_netperf_direct import netperf_direct
-from testcase.test_scp_dir import scp_dir
-from testcase.test_lmbench import lmbench
-from testcase.test_stream import stream
-from testcase.test_UnixBench import UnixBench
-from testcase.test_stressapp import stressapp
-
-from testcase.test_scp_2 import scp_2
-from testcase.test_scp_1 import scp_1
-from testcase.test_spec2000_1core import spec2000_1core
-from testcase.test_spec2000_ncore import spec2000_ncore
-from testcase.test_spec2006_1core import spec2006_1core
-from testcase.test_spec2006_ncore import spec2006_ncore
-
-
-from testcase.test_runltp import runltp
-from testcase.test_scp_BigDir import scp_BigDir
-
-from testcase.test_ltpstress import ltpstress
-
-from testcase.test_IOstress import IOstress
-
-from testcase.test_gcc import gcc
-from testcase.test_glibc import glibc
-from testcase.test_binutils import binutils
-from testcase.test_openSSL import openSSL
-from testcase.test_SpecJvm2008 import SpecJvm2008
-
-#from testcase.test_stressapp import stressapp
-#from testcase.test_ltpstress import ltpstress
-#from testcase.test_spec2000_1core import spec2000_1core
-#from testcase.test_spec2000_ncore import spec2000_ncore
-#from testcase.test_spec2006_1core import spec2006_1core
-#from testcase.test_spec2006_ncore import spec2006_ncore
-
-#初始化操作:
-cur_path = os.getcwd()
-#print(cur_path)
-
-#print('---------------------------------------------------------------------------------------------------')
-
-#test_cases = (TestHello,TestStressapp)
-# 用例路径
-case_path = os.path.join(os.getcwd(),'testcase')
-#print(case_path)
-
-def all_case():
-    discover = unittest.defaultTestLoader.discover(case_path, pattern="test*.py",top_level_dir=None)
-    #print(discover)
-    return discover
+def write_file(input_str):
+    retCode = 0
+    txtFile=str(input_str)
+    name = "tmp_file.txt"
+    f = open(name, "wb")
+    f.write(txtFile)
+    f.close()
+    return retCode
 
 
+#---------------------------------------------------------------------------
+def exec_cmd():
+
+    cmd_str = 'get_case_name.sh'
+    #cmdInput = 'sh ' + str(cmd_str) + ' ' + str(input_str)
+    cmdInput = 'sh ' + str(cmd_str)
+    retCode,output = commands.getstatusoutput(cmdInput)
+    #print  retCode
+    #print  output
+
+    return retCode,output
+#---------------------------------------------------------------------------
+def creatsuite():
+
+    package_tests_new = []
+    test_suite_new = [] 
+   
+    testunit = unittest.TestSuite()
+    # 定义测试文件查找的目录
+    test_dir =test_suite_dir
+    # 定义 discover 方法的参数
+    package_tests = unittest.defaultTestLoader.discover(test_dir,
+                                                   pattern='Test*.py',
+                                                   top_level_dir=None)
+    # package_tests=TestLoader.discover(start_dir=test_dir, pattern='Test*.py')
+    # discover 方法筛选出来的用例，循环添加到测试套件中
+
+
+    #----------------------------------------------------------------------------
+    for test_suite in package_tests:
+      for test_case in test_suite:
+         pass
+    new_test_suite = copy.deepcopy(test_suite)
+
+    result=[]
+    with open('Std_CaseList.txt','r') as f:
+        for line in f:
+            result.append(list(line.strip('\n').split(',')))
+    #print(result)
+    
+    for i in xrange(len(result)):
+        print i + 1, result[i]
+        str_case = ''.join(result[i])
+    
+        #for test_suite in package_tests:
+        for test_case in new_test_suite:
+                #testunit.addTests(test_case)
+                test_str=str(test_case)
+                #write_file(test_str)
+                #ret_code,ret_str = exec_cmd()
+                ret_str = get_str(test_str)
+                if ret_str == str_case:
+                   test_suite_new.append(test_case)         
+    j = 0
+    for j in xrange(len(test_suite_new)):
+    #for test_case in test_suite_new:
+        j = j + 1
+
+    print('******************************************')    
+    print('test case count is:')    
+    print(j)
+    print('******************************************')    
+
+    #----------------------------------------------------------------------------
+#    i = 0
+#    for test_suite in package_tests:
+#        for test_case in test_suite:
+#            testunit.addTests(test_case)
+#            #print(testunit)
+#            if i == 0:
+#              print('==========================')
+#              print(test_case)
+#              print('==========================')
+#              test_str=str(test_case)
+#              write_file(test_str)
+#              ret_code,ret_str = exec_cmd()
+#              print('ret_code:--------')
+#              print ret_code
+#              print('ret_str:--------')
+#              print ret_str
+#              print('==========================')
+#            i = i + 1
+
+    #----------------------------------------------------------------------------
+
+    #for test_suite_new in package_tests_new:
+    for test_case_new in test_suite_new:
+            testunit.addTests(test_case_new)
+
+    return testunit
+ 
+alltestnames = creatsuite()
+ 
 if __name__ == "__main__":
-    #报告存放位置以及名称
-    report_path = os.path.join(os.getcwd(),"report.html")
-    fp=file(report_path,"w+")
-    runner=HTMLTestRunner(stream=fp,title="Loongnix Automation Test",description="用例测试情况",verbosity=1)
-    runner.run(all_case())
+
+  try:
+
+      now = time.strftime("%Y-%m-%d %H_%M_%S")
+      test_report = Report_dir
+      #filename = test_report + now + 'result.html'
+      filename = test_report + '/' + 'report.html'
+      print("***********************************")
+      print("The test report file is:")
+      print filename
+      print("***********************************")
+      fp = open(filename, 'wb')
+      runner = HTMLTestRunner(
+          stream=fp,
+          title=u'Loongnix Automation Test',
+          description=u'测试用例执行结果'
+      )
+  
+      runner.run(alltestnames)
+      fp.close()
+      #new_report = SendEmail.new_report(test_report)
+      #SendEmail.send_file(new_report)  # 发送测试报告
+  
+  
+      GEN_HTML = filename
+      #运行完自动在网页中显示
+      webbrowser.open(GEN_HTML,new = 1)
 
 
-    GEN_HTML = report_path
-    #运行完自动在网页中显示
-    #webbrowser.open(GEN_HTML,new = 1)
-
+  except Exception as E:
+      #print('str(Exception):', str(Exception))
+      print('str(e):', str(E))
+      #print('repr(e):', repr(E))
+      #print('traceback.print_exc(): ', traceback.print_exc())
