@@ -4,8 +4,10 @@
 import commands
 import sys
 import traceback
-
 import os
+
+import re
+import copy
 import unittest
 #from HTMLTestRunner import HTMLTestRunner
 from ExtentHTMLTestRunner import HTMLTestRunner
@@ -23,6 +25,18 @@ case_dir = 'testcase'
 test_suite_dir=curDir + '/' + case_dir
 #报告目录
 Report_dir= curDir
+
+def get_str(input_str):
+    a = "<unittest.suite.TestSuite tests=[<Test_Results.wget testMethod=test_Wget_Node1>, <Test_Results.wget testMethod=test_Wget_Node2>, <Test_Results.wget testMethod=test_Wget_Node3>]>"
+    find_str = re.findall(r'(\[.*?\])', str(input_str))
+    #print(find_str)
+    first_str = ''.join(find_str)
+    sec_list = re.split('[ ]',first_str)
+    #print(sec_list[0])
+    third_list = re.split('[.]',sec_list[0])
+    #print(third_list[1])
+    return third_list[1]
+
 
 def write_file(input_str):
     retCode = 0
@@ -63,6 +77,11 @@ def creatsuite():
 
 
     #----------------------------------------------------------------------------
+    for test_suite in package_tests:
+      for test_case in test_suite:
+         pass
+    new_test_suite = copy.deepcopy(test_suite)
+
     result=[]
     with open('Std_CaseList.txt','r') as f:
         for line in f:
@@ -70,15 +89,16 @@ def creatsuite():
     #print(result)
     
     for i in xrange(len(result)):
-        print i, result[i]
+        print i + 1, result[i]
         str_case = ''.join(result[i])
     
-        for test_suite in package_tests:
-            for test_case in test_suite:
+        #for test_suite in package_tests:
+        for test_case in new_test_suite:
                 #testunit.addTests(test_case)
                 test_str=str(test_case)
-                write_file(test_str)
-                ret_code,ret_str = exec_cmd()
+                #write_file(test_str)
+                #ret_code,ret_str = exec_cmd()
+                ret_str = get_str(test_str)
                 if ret_str == str_case:
                    test_suite_new.append(test_case)         
     j = 0
@@ -86,33 +106,36 @@ def creatsuite():
     #for test_case in test_suite_new:
         j = j + 1
 
-    print('yyyyyyyyyyyyyyyyyyyyy')    
+    print('******************************************')    
+    print('test case count is:')    
     print(j)
-    print('yyyyyyyyyyyyyyyyyyyyy')    
+    print('******************************************')    
 
     #----------------------------------------------------------------------------
-    i = 0
-    for test_suite in package_tests:
-        for test_case in test_suite:
-            testunit.addTests(test_case)
-            #print(testunit)
-            if i == 0:
-              print('==========================')
-              print(test_case)
-              print('==========================')
-              test_str=str(test_case)
-              write_file(test_str)
-              ret_code,ret_str = exec_cmd()
-              print('ret_code:--------')
-              print ret_code
-              print('ret_str:--------')
-              print ret_str
-              print('==========================')
-            i = i + 1
+#    i = 0
+#    for test_suite in package_tests:
+#        for test_case in test_suite:
+#            testunit.addTests(test_case)
+#            #print(testunit)
+#            if i == 0:
+#              print('==========================')
+#              print(test_case)
+#              print('==========================')
+#              test_str=str(test_case)
+#              write_file(test_str)
+#              ret_code,ret_str = exec_cmd()
+#              print('ret_code:--------')
+#              print ret_code
+#              print('ret_str:--------')
+#              print ret_str
+#              print('==========================')
+#            i = i + 1
 
-#    for test_suite_new in package_tests_new:
-#        for test_case_new in test_suite_new:
-#            testunit.addTests(test_case_new)
+    #----------------------------------------------------------------------------
+
+    #for test_suite_new in package_tests_new:
+    for test_case_new in test_suite_new:
+            testunit.addTests(test_case_new)
 
     return testunit
  
@@ -126,7 +149,10 @@ if __name__ == "__main__":
       test_report = Report_dir
       #filename = test_report + now + 'result.html'
       filename = test_report + '/' + 'result.html'
+      print("***********************************")
+      print("The test report file is:")
       print filename
+      print("***********************************")
       fp = open(filename, 'wb')
       runner = HTMLTestRunner(
           stream=fp,

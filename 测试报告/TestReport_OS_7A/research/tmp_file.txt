@@ -1,0 +1,1 @@
+<unittest.suite.TestSuite tests=[<Test_Results.BasicSystemInfo testMethod=test_BasicSystemInfo_Node1>, <Test_Results.BasicSystemInfo testMethod=test_BasicSystemInfo_Node2>, <Test_Results.BasicSystemInfo testMethod=test_BasicSystemInfo_Node3>]>

@@ -1,4 +1,5 @@
 *.pyc
+*.html
 TestResult_Project/GetResultsXls/OS
 TestResult_Project/GetResultsXls/Kernel
 TestResult_Project/GetResultsXls/KVM

@@ -32,9 +32,7 @@ def creatsuite():
     for test_suite in package_tests:
         for test_case in test_suite:
             testunit.addTests(test_case)
-            print('=======================')
-            print(test_case)
-            print('=======================')
+            print(testunit)
     return testunit
  
 alltestnames = creatsuite()
