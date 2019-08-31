@@ -159,9 +159,6 @@ class Template_mixin(object):
 
     DEFAULT_TITLE = 'Unit Test Report'
     DEFAULT_DESCRIPTION = ''
-    DEFAULT_PLATFORM='Unknown'
-    DEFAULT_TYPE='Unknown'
-    DEFAULT_TESTER='Unknown'
 
     # ------------------------------------------------------------------------
     # HTML Template
@@ -236,31 +233,15 @@ class Template_mixin(object):
         <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
             <li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Statistical_time: %(start_time)s</span>
+                    <span class='label suite-start-time blue darken-3'>Start_time: %(start_time)s</span>
                 </a>
             </li>
-        <!-- 
             <li>
                 <a href='#!'>
                     <span class='label blue darken-3'>Duration: %(duration)s </span>
                 </a>
             </li>
-        -->
         </ul>
-        <!-- nav-right -->
-        <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
-            <li>
-                <a href='#!'>
-                    <span class='label blue darken-3'>TestType: %(test_type)s </span>
-                </a>
-            </li>
-            <li>
-                <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Platform: %(test_plat)s</span>
-                </a>
-            </li>
-        </ul>
-
     </div>
 </nav>
     """
@@ -1004,7 +985,7 @@ class _TestResult(TestResult):
 class HTMLTestRunner(Template_mixin):
     """
     """
-    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None,test_type=None,test_plat=None):
+    def __init__(self, stream=sys.stdout, verbosity=1, title=None, description=None):
         self.stream = stream
         self.verbosity = verbosity
         if title is None:
@@ -1018,15 +999,6 @@ class HTMLTestRunner(Template_mixin):
 
         self.startTime = datetime.datetime.now()
 
-        if test_type is None:
-            self.test_type = self.DEFAULT_TYPE
-        else:
-            self.test_type = test_type
-        if test_plat is None:
-            self.test_plat = self.DEFAULT_PLATFORM
-        else:
-            self.test_plat = test_plat
-
 
     def run(self, test):
         "Run the given test case or test suite."
@@ -1035,9 +1007,7 @@ class HTMLTestRunner(Template_mixin):
         self.stopTime = datetime.datetime.now()
         self.generateReport(test, result)
         # print >>sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime)
-        #print(sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime))
-        print >>sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime)
-
+        print(sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime))
         return result
 
 
@@ -1123,8 +1093,6 @@ class HTMLTestRunner(Template_mixin):
         heading = self.NAV % dict(
             title=saxutils.escape(self.title),
             start_time=startTime,
-            test_type=self.test_type,
-            test_plat=self.test_plat,
             duration=duration,
             description=saxutils.escape(self.description),
         )
@@ -1215,7 +1183,7 @@ class HTMLTestRunner(Template_mixin):
                 li_test_active=liTestActive,
                 status_span=statusSpan,
                 node_level=nodeLevel,
-                desc=desc, 
+                desc=desc,
                 doc=doc,
                 count=np+nf+ne,
                 Pass=np,
@@ -1227,7 +1195,7 @@ class HTMLTestRunner(Template_mixin):
             row1s.append(row1)
             category_tbody = self.CATEGORY_TBODY % dict(
                 name=name,
-                desc=desc, 
+                desc=desc,
                 start_time=self.startTime,
                 cid=cid,
                 category_tbody_td=categoryTbodyTd,

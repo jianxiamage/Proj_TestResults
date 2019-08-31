@@ -6,24 +6,24 @@ import sys
 import traceback
 import os
 
-from get_TestInfo import *
 from get_testcase import *
+from get_TestInfo import *
 import re
 import copy
 import unittest
 
-#from HTMLTestRunnerCN import HTMLTestRunner
+from HTMLTestRunnerCN import HTMLTestRunner
 #from HTMLTestRunner import HTMLTestRunner
-from ExtentHTMLTestRunner import HTMLTestRunner
+#from ExtentHTMLTestRunner import HTMLTestRunner
 import time
 from unittest import TestLoader
 
 import webbrowser
-
-#=============================================
-report_file='report.html'
-#=============================================
  
+#=============================================
+report_file='report_simple.html'
+#=============================================
+
 curDir=os.getcwd()
 print('--------------------------') 
 print curDir
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
   try:
 
-      TestType,TestPlat=getTestInfo()
+      TestType,TestPlat=getTestInfo() 
       now = time.strftime("%Y-%m-%d %H_%M_%S")
       test_report = Report_dir
       filename = test_report + '/' + report_file
@@ -106,7 +106,7 @@ if __name__ == "__main__":
       fp = open(filename, 'wb')
       runner = HTMLTestRunner(
           stream=fp,
-          title=u'Loongnix Automation Test',
+          title=u'龙芯自动化测试',
           description=u'测试用例执行结果',
           test_type=TestType,
           test_plat=TestPlat,

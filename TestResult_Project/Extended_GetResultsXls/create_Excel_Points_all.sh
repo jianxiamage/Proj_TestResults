@@ -1,4 +1,5 @@
 #!/bin/bash
+#set -e
 
 if [ $# -ne 3 ];then
  echo "usage: $0 TestType Platform TestCase" 
@@ -8,14 +9,30 @@ fi
 TestType="$1"
 Platform="$2"
 TestCase="$3"
-retCode=0
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath='/data'
 #ResultIniFile=$srcResultFile
 #echo srcFile:$ResultIniFile
 PointsPath='Points_Files'
 curPointsIniDir='ini_Points'
 #----------------------------------------------------------------------------------------
+
+export WORKON_HOME=/home/work/env-wrapper
+
+echo ---------------------------------
+echo 'active the virtualenvwrapper'
+echo ---------------------------------
+source /usr/bin/virtualenvwrapper.sh
+
+echo ---------------------------------
+echo 'change to virtualenv:env-excel'
+echo ---------------------------------
+workon env-excel
+
+echo "Begin to create test result by excel file..."
+
+#----------------------------------------------------------------------------------------
+
 echo --------------------------------------------------------------------------------
 echo "写入测试结果跑分到Excel文件..."
 echo "当前路径:"
@@ -28,7 +45,7 @@ case $TestCase in
     echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
-    sh create_Excel_Points_iozone.sh $TestType $Platform $TestCase || retCode=1
+    sh create_Excel_Points_iozone.sh $TestType $Platform $TestCase
     echo --------------------------------------------------------------------------------
     ;;
 
@@ -49,21 +66,11 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
 
-    retCode_1core=0   
-    retCode_ncore=0   
-
     #stream单核测试
-    sh create_Excel_Points_stream_1core.sh $TestType $Platform $TestCase  || retCode_1core=1
+    sh create_Excel_Points_stream_1core.sh $TestType $Platform $TestCase
 
     #stream多核测试
-    sh create_Excel_Points_stream_ncore.sh $TestType $Platform $TestCase  || retCode_ncore=1
-    
-    if [[ $retCode_1core -eq 0 ]] && [[ $retCode_ncore -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
+    sh create_Excel_Points_stream_ncore.sh $TestType $Platform $TestCase
     echo --------------------------------------------------------------------------------
     ;;
 
@@ -71,23 +78,10 @@ case $TestCase in
     echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
-
-    retCode_old=0
-    retCode_new=0
     
     #UnixBench在不同机器上执行不同的线程脚本，会生成不同的测试结果文件，因此需要判断后执行
-    sh check_UnixBench_IniFile.sh $TestType $Platform || retCode=1
-
-    sh check_UnixBench_IniFile_new.sh $TestType $Platform || retCode=1
-
-    if [[ $retCode_old -eq 0 ]] && [[ $retCode_new -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
-
-    echo --------------------------------------------------------------------------------
+    sh check_UnixBench_IniFile.sh $TestType $Platform
+    #echo --------------------------------------------------------------------------------
     ;;
 
 "spec2000-1core")
@@ -95,22 +89,11 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
     
-    retCode_CFP=0
-    retCode_CINT=0
-
     #spec2000单核浮点测试
-    sh create_Excel_Points_spec2000_1core_CFP.sh $TestType $Platform $TestCase  || retCode_CFP=1
+    sh create_Excel_Points_spec2000_1core_CFP.sh $TestType $Platform $TestCase
 
     #spec2000单核整型测试
-    sh create_Excel_Points_spec2000_1core_CINT.sh $TestType $Platform $TestCase  || retCode_CINT=1
-
-    if [[ $retCode_CFP -eq 0 ]] && [[ $retCode_CINT -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
-
+    sh create_Excel_Points_spec2000_1core_CINT.sh $TestType $Platform $TestCase
     echo --------------------------------------------------------------------------------
     ;;
 
@@ -119,21 +102,11 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
 
-    retCode_CFP=0
-    retCode_CINT=0
-
     #spec2000多核浮点测试
-    sh create_Excel_Points_spec2000_ncore_CFP.sh $TestType $Platform $TestCase || retCode_CFP=1
+    sh create_Excel_Points_spec2000_ncore_CFP.sh $TestType $Platform $TestCase
 
     #spec2000多核整型测试
-    sh create_Excel_Points_spec2000_ncore_CINT.sh $TestType $Platform $TestCase || retCode_CINT=1
-
-    if [[ $retCode_CFP -eq 0 ]] && [[ $retCode_CINT -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
+    sh create_Excel_Points_spec2000_ncore_CINT.sh $TestType $Platform $TestCase
 
     echo --------------------------------------------------------------------------------
     ;;
@@ -143,21 +116,11 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
 
-    retCode_CFP=0
-    retCode_CINT=0
-
     #spec2006单核浮点测试
-    sh create_Excel_Points_spec2006_1core_CFP.sh $TestType $Platform $TestCase || retCode_CFP=1
+    sh create_Excel_Points_spec2006_1core_CFP.sh $TestType $Platform $TestCase
 
     #spec2006单核整型测试
-    sh create_Excel_Points_spec2006_1core_CINT.sh $TestType $Platform $TestCase || retCode_CINT=1
-
-    if [[ $retCode_CFP -eq 0 ]] && [[ $retCode_CINT -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
+    sh create_Excel_Points_spec2006_1core_CINT.sh $TestType $Platform $TestCase
 
     echo --------------------------------------------------------------------------------
     ;;
@@ -167,21 +130,11 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
 
-    retCode_CFP=0
-    retCode_CINT=0
-
     #spec2006多核浮点测试
-    sh create_Excel_Points_spec2006_ncore_CFP.sh $TestType $Platform $TestCase || retCode_CFP=1
+    sh create_Excel_Points_spec2006_ncore_CFP.sh $TestType $Platform $TestCase
 
     #spec2006多核整型测试
-    sh create_Excel_Points_spec2006_ncore_CINT.sh $TestType $Platform $TestCase || retCode_CINT=1
-
-    if [[ $retCode_CFP -eq 0 ]] && [[ $retCode_CINT -eq 0 ]]
-    then
-      retCode=0
-    else
-      retCode=1
-    fi
+    sh create_Excel_Points_spec2006_ncore_CINT.sh $TestType $Platform $TestCase
 
     echo --------------------------------------------------------------------------------
     ;;
@@ -192,7 +145,7 @@ case $TestCase in
     echo $cmdStr
 
     #SpecJvm2008测试
-    sh create_Excel_Points_SpecJvm2008.sh $TestType $Platform $TestCase || retCode=0
+    sh create_Excel_Points_SpecJvm2008.sh $TestType $Platform $TestCase
 
     echo --------------------------------------------------------------------------------
     ;;
@@ -204,15 +157,7 @@ case $TestCase in
     ;;
 esac
 
-if [ $retCode -eq 0 ]
-then
-  echo "**************************************************************"
-  echo [$TestCase] write results as Excel File successfully!
-  echo "**************************************************************"
-else
-  echo "**************************************************************"
-  echo Maybe the Test:[$TestCase] is running,Please wait...
-  echo "**************************************************************"
-fi
+deactivate
 
-exit $retCode
+echo [$TestCase] write results as Excel File successfully!
+echo --------------------------------------------------------------------------------

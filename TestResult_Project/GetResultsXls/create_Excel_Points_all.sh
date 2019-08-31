@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 if [ $# -ne 3 ];then
  echo "usage: $0 TestType Platform TestCase" 
@@ -16,6 +16,23 @@ resultsPath='/data'
 PointsPath='Points_Files'
 curPointsIniDir='ini_Points'
 #----------------------------------------------------------------------------------------
+
+export WORKON_HOME=/home/work/env-wrapper
+
+echo ---------------------------------
+echo 'active the virtualenvwrapper'
+echo ---------------------------------
+source /usr/bin/virtualenvwrapper.sh
+
+echo ---------------------------------
+echo 'change to virtualenv:env-excel'
+echo ---------------------------------
+workon env-excel
+
+echo "Begin to create test result by excel file..."
+
+#----------------------------------------------------------------------------------------
+
 echo --------------------------------------------------------------------------------
 echo "写入测试结果跑分到Excel文件..."
 echo "当前路径:"
@@ -139,6 +156,8 @@ case $TestCase in
     exit 1
     ;;
 esac
+
+deactivate
 
 echo [$TestCase] write results as Excel File successfully!
 echo --------------------------------------------------------------------------------
