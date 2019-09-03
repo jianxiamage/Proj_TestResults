@@ -1,1 +1,1 @@
-/data/KVM/7A/TestResults.ini
+/data/KVM/2K/TestResults.ini

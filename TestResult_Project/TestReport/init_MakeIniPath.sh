@@ -27,6 +27,11 @@ echo Project Name:$Proj_Name
 echo TestType:$TestType
 echo Platform:$Platform
 
+pro_dir="${Proj_Name}_${TestType}_${Platform}"
+
+echo $TestType > ${pro_dir}/test_type.txt
+echo $Platform > ${pro_dir}/test_plat.txt
+
 #将TestResults.ini文件路径作为一个文件,写入到测试报告项目的testcase目录下
 #/data/OS/7A/TestResults.ini
 dest_path='testcase'

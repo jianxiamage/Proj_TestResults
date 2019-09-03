@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 #----------------------------------------------------------------------------------------
 TestType="KVM"
@@ -42,7 +41,7 @@ echo destResultFile:$destResultFile
 \cp $ReportFile $destResultFile -f || { echo "Error!Failed to copy the perfect test report."; exit 1;}
 
 #拷贝精简版功能版测试报告
-\cp $ReportFile_Simple $destResultFile -f || { echo "Error!Failed to copy the simple test report."; exit 1;}
+\cp $ReportFile_Simple $destResultFile_Simple -f || { echo "Error!Failed to copy the simple test report."; exit 1;}
 
 echo ----------------------------------------------
 echo "Please check the test report:$ReportFile:"

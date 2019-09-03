@@ -13,12 +13,12 @@ import ConfigParser
 def getResult(TestCase,NodeNum):
 
     resultIniFile = 'testResultIni_path.txt'
-    print('********************************************')
+    #print('********************************************')
     #print os.getcwd() #获取当前工作目录路径
     #print os.path.split( os.path.realpath( sys.argv[0] ) )
     curPath = os.path.split(os.path.realpath(__file__))[0]
     #print os.path.split(os.path.realpath(__file__))[0]
-    print('********************************************')
+    #print('********************************************')
     ini_resultPath = os.path.join(curPath,resultIniFile )
     cmdInput = 'cat ' + str(ini_resultPath)
     retCode,output = commands.getstatusoutput(cmdInput)

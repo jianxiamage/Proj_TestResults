@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 #----------------------------------------------------------------------------------------
 TestType="Kernel"
@@ -11,7 +10,7 @@ ReportFile_Simple="report_simple.html"
 #----------------------------------------------------------------------------------------
 #首先,初始化测试结果ini文件的路径文件:testResultIni_path.txt
 #本文件的目录例如:
-#TestReport_OS_7A/testcase/testResultIni_path.txt
+#TestReport_Kernel_7A/testcase/testResultIni_path.txt
 Proj_Name='TestReport'
 
 sh init_MakeIniPath.sh $TestType $Platform $Proj_Name || { echo "Error!Failed to init the ini file."; exit 1; }
@@ -42,7 +41,7 @@ echo destResultFile:$destResultFile
 \cp $ReportFile $destResultFile -f || { echo "Error!Failed to copy the perfect test report."; exit 1;}
 
 #拷贝精简版功能版测试报告
-\cp $ReportFile_Simple $destResultFile -f || { echo "Error!Failed to copy the simple test report."; exit 1;}
+\cp $ReportFile_Simple $destResultFile_Simple -f || { echo "Error!Failed to copy the simple test report."; exit 1;}
 
 echo ----------------------------------------------
 echo "Please check the test report:$ReportFile:"

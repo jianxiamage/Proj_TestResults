@@ -1,1 +1,1 @@
-/data/Kernel/7A/TestResults.ini
+/data/Kernel/7A_2way/TestResults.ini
