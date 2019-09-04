@@ -11,8 +11,6 @@ Platform="$2"
 TestCase="$3"
 #----------------------------------------------------------------------------------------
 resultsPath='/data'
-#ResultIniFile=$srcResultFile
-#echo srcFile:$ResultIniFile
 PointsPath='Points_Files'
 curPointsIniDir='ini_Points'
 #----------------------------------------------------------------------------------------

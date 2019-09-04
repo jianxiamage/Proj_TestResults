@@ -18,10 +18,8 @@ PointsPath='Points_Files'
 Node_count=0
 #----------------------------------------------------------------------------------------
 #测试结果目录(筛选内容后)地址
-destResultPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
-
-#测试结果配置文件地址
-#destIniPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/${TestCase}_${Node_count}.ini"
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
 
 
 if [ ! -s $destResultPath ];

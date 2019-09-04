@@ -21,6 +21,7 @@ workbook = xlwt.Workbook(encoding='utf-8')
 booksheet = workbook.add_sheet('UnixBench_1thread', cell_overwrite_ok=True)
 
 ResultPath='/data/'
+detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'
 
@@ -284,7 +285,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
     print('****************************************************')
     print IniPath
     print('****************************************************')
-    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
+    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
     print IniPath
     print ExcelPath
     #init_xls_static(IniPath,ExcelPath)
@@ -296,7 +297,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
     countNum = int(count) + 1
     for i in range(1,countNum):
        print '第%d个节点' %(i)
-       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
        print ResultIniPath
        col_start_tag = 1 + (int(count))*(int(i)-1)
        print('****************************************************')
@@ -307,7 +308,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
     countNum = int(count) + 1
     for i in range(1,countNum):
        print '第%d个节点' %(i)
-       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini' 
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
        print ResultIniPath
        col_start_tag = 1 + (int(count))*(int(i)-1)
        print('****************************************************')
@@ -317,7 +318,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
 
     for i in range(1,countNum):
        print '第%d个节点' %(i)
-       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
        print ResultIniPath
        col_start_tag = 1 + (int(count))*(int(i)-1)
        print('****************************************************')

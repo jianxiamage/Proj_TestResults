@@ -13,18 +13,19 @@ workbook = xlwt.Workbook(encoding='utf-8')
 booksheet = workbook.add_sheet('stream_ncore', cell_overwrite_ok=True)
 
 ResultPath='/data/'
+detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'
 
 
 def write_xls(iniFile,xlsFile,colNum):
 
-
     alignment = xlwt.Alignment() # Create Alignment
     alignment.horz = xlwt.Alignment.HORZ_LEFT   # May be: HORZ_GENERAL, HORZ_LEFT, HORZ_CENTER, HORZ_RIGHT, HORZ_FILLED, HORZ_JUSTIFIED, HORZ_CENTER_ACROSS_SEL, HORZ_DISTRIBUTED
     alignment.vert = xlwt.Alignment.VERT_CENTER # May be: VERT_TOP, VERT_CENTER, VERT_BOTTOM, VERT_JUSTIFIED, VERT_DISTRIBUTED
     style = xlwt.XFStyle() # Create Style
     style.alignment = alignment # Add Alignment to Style
+
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
 
@@ -96,7 +97,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
 
     print count
     IniPath = str(curPointsPath) + '/' + str(TestCase) + '_' + str(mode) + '.ini' 
-    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
+    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
     print IniPath
     print ExcelPath
     init_xls(IniPath,ExcelPath)
@@ -106,7 +107,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
     countNum = int(count) + 1
     for i in range(1,countNum):
        print '第%d个节点' %(i)
-       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini' 
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini' 
        print ResultIniPath
        write_xls(ResultIniPath,ExcelPath,i)
 

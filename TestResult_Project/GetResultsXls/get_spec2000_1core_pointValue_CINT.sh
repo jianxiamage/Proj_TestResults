@@ -18,10 +18,11 @@ PointsPath='Points_Files'
 testMode='CINT'
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
-destResultPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/Points_${TestCase}_${testMode}_${Node_num}.txt"
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}/Points_${TestCase}_${testMode}_${Node_num}.txt"
 
 #测试结果配置文件地址
-destIniPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/${TestCase}_${testMode}_${Node_num}.ini"
+destIniPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}/${TestCase}_${testMode}_${Node_num}.ini"
 
 
 if [ ! -s $destResultPath ];

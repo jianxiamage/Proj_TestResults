@@ -35,8 +35,8 @@ echo $testcase_file
 #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
 
 echo --------------------------------------------------------------------------------
-
-destPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
+detailDir="Detail"
+destPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/$TestCase/$PointsPath"
 mkdir $destPath -p
 
 

@@ -14,12 +14,13 @@ class myconf(ConfigParser.ConfigParser):
         return optionstr
 
 ResultPath='/data/'
+detailDir='Detail'
 PointsPath='Points_Files'
 sectionName='SpecJvm2008'
 
 def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue):
     
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(NodeNum) + '.ini'
     print('-----------------------------------')
     print('ini文件路径:')
     print(ResultIniPath)

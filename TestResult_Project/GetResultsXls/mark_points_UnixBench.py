@@ -20,13 +20,14 @@ class myconf(ConfigParser.ConfigParser):
 #因此，相比只生成一个结果文件的测试项(例如iozone)要多加一个类型参数
 #-------------------------------------------------
 ResultPath='/data/'
+detailDir='Detail'
 PointsPath='Points_Files'
 #global sectionName
 #sectionName='-1core'
 
 def setPoint_Dhrystone(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
     
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -56,7 +57,7 @@ def setPoint_Dhrystone(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode)
 
 def setPoint_Double_Precision(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -84,7 +85,7 @@ def setPoint_Double_Precision(TestType,Platform,TestCase,NodeNum,keyName,keyValu
 
 def setPoint_Execl_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -111,7 +112,7 @@ def setPoint_Execl_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValu
 
 def setPoint_File_Copy_1024(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -138,7 +139,7 @@ def setPoint_File_Copy_1024(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
 
 def setPoint_File_Copy_256(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -166,7 +167,7 @@ def setPoint_File_Copy_256(TestType,Platform,TestCase,NodeNum,keyName,keyValue,m
 
 def setPoint_File_Copy_4096(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -193,7 +194,7 @@ def setPoint_File_Copy_4096(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
 
 def setPoint_Pipe_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -220,7 +221,7 @@ def setPoint_Pipe_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValue
 
 def setPoint_Pipe_based_Context(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -247,7 +248,7 @@ def setPoint_Pipe_based_Context(TestType,Platform,TestCase,NodeNum,keyName,keyVa
 
 def setPoint_Process_Creation(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -274,7 +275,7 @@ def setPoint_Process_Creation(TestType,Platform,TestCase,NodeNum,keyName,keyValu
 
 def setPoint_sh_1concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -301,7 +302,7 @@ def setPoint_sh_1concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
 
 def setPoint_sh_8concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -328,7 +329,7 @@ def setPoint_sh_8concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
 
 def setPoint_Sys_Call_Overhead(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
@@ -355,7 +356,7 @@ def setPoint_Sys_Call_Overhead(TestType,Platform,TestCase,NodeNum,keyName,keyVal
 
 def setPoint_System_Benchmarks(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
 
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)

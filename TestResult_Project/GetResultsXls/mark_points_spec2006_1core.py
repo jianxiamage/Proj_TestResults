@@ -19,6 +19,7 @@ class myconf(ConfigParser.ConfigParser):
 #因此，相比只生成一个结果文件的测试项(例如iozone)要多加一个类型参数
 #-------------------------------------------------
 ResultPath='/data/'
+detailDir='Detail'
 PointsPath='Points_Files'
 #global sectionName
 #sectionName='spec2006-1core-'
@@ -34,7 +35,7 @@ def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
         print 'not support the mode'
         return 1
      
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
 
     print('-----------------------------------')
     print(ResultIniPath)
