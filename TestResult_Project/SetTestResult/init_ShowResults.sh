@@ -8,8 +8,6 @@ ResultPathFile='TestResultFilePath.ini'
 
 destPath='/data/TestResultFilePath.ini'
 
-#rm -rf /IPList
-
 mkdir $ResultPath -p
 
 echo ----------------------------------------------------

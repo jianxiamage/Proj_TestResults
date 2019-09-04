@@ -1,17 +1,13 @@
 #!/bin/bash
 
-#/IPList/TestResults.ini
-
 IPListFileName='ip_list'
 IPListFile='ip_list.ini'
 
-ResultPath='/IPList'
+ResultPath='/data'
 curIPFilePath='IP_List'
 
 srcPath=''
 destPath=''
-
-#rm -rf /IPList
 
 mkdir $ResultPath -p
 
