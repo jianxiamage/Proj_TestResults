@@ -10,12 +10,6 @@ TestType="$1"
 Platform="$2"
 TestCase="$3"
 #----------------------------------------------------------------------------------------
-resultsPath='/data'
-#ResultIniFile=$srcResultFile
-#echo srcFile:$ResultIniFile
-PointsPath='Points_Files'
-curPointsIniDir='ini_Points'
-#----------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------
 echo "写入测试结果跑分到Excel文件..."
 echo "当前路径:"

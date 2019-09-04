@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#/IPList/TestResults.ini
-
 IPListFileName='ip_list'
 IPListFile='ip_list.ini'
 

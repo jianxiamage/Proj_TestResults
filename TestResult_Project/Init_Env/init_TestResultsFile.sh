@@ -1,15 +1,17 @@
 #!/bin/bash
 
-#/IPList/TestResults.ini
+#/data/TestResults.ini
 
-IPListFileName='ip_list'
+srcResultFile='TestResults.ini'
 IPListFile='ip_list.ini'
 
 ResultPath='/data'
-curIPFilePath='IP_List'
+ResultIniFile=$srcResultFile
+echo srcFile:$ResultIniFile
 
-srcPath=''
 destPath=''
+
+#rm -rf /data
 
 mkdir $ResultPath -p
 
@@ -26,15 +28,15 @@ for item_type in ${TestType[@]}; do
 
     #echo 当前平台:$item_plat
     
-    srcPath="${curIPFilePath}/${IPListFileName}_${item_type}_${item_plat}.ini"
     destPath="${ResultPath}/${item_type}/${item_plat}"
     mkdir $destPath -p
-    destIPListFile="${ResultPath}/${item_type}/${item_plat}/${IPListFile}"
-    echo destIPListFile:$destIPListFile
-    
-    #\cp $IPListFile  $destIPListFile
-    \cp $srcPath $destIPListFile
-   
+    destResultFile="${ResultPath}/${item_type}/${item_plat}/${srcResultFile}"
+    #destIPListFile="${ResultPath}/${item_type}/${item_plat}/${IPListFile}"
+    echo destResultFile:$destResultFile
+    #echo destIPListFile:$destIPListFile
+ 
+    \cp $srcResultFile $destResultFile -f
+
   done
 
 done

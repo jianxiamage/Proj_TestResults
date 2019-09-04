@@ -8,7 +8,7 @@ import ConfigParser
 
 from get_GroupNum import *
 
-ResultPath='/IPList/'
+ResultPath='/data/'
 IPListIniFile='ip_list.ini'
 
 def getResult(TestType,Platform,TestCase,NodeNum):

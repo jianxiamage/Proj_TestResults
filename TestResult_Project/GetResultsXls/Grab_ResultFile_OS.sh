@@ -13,13 +13,17 @@ set -e
 #目前支持5个平台
 #----------------------------------------------------------------------------------------
 
-sh Grab_ResultFile_OS_2K.sh
-
-sh Grab_ResultFile_OS_780.sh
-
-sh Grab_ResultFile_OS_7A_2way.sh
+sh Grab_ResultFile_OS_7A.sh
 
 sh Grab_ResultFile_OS_7A_Integrated.sh
 
-sh Grab_ResultFile_OS_7A.sh
+sh Grab_ResultFile_OS_7A_2way.sh
+
+sh Grab_ResultFile_OS_780.sh
+
+sh Grab_ResultFile_OS_2K.sh
+
+
+
+
 
