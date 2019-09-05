@@ -35,9 +35,9 @@ echo $testcase_file
 #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
 
 echo --------------------------------------------------------------------------------
-
-destPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
-mkdir $destPath -p
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
+mkdir $destResultPath -p
 
 
 #There are many branches for test cases in judgment.So use case mode...
@@ -59,12 +59,12 @@ case $TestCase in
         echo 测试用例:$TestCase 的测试结果文件内容为:
         cat $testcase_absfile
         echo --------------------------------------------------------------------------------
-        \cp ${testcase_absfile}  $destPath/${TestCase}_${Node_num}.ini -f || echo copy failed!
+        \cp ${testcase_absfile}  $destResultPath/${TestCase}_${Node_num}.ini -f || echo copy failed!
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         #为防止读取ini文件出错,当未生成测试结果文件时,将默认的初始化ini文件拷贝到目标目录
         testcase_pointsFile=$curPointsIniDir/$TestCase.ini
-        \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
+        \cp $testcase_pointsFile $destResultPath/${TestCase}_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 
@@ -91,13 +91,13 @@ case $TestCase in
         #cat $testcase_absfile |tail -n 5 |tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
         sed -n '/Processor/,$ p' $testcase_absfile | tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
         echo --------------------------------------------------------------------------------
-       \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destPath -f || echo copy failed!    
+       \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destResultPath -f || echo copy failed!    
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num]测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
     fi
 
     testcase_pointsFile=$curPointsIniDir/$TestCase.ini
-    \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
+    \cp $testcase_pointsFile $destResultPath/${TestCase}_${Node_num}.ini -f
     echo --------------------------------------------------------------------------------
     ;;
 
@@ -118,8 +118,8 @@ case $TestCase in
 
         #当生成测试结果文件时,将生成的ini文件拷贝到目标目录
         echo --------------------------------------------------------------------------------
-        \cp ${TestCase_absdir}/stream1*.ini  $destPath/${TestCase}_1core_${Node_num}.ini -f || echo copy failed!
-        \cp ${TestCase_absdir}/stream4*.ini  $destPath/${TestCase}_ncore_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/stream1*.ini  $destResultPath/${TestCase}_1core_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/stream4*.ini  $destResultPath/${TestCase}_ncore_${Node_num}.ini -f || echo copy failed!
         echo --------------------------------------------------------------------------------
     
     else
@@ -127,10 +127,10 @@ case $TestCase in
 
         #为防止读取ini文件出错,当未生成测试结果文件时,将默认的初始化ini文件拷贝到目标目录
         testcase_pointsFile_1core="$curPointsIniDir/${TestCase}_1core.ini"
-        \cp $testcase_pointsFile_1core $destPath/${TestCase}_1core_${Node_num}.ini -f
+        \cp $testcase_pointsFile_1core $destResultPath/${TestCase}_1core_${Node_num}.ini -f
 
         testcase_pointsFile_ncore="$curPointsIniDir/${TestCase}_ncore.ini"
-        \cp $testcase_pointsFile_ncore $destPath/${TestCase}_ncore_${Node_num}.ini -f
+        \cp $testcase_pointsFile_ncore $destResultPath/${TestCase}_ncore_${Node_num}.ini -f
     fi
 
     #echo --------------------------------------------------------------------------------
@@ -144,6 +144,7 @@ case $TestCase in
 
     #初始化ini文件,防止在未生成Excel结果文件时发生读取错误
     sh init_UnixBench_ini.sh $TestType $Platform $TestCase $Node_num
+    sh init_UnixBench_ini_new.sh $TestType $Platform $TestCase $Node_num
     if [ -n "$testcase_file" ];
     then
         echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
@@ -177,16 +178,16 @@ case $TestCase in
         cat ${TestCase_absdir}/CINT*.ini
 
         echo --------------------------------------------------------------------------------
-        \cp ${TestCase_absdir}/CFP*.ini $destPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
-        \cp ${TestCase_absdir}/CINT*.ini $destPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CFP*.ini $destResultPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CINT*.ini $destResultPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
 
     else 
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-        \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CFP $destResultPath/${TestCase}_CFP_${Node_num}.ini -f
 
         testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-        \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CINT $destResultPath/${TestCase}_CINT_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 
@@ -209,16 +210,16 @@ case $TestCase in
         cat ${TestCase_absdir}/CINT*.ini
 
         echo --------------------------------------------------------------------------------
-        \cp ${TestCase_absdir}/CFP*.ini $destPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
-        \cp ${TestCase_absdir}/CINT*.ini $destPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CFP*.ini $destResultPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CINT*.ini $destResultPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
 
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-        \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CFP $destResultPath/${TestCase}_CFP_${Node_num}.ini -f
 
         testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-        \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CINT $destResultPath/${TestCase}_CINT_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 
@@ -242,16 +243,16 @@ case $TestCase in
         cat ${TestCase_absdir}/CINT*.ini
 
         echo --------------------------------------------------------------------------------
-        \cp ${TestCase_absdir}/CFP*.ini $destPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
-        \cp ${TestCase_absdir}/CINT*.ini $destPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CFP*.ini $destResultPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CINT*.ini $destResultPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
 
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-        \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CFP $destResultPath/${TestCase}_CFP_${Node_num}.ini -f
 
         testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-        \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CINT $destResultPath/${TestCase}_CINT_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 
@@ -274,16 +275,16 @@ case $TestCase in
         cat ${TestCase_absdir}/CINT*.ini
 
         echo --------------------------------------------------------------------------------
-        \cp ${TestCase_absdir}/CFP*.ini $destPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
-        \cp ${TestCase_absdir}/CINT*.ini $destPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CFP*.ini $destResultPath/${TestCase}_CFP_${Node_num}.ini -f || echo copy failed!
+        \cp ${TestCase_absdir}/CINT*.ini $destResultPath/${TestCase}_CINT_${Node_num}.ini -f || echo copy failed!
 
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-        \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CFP $destResultPath/${TestCase}_CFP_${Node_num}.ini -f
 
         testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-        \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+        \cp $testcase_pointsFile_CINT $destResultPath/${TestCase}_CINT_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 
@@ -307,12 +308,12 @@ case $TestCase in
         echo 测试用例:$TestCase 的测试结果文件内容为:
         cat $testcase_absfile
         echo --------------------------------------------------------------------------------
-        \cp ${testcase_absfile}  $destPath/${TestCase}_${Node_num}.ini -f || echo copy failed!
+        \cp ${testcase_absfile}  $destResultPath/${TestCase}_${Node_num}.ini -f || echo copy failed!
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num],测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
         #为防止读取ini文件出错,当未生成测试结果文件时,将默认的初始化ini文件拷贝到目标目录
         testcase_pointsFile=$curPointsIniDir/$TestCase.ini
-        \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
+        \cp $testcase_pointsFile $destResultPath/${TestCase}_${Node_num}.ini -f
         echo --------------------------------------------------------------------------------
     fi
 

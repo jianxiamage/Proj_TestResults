@@ -23,8 +23,9 @@ echo ---------------------------------------------------------------------------
 testcase_file=`ls $TestCase_absdir`
 echo $testcase_file
 
-destPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
-mkdir $destPath -p
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
+mkdir $destResultPath -p
 
 #提前初始化测试结果文件,防止没有生成测试结果时,造成制作Excel失败的情况
 #单线程
@@ -36,10 +37,10 @@ then
   echo 测试用例:$TestCase 的单线程测试结果文件(BASELINE)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_1thread_BASELINE*.ini
-  \cp ${TestCase_absdir}/Unixbench_1thread_BASELINE*.ini $destPath/${TestCase}_1_BASELINE_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_1thread_BASELINE*.ini $destResultPath/${TestCase}_1_BASELINE_${Node_num}.ini -f
 
   #testcase_pointsFile_1thread="$curPointsIniDir/${TestCase}_1thread.ini"
-  #\cp $testcase_pointsFile_1thread $destPath/${TestCase}_1thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_1thread $destResultPath/${TestCase}_1thread_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_1thread" |grep "RESULT"
@@ -48,7 +49,7 @@ then
   echo 测试用例:$TestCase 的单线程测试结果文件(RESULT)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_1thread_RESULT*.ini
-  \cp ${TestCase_absdir}/Unixbench_1thread_RESULT*.ini $destPath/${TestCase}_1_RESULT_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_1thread_RESULT*.ini $destResultPath/${TestCase}_1_RESULT_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_1thread" |grep "INDEX"
@@ -57,7 +58,7 @@ then
   echo 测试用例:$TestCase 的单线程测试结果文件(INDEX)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_1thread_INDEX*.ini
-  \cp ${TestCase_absdir}/Unixbench_1thread_INDEX*.ini $destPath/${TestCase}_1_INDEX_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_1thread_INDEX*.ini $destResultPath/${TestCase}_1_INDEX_${Node_num}.ini -f
 fi
 
 
@@ -67,7 +68,7 @@ then
   echo 测试用例:$TestCase 的2线程测试结果文件(BASELINE)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_2thread_BASELINE*.ini
-  \cp ${TestCase_absdir}/Unixbench_2thread_BASELINE*.ini $destPath/${TestCase}_2_BASELINE_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_2thread_BASELINE*.ini $destResultPath/${TestCase}_2_BASELINE_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_2thread" |grep "RESULT"
@@ -76,7 +77,7 @@ then
   echo 测试用例:$TestCase 的2线程测试结果文件(RESULT)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_2thread_RESULT*.ini
-  \cp ${TestCase_absdir}/Unixbench_2thread_RESULT*.ini $destPath/${TestCase}_2_RESULT_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_2thread_RESULT*.ini $destResultPath/${TestCase}_2_RESULT_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_2thread" |grep "INDEX"
@@ -85,7 +86,7 @@ then
   echo 测试用例:$TestCase 的2线程测试结果文件(INDEX)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_2thread_INDEX*.ini
-  \cp ${TestCase_absdir}/Unixbench_2thread_INDEX*.ini $destPath/${TestCase}_2_INDEX_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_2thread_INDEX*.ini $destResultPath/${TestCase}_2_INDEX_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_4thread" |grep "BASELINE"
@@ -94,7 +95,7 @@ then
   echo 测试用例:$TestCase 的4线程测试结果文件(BASELINE)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_4thread_BASELINE*.ini
-  \cp ${TestCase_absdir}/Unixbench_4thread_BASELINE*.ini $destPath/${TestCase}_4_BASELINE_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_4thread_BASELINE*.ini $destResultPath/${TestCase}_4_BASELINE_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_4thread" |grep "RESULT"
@@ -103,7 +104,7 @@ then
   echo 测试用例:$TestCase 的4线程测试结果文件(RESULT)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_4thread_RESULT*.ini
-  \cp ${TestCase_absdir}/Unixbench_4thread_RESULT*.ini $destPath/${TestCase}_4_RESULT_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_4thread_RESULT*.ini $destResultPath/${TestCase}_4_RESULT_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_4thread" |grep "INDEX"
@@ -112,7 +113,7 @@ then
   echo 测试用例:$TestCase 的4线程测试结果文件(INDEX)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_4thread_INDEX*.ini
-  \cp ${TestCase_absdir}/Unixbench_4thread_INDEX*.ini $destPath/${TestCase}_4_INDEX_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_4thread_INDEX*.ini $destResultPath/${TestCase}_4_INDEX_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_8thread" |grep "BASELINE"
@@ -121,7 +122,7 @@ then
   echo 测试用例:$TestCase 的8线程测试结果文件(BASELINE)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_8thread_BASELINE*.ini
-  \cp ${TestCase_absdir}/Unixbench_8thread_BASELINE*.ini $destPath/${TestCase}_8_BASELINE_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_8thread_BASELINE*.ini $destResultPath/${TestCase}_8_BASELINE_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_8thread" |grep "RESULT"
@@ -130,7 +131,7 @@ then
   echo 测试用例:$TestCase 的8线程测试结果文件(RESULT)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_8thread_RESULT*.ini
-  \cp ${TestCase_absdir}/Unixbench_8thread_RESULT*.ini $destPath/${TestCase}_8_RESULT_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_8thread_RESULT*.ini $destResultPath/${TestCase}_8_RESULT_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_8thread" |grep "INDEX"
@@ -139,7 +140,7 @@ then
   echo 测试用例:$TestCase 的8线程测试结果文件(INDEX)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_8thread_INDEX*.ini
-  \cp ${TestCase_absdir}/Unixbench_8thread_INDEX*.ini $destPath/${TestCase}_8_INDEX_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_8thread_INDEX*.ini $destResultPath/${TestCase}_8_INDEX_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_16thread" |grep "BASELINE"
@@ -148,7 +149,7 @@ then
   echo 测试用例:$TestCase 的16线程测试结果文件(BASELINE)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_16thread_BASELINE*.ini
-  \cp ${TestCase_absdir}/Unixbench_16thread_BASELINE*.ini $destPath/${TestCase}_16_BASELINE_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_16thread_BASELINE*.ini $destResultPath/${TestCase}_16_BASELINE_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_16thread" |grep "RESULT"
@@ -157,7 +158,7 @@ then
   echo 测试用例:$TestCase 的16线程测试结果文件(RESULT)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_16thread_RESULT*.ini
-  \cp ${TestCase_absdir}/Unixbench_16thread_RESULT*.ini $destPath/${TestCase}_16_RESULT_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_16thread_RESULT*.ini $destResultPath/${TestCase}_16_RESULT_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir  | grep "Unixbench_16thread" |grep "INDEX"
@@ -166,6 +167,6 @@ then
   echo 测试用例:$TestCase 的16线程测试结果文件(INDEX)内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_16thread_INDEX*.ini
-  \cp ${TestCase_absdir}/Unixbench_16thread_INDEX*.ini $destPath/${TestCase}_16_INDEX_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_16thread_INDEX*.ini $destResultPath/${TestCase}_16_INDEX_${Node_num}.ini -f
 fi
 

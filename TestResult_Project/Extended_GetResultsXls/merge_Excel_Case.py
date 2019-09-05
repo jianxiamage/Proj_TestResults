@@ -10,6 +10,7 @@ import xlrd
 import os
 
 ResultPath='/data-std/'
+detailDir='Detail'
 PointsPath='Points_Files'
 
 merge_path = 'merge_Excel'
@@ -19,7 +20,7 @@ def mergeTestExcel(TestType,TestPlat,TestCase):
     Excel_File = ResultPath + str(TestType) +  '/' + TestPlat + '/' + merge_path + '/' + TestCase + '.xls'
     print Excel_File
 
-    Excel_Path = ResultPath + str(TestType) +  '/' + TestPlat + '/' + TestCase + '/' + PointsPath
+    Excel_Path = ResultPath + str(TestType) +  '/' + TestPlat + '/' + str(detailDir) + '/' + TestCase + '/' + PointsPath
     print Excel_Path
 
     work=xlwt.Workbook(Excel_File)                              #建立一个文件

@@ -13,6 +13,7 @@ workbook = xlwt.Workbook(encoding='utf-8')
 booksheet = workbook.add_sheet('spec2000_1core_CFP', cell_overwrite_ok=True)
 
 ResultPath='/data-std/'
+detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'
 
@@ -98,7 +99,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
 
     print count
     IniPath = str(curPointsPath) + '/' + str(TestCase) + '_' + str(mode) + '.ini' 
-    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) +  '_' + str(Platform) + '_' + str(TestType) + '.xls' 
+    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) +  '_' + str(Platform) + '_' + str(TestType) + '.xls' 
     print IniPath
     print ExcelPath
     init_xls(IniPath,ExcelPath)
@@ -108,7 +109,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
     countNum = int(count) + 1
     for i in range(1,countNum):
        print '第%d个节点' %(i)
-       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini' 
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(detailDir) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini' 
        print ResultIniPath
        write_xls(ResultIniPath,ExcelPath,i)
 

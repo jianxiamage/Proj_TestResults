@@ -81,6 +81,7 @@ case $TestCase in
     
     #UnixBench在不同机器上执行不同的线程脚本，会生成不同的测试结果文件，因此需要判断后执行
     sh check_UnixBench_IniFile.sh $TestType $Platform
+    sh check_UnixBench_IniFile_new.sh $TestType $Platform
     #echo --------------------------------------------------------------------------------
     ;;
 

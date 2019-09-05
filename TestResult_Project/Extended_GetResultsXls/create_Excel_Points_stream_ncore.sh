@@ -11,18 +11,15 @@ fi
 TestType="$1"
 Platform="$2"
 TestCase="$3"
-TestMode="ncore"
+TestMode="1core"
 #----------------------------------------------------------------------------------------
 resultsPath=$(cat data_path.txt)
 PointsPath='Points_Files'
 Node_count=0
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
-destResultPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
-
-#测试结果配置文件地址
-#destIniPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/${TestCase}_${Node_count}.ini"
-
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
 
 if [ ! -s $destResultPath ];
 then
@@ -30,14 +27,7 @@ then
   exit 1
 fi
 
-#if [ ! -s $destIniPath ];
-#then
-#  echo Error! [$destIniPath] not existed!Please check it!
-#  exit 1
-#fi
-
 echo -------------------------------------------------------------
-
 #目前测试节点个数规定：每个测试小组有三个节点，node_count.cfg中的数字3代表三个节点
 count_nodes=`cat node_count.cfg` || { echo "File:node_count.cfg is not existed!";exit 1;}
 

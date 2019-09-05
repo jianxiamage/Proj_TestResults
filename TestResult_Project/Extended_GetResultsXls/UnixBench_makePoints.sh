@@ -23,8 +23,9 @@ echo ---------------------------------------------------------------------------
 testcase_file=`ls $TestCase_absdir`
 echo $testcase_file
 
-destPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
-mkdir $destPath -p
+detailDir="Detail"
+destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
+mkdir $destResultPath -p
 
 ls $TestCase_absdir  | grep "Unixbench_1_"
 if [ $? -eq 0 ];
@@ -32,10 +33,10 @@ then
   echo 测试用例:$TestCase 的单线程测试结果文件内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_1_*.ini
-  \cp ${TestCase_absdir}/Unixbench_1_*.ini $destPath/${TestCase}_1thread_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_1_*.ini $destResultPath/${TestCase}_1thread_${Node_num}.ini -f
 
   #testcase_pointsFile_1thread="$curPointsIniDir/${TestCase}_1thread.ini"
-  #\cp $testcase_pointsFile_1thread $destPath/${TestCase}_1thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_1thread $destResultPath/${TestCase}_1thread_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir | grep "Unixbench_2_"
@@ -44,10 +45,10 @@ then
   echo 测试用例:$TestCase 的2线程测试结果文件内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_2_*.ini
-  \cp ${TestCase_absdir}/Unixbench_2_*.ini $destPath/${TestCase}_2thread_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_2_*.ini $destResultPath/${TestCase}_2thread_${Node_num}.ini -f
 
   #testcase_pointsFile_2thread="$curPointsIniDir/${TestCase}_2thread.ini"
-  #\cp $testcase_pointsFile_2thread $destPath/${TestCase}_2thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_2thread $destResultPath/${TestCase}_2thread_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir | grep "Unixbench_4_"
@@ -56,10 +57,10 @@ then
   echo 测试用例:$TestCase 的4线程测试结果文件内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_4_*.ini
-  \cp ${TestCase_absdir}/Unixbench_4_*.ini $destPath/${TestCase}_4thread_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_4_*.ini $destResultPath/${TestCase}_4thread_${Node_num}.ini -f
 
   #testcase_pointsFile_4thread="$curPointsIniDir/${TestCase}_4thread.ini"
-  #\cp $testcase_pointsFile_4thread $destPath/${TestCase}_4thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_4thread $destResultPath/${TestCase}_4thread_${Node_num}.ini -f
 fi
 
 ls $TestCase_absdir | grep "Unixbench_8_"
@@ -68,10 +69,10 @@ then
   echo 测试用例:$TestCase 的8线程测试结果文件内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_8_*.ini
-  \cp ${TestCase_absdir}/Unixbench_8_*.ini $destPath/${TestCase}_8thread_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_8_*.ini $destResultPath/${TestCase}_8thread_${Node_num}.ini -f
 
   #testcase_pointsFile_8thread="$curPointsIniDir/${TestCase}_8thread.ini"
-  #\cp $testcase_pointsFile_8thread $destPath/${TestCase}_8thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_8thread $destResultPath/${TestCase}_8thread_${Node_num}.ini -f
 fi
 
 
@@ -81,10 +82,10 @@ then
   echo 测试用例:$TestCase 的16线程测试结果文件内容为:
   echo --------------------------------------------------------------------------------
   cat ${TestCase_absdir}/Unixbench_16_*.ini
-  \cp ${TestCase_absdir}/Unixbench_16_*.ini $destPath/${TestCase}_16thread_${Node_num}.ini -f
+  \cp ${TestCase_absdir}/Unixbench_16_*.ini $destResultPath/${TestCase}_16thread_${Node_num}.ini -f
 
   #testcase_pointsFile_16thread="$curPointsIniDir/${TestCase}_16thread.ini"
-  #\cp $testcase_pointsFile_16thread $destPath/${TestCase}_16thread_${Node_num}.ini -f
+  #\cp $testcase_pointsFile_16thread $destResultPath/${TestCase}_16thread_${Node_num}.ini -f
 fi
 
 

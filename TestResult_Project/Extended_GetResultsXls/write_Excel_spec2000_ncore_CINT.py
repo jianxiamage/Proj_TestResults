@@ -10,7 +10,7 @@ import glob
 import xlwt
 
 workbook = xlwt.Workbook(encoding='utf-8')
-booksheet = workbook.add_sheet('spec2006_ncore_CINT', cell_overwrite_ok=True)
+booksheet = workbook.add_sheet('spec2000_ncore_CINT', cell_overwrite_ok=True)
 
 ResultPath='/data-std/'
 PointsPath='Points_Files'
