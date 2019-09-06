@@ -86,7 +86,7 @@ check_result()
         let i++
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r $ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir} || { echo 'Error!'; continue; }
         #if [ "ssh root@${ip} -f filename"
-        sshpass -p $ServerPass  ssh $ServerUser@$ServerIP  "[ -d ~/${ServerTestDir}/${TestName}/${host}-* ]" || { echo 'Error!'; continue; }
+        sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "[ -d ~/${ServerTestDir}/${TestName}/${host}-* ]" || { echo 'Error!'; continue; }
         echo [$host] update state OK.
         opt_value=0
         #setResult
