@@ -9,11 +9,23 @@ import xlwt
 import xlrd
 import os
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 detailDir='Detail'
 PointsPath='Points_Files'
 
 merge_path = 'merge_Excel'
+
+def checkNeedFile(inputFile):
+    Files=os.listdir(inputFile)
+    for i in range(len(Files)):
+        # 提取文件夹内所有文件的后缀
+        Files[i]=os.path.splitext(Files[i])[1]
+ 
+    backName='.xls'
+    if backName in Files:
+        return True
+    else:
+        return False
 
 def mergeTestExcel(TestType,TestPlat,TestCase):
 
@@ -22,6 +34,14 @@ def mergeTestExcel(TestType,TestPlat,TestCase):
 
     Excel_Path = ResultPath + str(TestType) +  '/' + TestPlat + '/' + str(detailDir) + '/' + TestCase + '/' + PointsPath
     print Excel_Path
+
+    if os.path.exists(Excel_Path):
+        retFlag = checkNeedFile(Excel_Path)
+        if retFlag == False:
+          return 1
+    else:
+        print('The test file is not exists,Maybe it is running.')
+        return 1
 
     work=xlwt.Workbook(Excel_File)                              #建立一个文件
     file_list=os.listdir(Excel_Path)
