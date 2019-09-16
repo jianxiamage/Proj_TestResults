@@ -12,7 +12,6 @@ TestCase="$3"
 #----------------------------------------------------------------------------------------
 resultsPath='/data'
 PointsPath='Points_Files'
-curPointsIniDir='ini_Points'
 #----------------------------------------------------------------------------------------
 
 export WORKON_HOME=/home/work/env-wrapper

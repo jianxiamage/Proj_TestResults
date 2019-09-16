@@ -17,6 +17,12 @@ detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'
 
+#防止自动将ini文件中的键名转换成小写
+class myconf(ConfigParser.ConfigParser):
+    def __init__(self,defaults=None):
+        ConfigParser.ConfigParser.__init__(self,defaults=None)
+    def optionxform(self, optionstr):
+        return optionstr
 
 def write_xls(iniFile,xlsFile,colNum):
 
@@ -26,7 +32,8 @@ def write_xls(iniFile,xlsFile,colNum):
     style = xlwt.XFStyle() # Create Style
     style.alignment = alignment # Add Alignment to Style
 
-    config = ConfigParser.ConfigParser()
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(iniFile))
@@ -67,7 +74,8 @@ def init_xls(iniFile,xlsFile):
     booksheet.write(0,2,'Node-2')
     booksheet.write(0,3,'Node-3')
 
-    config = ConfigParser.ConfigParser()
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(iniFile))
