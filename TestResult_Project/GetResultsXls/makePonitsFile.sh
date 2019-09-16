@@ -110,10 +110,10 @@ case $TestCase in
     then
         echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
         echo 测试用例:$TestCase 的单核测试结果文件内容为:
-        grep -A 5 "Function" $TestCase_absdir/stream1* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
+        grep -A 5 "Function" $TestCase_absdir/stream.1core_* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
 
         echo 测试用例:$TestCase 的多核测试结果文件内容为:
-        grep -A 5 "Function" $TestCase_absdir/stream4* |tee "$TestCase_absdir/Points_${TestCase}_ncore_${Node_num}.txt"
+        grep -A 5 "Function" $TestCase_absdir/stream.omp_* |tee "$TestCase_absdir/Points_${TestCase}_ncore_${Node_num}.txt"
 
         echo --------------------------------------------------------------------------------
         \cp "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt" $destPath -f || echo copy failed!
