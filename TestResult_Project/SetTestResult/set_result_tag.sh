@@ -86,6 +86,9 @@ check_result()
         let i++
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r $ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir} || { echo 'Error!'; continue; }
         #if [ "ssh root@${ip} -f filename"
+        #初始化测试结果（初值设为1）
+        opt_value=1
+        python -c 'import set_test_result; set_test_result.setResult("'$TestType'","'$Platform'","'$TestName'","'$i'","'$opt_value'")'
         sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "[ -d ~/${ServerTestDir}/${TestName}/${host}-* ]" || { echo 'Error!'; continue; }
         echo [$host] update state OK.
         opt_value=0
