@@ -385,6 +385,7 @@ table       { font-size: 100%; }
     <td>详细</td>
 </tr>
 %(test_list)s
+<script type="text/javascript"> window.onload = function(){ showCase(4); } </script> 
 <tr id='total_row' class="text-center info">
     <td>总计</td>
     <td>%(count)s</td>
@@ -395,7 +396,6 @@ table       { font-size: 100%; }
 </tr>
 </table>
 """ # variables: (test_list, count, Pass, fail, error ,passrate)
- 
     REPORT_CLASS_TMPL = r"""
 <tr class='%(style)s'>
     <td>%(desc)s</td>
