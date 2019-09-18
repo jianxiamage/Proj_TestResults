@@ -97,10 +97,16 @@ check_result()
         sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "ls ~/${ServerTestDir}/${TestName}/ |grep ${host}-"
 
         count=`sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "ls ~/${ServerTestDir}/${TestName}/ |grep ${host}- |wc -l"`
+        if [ $count -eq 0 ];
+        then
+          echo "There is no result dirs for the Test Case:$TestName.Maybe it is running,Please wait..." 
+          continue
+        fi
+
         echo "The count of result dirs on the remote server for the Test Case:$TestName is:$count"
         if [ $count -ne 1 ];
         then
-          echo "Error!There are more than 1 result dirs for the Test Case:$TestName."       
+          echo "Error!There are more than 1 result dirs for the Test Case:$TestName." 
           continue
         fi
         sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "[ -d ~/${ServerTestDir}/${TestName}/${host}-* ]" || { echo 'Error!'; continue; }
