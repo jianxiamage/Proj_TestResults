@@ -89,6 +89,20 @@ check_result()
         #初始化测试结果（初值设为1）
         opt_value=1
         python -c 'import set_test_result; set_test_result.setResult("'$TestType'","'$Platform'","'$TestName'","'$i'","'$opt_value'")'
+
+        #首先判断远程服务器上本测试用例的结果目录是否只存在一个，否则出错（当前只能存在一个最新的结果）
+        #尝试下列命令，但出错
+        #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "[ $(ls ${homeDir}/${ServerTestDir}/${TestName}/ |grep ${host} |wc -l) -eq 1 ]" || { echo 'Error!'; continue; }
+        echo "The result directories:"
+        sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "ls ~/${ServerTestDir}/${TestName}/ |grep ${host}-"
+
+        count=`sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "ls ~/${ServerTestDir}/${TestName}/ |grep ${host}- |wc -l"`
+        echo "The count of result dirs on the remote server for the Test Case:$TestName is:$count"
+        if [ $count -ne 1 ];
+        then
+          echo "Error!There are more than 1 result dirs for the Test Case:$TestName."       
+          continue
+        fi
         sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerIP  "[ -d ~/${ServerTestDir}/${TestName}/${host}-* ]" || { echo 'Error!'; continue; }
         echo [$host] update state OK.
         opt_value=0

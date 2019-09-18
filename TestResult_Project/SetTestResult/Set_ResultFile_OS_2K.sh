@@ -23,7 +23,7 @@ sh set_result_tag.sh $TestType $Platform "iozone"
 sh set_result_tag.sh $TestType $Platform "disk_unzip_copy"
 sh set_result_tag.sh $TestType $Platform "netperf"
 #sh set_result_tag.sh $TestType $Platform "BasicSystemInfo"
-#2K机器暂不支持结巴嫩系统信息测试项
+#2K机器暂不支持基本系统信息测试项
 
 echo "***************************************************"
 
