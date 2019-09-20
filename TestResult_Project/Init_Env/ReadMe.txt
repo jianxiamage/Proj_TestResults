@@ -26,13 +26,6 @@
   ├── Results_Excel     //最终性能跑分结果Excel文件
   └── TestResults.ini   //以ini文件格式存放的测试结果，默认为1,测试成功时设置为0
 
-  用户重点关注的是两个方面：
-  (1)测试结果(测试报告)
-     打开report_simple.html进行查看
-     将来如果测试用例较多时，可以打开report.html查看
-
-  (2)性能跑分情况
-     打开Results_Excel目录下的Excel文件进行查看
 
 2.其他文件简介
   根目录：
