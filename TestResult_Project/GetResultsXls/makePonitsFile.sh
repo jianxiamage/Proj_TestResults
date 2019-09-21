@@ -345,11 +345,20 @@ case $TestCase in
         #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
         echo $testcase_file
         testcase_absfile=$TestCase_absdir/$testcase_file
-        echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+        echo "测试用例:$TestCase 的测试结果文件为"
+        echo "[$testcase_absfile]"
         echo 测试用例:$TestCase 的测试结果文件内容为:
         grep -A 16 "Run is compliant" $TestCase_absdir/SPECjvm2008*.txt | tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
-        echo --------------------------------------------------------------------------------
         \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destPath -f || echo copy failed!
+        echo --------------------------------------------------------------------------------
+        file_name="${TestCase_absdir}/Points_${TestCase}_${Node_num}.txt"
+        if [ $(stat -c %s $file_name) -eq 0 ]; then 
+          #printf "'$file_name' is empty.\n";
+          echo "Warnnig,get the [SpecJvm2008] result file failed,it has no key words of 'Run is compliant'"
+        else 
+          #printf "$file_name is not empty.\n"; 
+          echo "OK,get the [SpecJvm2008] result file success."
+        fi
 
     else
         echo "当前测试:[$TestType] [$Platform] [${TestCase}],Node:[$Node_num]测试结果文件未生成,可能测试尚在进行中或失败,请继续等待..."
