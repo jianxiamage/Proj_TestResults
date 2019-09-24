@@ -422,7 +422,7 @@ class runltp(unittest.TestCase):
 
 #==============================================================
 #TestCase: scp-BigFile(其实是scp大文件夹,不是单个大文件)
-class scp_BigDir(unittest.TestCase):
+class scp_BigFile(unittest.TestCase):
 
     case_name='scp-BigFile'
 
@@ -433,13 +433,13 @@ class scp_BigDir(unittest.TestCase):
         pass
 
     # 测试函数
-    def test_scp_BigDir_Node1(self):
+    def test_scp_BigFile_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_scp_BigDir_Node2(self):
+    def test_scp_BigFile_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_scp_BigDir_Node3(self):
+    def test_scp_BigFile_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 

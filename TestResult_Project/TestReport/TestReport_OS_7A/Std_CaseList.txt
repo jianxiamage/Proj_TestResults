@@ -17,7 +17,7 @@ spec2000_ncore
 spec2006_1core
 spec2006_ncore
 runltp
-scp_BigDir
+scp_BigFile
 ltpstress
 IOstress
 gcc
