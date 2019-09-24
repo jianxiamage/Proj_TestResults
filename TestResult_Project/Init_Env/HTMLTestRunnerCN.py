@@ -1,4 +1,8 @@
 #coding=utf-8
+
+import os
+import re
+
 """
 A TestRunner for use with the Python unit testing framework. It
 generates a HTML report to show the result at a glance.
@@ -104,6 +108,54 @@ try:
 except NameError:
     pass
  
+
+import ConfigParser
+
+#防止自动将ini文件中的键名转换成小写
+class myconf(ConfigParser.ConfigParser):
+    def __init__(self,defaults=None):
+        ConfigParser.ConfigParser.__init__(self,defaults=None)
+    def optionxform(self, optionstr):
+        return optionstr
+
+TestcasePath='/data/'
+def getGroupNumByName(TestType,keyName):
+
+    GroupIniFile='TestcaseGroup_' + TestType +'.ini'
+    TestcaseGroupPath = TestcasePath + str(TestType) +  '/' + GroupIniFile
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
+    config.readfp(open(TestcaseGroupPath))
+    sectionName='GroupNum'
+    #判断:如果存在找不到的情况，需要将"_"修改为"-"
+    if not config.has_option(sectionName,keyName):
+       tmpKeyName = keyName.replace("_","-")
+       keyName = tmpKeyName
+    Num=config.get(sectionName,keyName)
+    return Num
+
+ResultPath='/data/'
+IPListIniFile='ip_list.ini'
+IPListIniFileName='ip_list'
+
+def get_IP(TestType,Platform,TestCase,NodeNum):
+
+    ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFile
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
+    #print os.getcwd() #获取当前工作目录路径
+
+    config.readfp(open(ip_list_path))
+    Group_num=getGroupNumByName(TestType,TestCase)
+    tmp='获取的小组编号:' + Group_num
+    #print tmp
+    sectionName='Group'+ str(Group_num)
+    keyName='ip_'+ str(NodeNum)
+    resultStr=config.get(sectionName,keyName)
+    retCode=resultStr
+    return retCode
+
+
 # ------------------------------------------------------------------------
 # The redirectors below are used to capture output during testing. Output
 # sent to sys.stdout and sys.stderr are automatically captured. However
@@ -436,7 +488,9 @@ table       { font-size: 100%; }
 """ # variables: (tid, Class, style, desc, status)
  
     REPORT_TEST_OUTPUT_TMPL = r"""
-%(id)s: %(output)s
+<!--  原来错误输出信息mage -->
+<p align="left">IP: %(ip)s<br></p>
+<p align="left">output: %(output)s</p>
 """ # variables: (id, output)
  
     # ------------------------------------------------------------------------
@@ -678,6 +732,15 @@ class HTMLTestRunner(Template_mixin):
         for cid, (cls, cls_results) in enumerate(sortedResult):
             # subtotal for a class
             np = nf = ne = 0
+            print('cid 是：Begin') #编号
+            print(cid) #
+            print('cid 是：End') #
+            print('cls 是：Begin') #函数名称
+            print(cls)
+            print('cls 是：End')
+            print('cls_results Begin:mage')
+            print(cls_results)
+            print('cls_results End:mage')
             for n,t,o,e in cls_results:
                 if n == 0: np += 1
                 elif n == 1: nf += 1
@@ -715,9 +778,45 @@ class HTMLTestRunner(Template_mixin):
         )
         return report
  
- 
+    def get_case_name(self,input_str):
+    
+        '''
+        #获取测试返回的列表信息,截取其中的测试用例名称
+        #示例:
+        test_SpecJvm2008_Node3 (Test.SpecJvm2008)
+        获取SpecJvm2008
+        '''
+        init_str = str(input_str)
+    
+        find_str = re.findall(r'[(](.*?)[)]', str(init_str)) #取出括号部分内容
+        #print(find_str)
+        first_str = ''.join(find_str)
+        sec_list = first_str.split('.')
+        return sec_list[1]
+    
+    def get_node_num(self,input_str):
+    
+        '''
+        #获取测试返回的列表信息,截取其中的测试用例名称
+        #示例:
+        test_SpecJvm2008_Node3 (Test.SpecJvm2008)
+        获取->Node3,最终获取->3
+        '''
+        init_str = str(input_str)
+    
+        str_info = init_str.split(' ')
+        first_str = str_info[0]
+        sec_list = first_str.split('_')    
+        sec_str = sec_list[-1]
+        third_str = sec_str.lstrip('Node')
+        return third_str
+
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
+        print('===output info by mage Begin================') #mage add
+        print('输出:t')
+        print(t)
+        print('===output info by mage End================') #mage add
         has_output = bool(o or e)
         # ID修改点为下划线,支持Bootstrap折叠展开特效 - Findyou v0.8.2.1
         #增加error分类 - Findyou v0.8.2.3
@@ -747,10 +846,33 @@ class HTMLTestRunner(Template_mixin):
                 ue = e.decode('utf-8')
         else:
             ue = e
- 
+        print('------第一个log开始----------------------')
+        print(uo)
+        print('------第一个log结束----------------------')
+        print('------第二个log开始----------------------')
+        print(ue)
+        print('------第二个log结束----------------------')
+        #curAbsPath = os.path.split(os.path.realpath(__file__))[0]
+        #curAbsPath = os.getcwd()
+        #ip_info = get_IP(self.test_type, self.test_plat, 'ping', 1 )
+        #print(ip_info)
+        print('------获取测试用例名称----------------------')
+        Case_Name = self.get_case_name(t)
+        print(Case_Name)
+        print('------获取节点序号----------------------')
+        Node_Num = self.get_node_num(t)
+        print(Node_Num)
+        
+        ip_info = get_IP(self.test_type, self.test_plat, str(Case_Name), str(Node_Num) )
+        print(ip_info)
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
-            id = tid,
-            output = saxutils.escape(uo+ue),
+            #id = tid,
+            #output = saxutils.escape(uo+ue),
+            ip = str(ip_info),
+            output = str(t),
+            os_name = str('CentOS'),
+            os_ver = str('20190916-RC3'),
         )
  
         row = tmpl % dict(
