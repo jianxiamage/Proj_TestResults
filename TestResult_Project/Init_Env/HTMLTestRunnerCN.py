@@ -468,7 +468,7 @@ table       { font-size: 100%; }
     <button id='btn_%(tid)s' type="button"  class="btn-xs collapsed" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
     <div id='div_%(tid)s' class="collapse">  -->
     <!-- 默认展开output信息 -Findyou -->
-    <button id='btn_%(tid)s' type="button"  class="btn-xs" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
+    <button id='btn_%(tid)s' type="button" class="btn-xs" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
     <div id='div_%(tid)s' class="collapse in">
     <pre>
     <!--  错误输出信息mage -->
@@ -483,14 +483,18 @@ table       { font-size: 100%; }
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
-    <td colspan='5' align='center'><button id='btn_%(tid)s' type="button"  class="btn-xs" disabled="disabled" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button></td>
+    <td colspan='5' align='left'><button id='btn_%(tid)s' type="button"  class="btn-xs" disabled="disabled" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button></td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)
- 
+
     REPORT_TEST_OUTPUT_TMPL = r"""
 <!--  原来错误输出信息mage -->
-<p align="left">IP: %(ip)s<br></p>
-<p align="left">output: %(output)s</p>
+<!--  output mage Mark-->
+<p align="left">
+IP: %(ip)s
+OS_Name: %(os_name)s
+OS_Version: %(os_ver)s
+</p>
 """ # variables: (id, output)
  
     # ------------------------------------------------------------------------
@@ -811,6 +815,39 @@ class HTMLTestRunner(Template_mixin):
         third_str = sec_str.lstrip('Node')
         return third_str
 
+    def get_os_name(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = TestCase.replace("_","-") 
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+    
+        config.readfp(open(ip_file))
+        sectionName='Main'
+        keyName='Product'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
+    def get_os_version(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = TestCase.replace("_","-")
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        config.readfp(open(ip_file))
+        sectionName='Main'
+        keyName='UUID'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
+
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
         print('===output info by mage Begin================') #mage add
@@ -866,13 +903,19 @@ class HTMLTestRunner(Template_mixin):
         ip_info = get_IP(self.test_type, self.test_plat, str(Case_Name), str(Node_Num) )
         print(ip_info)
 
+        os_name_val = self.get_os_name(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(os_name_val)
+
+        os_version_val = self.get_os_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(os_version_val)
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             #id = tid,
             #output = saxutils.escape(uo+ue),
             ip = str(ip_info),
             output = str(t),
-            os_name = str('CentOS'),
-            os_ver = str('20190916-RC3'),
+            os_name = str(os_name_val),
+            os_ver = str(os_version_val),
         )
  
         row = tmpl % dict(
