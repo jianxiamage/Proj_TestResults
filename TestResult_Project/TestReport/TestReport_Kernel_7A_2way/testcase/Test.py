@@ -13,10 +13,10 @@ class ping(unittest.TestCase):
     case_name='ping'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_ping_Node1(self):
@@ -36,10 +36,10 @@ class wget(unittest.TestCase):
     case_name='wget'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_wget_Node1(self):
@@ -60,10 +60,10 @@ class iozone(unittest.TestCase):
     case_name='iozone'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_iozone_Node1(self):
@@ -83,10 +83,10 @@ class disk_unzip_copy(unittest.TestCase):
     case_name='disk_unzip_copy'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_disk_unzip_copy_Node1(self):
@@ -106,10 +106,10 @@ class netperf(unittest.TestCase):
     case_name='netperf'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_netperf_Node1(self):
@@ -129,10 +129,10 @@ class BasicSystemInfo(unittest.TestCase):
     case_name='BasicSystemInfo'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_BasicSystemInfo_Node1(self):
@@ -152,10 +152,10 @@ class netperf_direct(unittest.TestCase):
     case_name='netperf-direct'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_netperf_direct_Node1(self):
@@ -174,10 +174,10 @@ class scp_dir(unittest.TestCase):
     case_name='scp-dir'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_scp_dir_Node1(self):
@@ -196,10 +196,10 @@ class lmbench(unittest.TestCase):
     case_name='lmbench'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_lmbench_Node1(self):
@@ -219,10 +219,10 @@ class stream(unittest.TestCase):
     case_name='stream'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_stream_Node1(self):
@@ -242,10 +242,10 @@ class UnixBench(unittest.TestCase):
     case_name='UnixBench'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_UnixBench_Node1(self):
@@ -266,10 +266,10 @@ class stressapp(unittest.TestCase):
     case_name='stressapp'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_stressapp_Node1(self):
@@ -289,10 +289,10 @@ class scp_2(unittest.TestCase):
     case_name='scp-2'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_scp_2_Node1(self):
@@ -312,10 +312,10 @@ class scp_1(unittest.TestCase):
     case_name='scp-1'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_scp_1_Node1(self):
@@ -335,10 +335,10 @@ class spec2000_1core(unittest.TestCase):
     case_name='spec2000-1core'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_spec2000_1core_Node1(self):
@@ -358,10 +358,10 @@ class spec2000_ncore(unittest.TestCase):
     case_name='spec2000-ncore'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_spec2000_ncore_Node1(self):
@@ -381,10 +381,10 @@ class spec2006_1core(unittest.TestCase):
     case_name='spec2006-1core'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_spec2006_1core_Node1(self):
@@ -404,10 +404,10 @@ class spec2006_ncore(unittest.TestCase):
     case_name='spec2006-ncore'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_spec2006_ncore_Node1(self):
@@ -428,10 +428,10 @@ class runltp(unittest.TestCase):
     case_name='runltp'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_runltp_Node1(self):
@@ -446,24 +446,24 @@ class runltp(unittest.TestCase):
 
 #==============================================================
 #TestCase: scp-BigFile(其实是scp大文件夹,不是单个大文件)
-class scp_BigDir(unittest.TestCase):
+class scp_BigFile(unittest.TestCase):
 
     case_name='scp-BigFile'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
-    def test_scp_BigDir_Node1(self):
+    def test_scp_BigFile_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_scp_BigDir_Node2(self):
+    def test_scp_BigFile_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_scp_BigDir_Node3(self):
+    def test_scp_BigFile_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 
@@ -474,10 +474,10 @@ class ltpstress(unittest.TestCase):
     case_name='ltpstress'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_ltpstress_Node1(self):
@@ -497,10 +497,10 @@ class IOstress(unittest.TestCase):
     case_name='IOstress'
 
     def setUp(self):
-        pass
+        print 'setUp...'
 
     def tearDown(self):
-        pass
+        print 'tearDown...'
 
     # 测试函数
     def test_IOstress_Node1(self):
