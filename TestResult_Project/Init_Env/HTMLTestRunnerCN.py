@@ -470,14 +470,12 @@ table       { font-size: 100%; }
     <button id='btn_%(tid)s' type="button"  class="btn-xs" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
     <div id='div_%(tid)s' align="left" class="collapse in">
     <pre>
-    <!--  错误输出信息mage -->
     %(script)s
     </pre>
     </div>
     </td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)
- 
     # 无output内容样式改为button，按钮效果为不可点击  -Findyou v0.8.2.3
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
@@ -485,7 +483,6 @@ table       { font-size: 100%; }
     <td colspan='5' align='center'><button id='btn_%(tid)s' type="button"  class="btn-xs" disabled="disabled" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button></td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)
- 
     REPORT_TEST_OUTPUT_TMPL = r"""
 <!--  output mage Mark-->
 测试节点基本信息:

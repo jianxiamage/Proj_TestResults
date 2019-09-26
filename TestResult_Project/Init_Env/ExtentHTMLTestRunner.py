@@ -1,6 +1,7 @@
 #coding=utf-8
 import sys
 import os
+import re
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -78,6 +79,52 @@ import time
 import unittest
 import re
 from xml.sax import saxutils
+
+import ConfigParser
+
+#防止自动将ini文件中的键名转换成小写
+class myconf(ConfigParser.ConfigParser):
+    def __init__(self,defaults=None):
+        ConfigParser.ConfigParser.__init__(self,defaults=None)
+    def optionxform(self, optionstr):
+        return optionstr
+
+TestcasePath='/data/'
+def getGroupNumByName(TestType,keyName):
+
+    GroupIniFile='TestcaseGroup_' + TestType +'.ini'
+    TestcaseGroupPath = TestcasePath + str(TestType) +  '/' + GroupIniFile
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
+    config.readfp(open(TestcaseGroupPath))
+    sectionName='GroupNum'
+    #判断:如果存在找不到的情况，需要将"_"修改为"-"
+    if not config.has_option(sectionName,keyName):
+       tmpKeyName = keyName.replace("_","-")
+       keyName = tmpKeyName
+    Num=config.get(sectionName,keyName)
+    return Num
+
+ResultPath='/data/'
+IPListIniFile='ip_list.ini'
+IPListIniFileName='ip_list'
+
+def get_IP(TestType,Platform,TestCase,NodeNum):
+
+    ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFile
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
+    #print os.getcwd() #获取当前工作目录路径
+
+    config.readfp(open(ip_list_path))
+    Group_num=getGroupNumByName(TestType,TestCase)
+    tmp='获取的小组编号:' + Group_num
+    #print tmp
+    sectionName='Group'+ str(Group_num)
+    keyName='ip_'+ str(NodeNum)
+    resultStr=config.get(sectionName,keyName)
+    retCode=resultStr
+    return retCode
 
 
 # ------------------------------------------------------------------------
@@ -466,8 +513,8 @@ class Template_mixin(object):
                     <table class='bordered table-results'>
                         <thead>
                         <tr>
-                            <th>Status</th>
-                            <th>Identity</th>
+                            <!-- <th>Status</th> mage -->
+                            <!-- <th>Identity</th> mage -->
                             <th>Details</th>
                         </tr>
                         </thead>
@@ -480,12 +527,17 @@ class Template_mixin(object):
             </li>
     """
     TBODY = """
+        <!--  修改点:去掉除Detail的所有列 mage -->
         <tr class='info' status='info'>
+        <!-- 
             <td class='status info' title='info' alt='info'><i
                     class='material-icons'>low_priority</i></td>
             <td class='timestamp'>stdo</td>
-            <td style="white-space:pre-wrap;word-break:break-all">%(script)s</td>
+        -->
+            <!--  修改点: nowwrap 是去掉空白符，直到遇到br换行符 mage -->
+            <td style="white-space:nowwrap;word-break:break-all">%(script)s</td>            
         </tr>
+        <!-- 
         <tr class='info' status='info'>
             <td class='status info' title='info' alt='info'><i
                     class='material-icons'>low_priority</i></td>
@@ -493,6 +545,7 @@ class Template_mixin(object):
             <td class='step-details'>%(images)s
             </td>
         </tr>
+        -->
     """
     CATEGORY_VIEW = """
     <div id='category-view' class='view hide'>
@@ -887,9 +940,13 @@ class Template_mixin(object):
 
 
     REPORT_TEST_OUTPUT_TMPL = r"""
-%(id)s: %(output)s
+<!--  output mage Mark-->
+Basic Info:<br>
+IP: [%(ip)s]<br>
+OS_Name: [%(os_name)s],OS_Version: [%(os_ver)s] <br>
 """ # variables: (id, output)
     REPORT_TEST_OUTPUT_IMAGE = r""" 
+测试screenshot
 %(screenshot)s
 """
     REPORT_TEST_OUTPUT_CASEID = r"""
@@ -1275,6 +1332,72 @@ class HTMLTestRunner(Template_mixin):
         )
         return report
 
+    def get_case_name(self,input_str):
+
+        '''
+        #获取测试返回的列表信息,截取其中的测试用例名称
+        #示例:
+        test_SpecJvm2008_Node3 (Test.SpecJvm2008)
+        获取SpecJvm2008
+        '''
+        init_str = str(input_str)
+
+        find_str = re.findall(r'[(](.*?)[)]', str(init_str)) #取出括号部分内容
+        #print(find_str)
+        first_str = ''.join(find_str)
+        sec_list = first_str.split('.')
+        return sec_list[1]
+
+    def get_node_num(self,input_str):
+
+        '''
+        #获取测试返回的列表信息,截取其中的测试用例名称
+        #示例:
+        test_SpecJvm2008_Node3 (Test.SpecJvm2008)
+        获取->Node3,最终获取->3
+        '''
+        init_str = str(input_str)
+
+        str_info = init_str.split(' ')
+        first_str = str_info[0]
+        sec_list = first_str.split('_')
+        sec_str = sec_list[-1]
+        third_str = sec_str.lstrip('Node')
+        return third_str
+
+    def get_os_name(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = TestCase.replace("_","-")
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        config.readfp(open(ip_file))
+        sectionName='Main'
+        keyName='Product'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
+    def get_os_version(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = TestCase.replace("_","-")
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        config.readfp(open(ip_file))
+        sectionName='Main'
+        keyName='UUID'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
+
 
     def _generate_report_test(self, rows, cid, tid, n, t, o, e, testCollectionUlList):
         # e.g. 'pt1.1', 'ft1.1', etc
@@ -1316,10 +1439,31 @@ class HTMLTestRunner(Template_mixin):
             images.append(image)
         images = ''.join(images)
 
+        print('------获取测试用例名称----------------------')
+        Case_Name = self.get_case_name(t)
+        print(Case_Name)
+        print('------获取节点序号----------------------')
+        Node_Num = self.get_node_num(t)
+        print(Node_Num)
+
+        ip_info = get_IP(self.test_type, self.test_plat, str(Case_Name), str(Node_Num) )
+        print(ip_info)
+
+        os_name_val = self.get_os_name(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(os_name_val)
+
+        os_version_val = self.get_os_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(os_version_val)
+
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
-            id=cid,
-            # output=saxutils.escape(uo+ue),
-            output=((uo+ue).replace("\n", "<br />")),
+            #id=cid,
+            ## output=saxutils.escape(uo+ue),
+            #output=((uo+ue).replace("\n", "<br />")),
+            ip = str(ip_info),
+            output = str(t),
+            os_name = str(os_name_val),
+            os_ver = str(os_version_val),
         )
 
         tBody = self.TBODY % dict(
