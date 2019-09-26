@@ -20,8 +20,3 @@ runltp
 scp_BigDir
 ltpstress
 IOstress
-gcc
-glibc
-binutils
-openSSL
-SpecJvm2008
