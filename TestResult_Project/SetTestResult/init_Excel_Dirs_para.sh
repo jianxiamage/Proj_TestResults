@@ -20,7 +20,7 @@ destPath=''
 
 #TestType=("OS" "Kernel" "KVM")
 
-Platform=("7A" "7A_Integrated" "7A_2way" "780" "2K")
+Platform=("7A" "7A_Integrated" "7A_2way" "780" "2K" "3A_4000")
 
 echo ----------------------------------------------------
 

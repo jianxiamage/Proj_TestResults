@@ -39,6 +39,7 @@
   780                   //780平台
   7A                    //7A独显平台
   7A_2way               //7A双路平台
+  3A_4000               //3A 4000平台
   7A_Integrated         //7A集显平台
   TestcaseGroup_OS.ini  //各测试用例的分组情况
 
