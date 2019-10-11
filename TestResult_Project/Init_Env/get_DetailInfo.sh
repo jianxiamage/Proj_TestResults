@@ -25,6 +25,7 @@ echo "--------------------------------------------------------------------------
 detailDir="Detail"
 OSInfoDir="OSInfo"
 destPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${OSInfoDir}/$TestCase/"
+rm -rf $destPath
 mkdir $destPath -p
 
 onLineFlag=0
@@ -53,6 +54,7 @@ function getOSInfo()
      if [ $? -ne 0 ] ;then
          echo "[${IP_testcase}] can not be connected!"
          onLineFlag=1
+         \cp StdOSInfo.ini  "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini" -f
          continue
      fi
      #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" || { echo 'Error!'; continue; }
@@ -68,7 +70,7 @@ function getOSInfo()
    if [ $count_ip_result -ne $count_items ];
    then
      echo "Some nodes can not be connected.Please check it!"
-     exit 1
+     #exit 1 #此处不能退出，否则不能拷贝ini文件到web服务器
    fi
 }
 
