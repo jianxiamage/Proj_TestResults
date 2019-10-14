@@ -6,8 +6,8 @@
 #fi
 
 #----------------------------------------------------------------------------------------
-TestType="OS"
-Platform="2K"
+TestType="Kernel"
+Platform="780"
 #----------------------------------------------------------------------------------------
 
 echo "开始获取测试节点系统信息文件:[$TestType],[$Platform]"
@@ -118,17 +118,5 @@ echo "***************************************************"
 echo "Group [10]:get the os info of the nodes"
 
 sh get_DetailInfo.sh $TestType $Platform "IOstress"
-
-echo "***************************************************"
-
-#第十五组测试
-echo "***************************************************"
-echo "Group [15]:get the os info of the nodes"
-
-sh get_DetailInfo.sh $TestType $Platform "gcc"
-sh get_DetailInfo.sh $TestType $Platform "glibc"
-sh get_DetailInfo.sh $TestType $Platform "binutils"
-sh get_DetailInfo.sh $TestType $Platform "openSSL"
-sh get_DetailInfo.sh $TestType $Platform "SpecJvm2008"
 
 echo "***************************************************"

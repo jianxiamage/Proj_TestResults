@@ -8,8 +8,10 @@ fi
 
 #-----------------------------------------------------
 TestType=$1
-srcResultFile="TestResults.ini"
+srcResultFile="TestResults_${TestType}.ini"
+descIniFile="TestResults.ini"
 #-----------------------------------------------------
+
 
 ResultPath='/data'
 ResultIniFile=$srcResultFile
@@ -25,7 +27,7 @@ mkdir $ResultPath/$TestType -p
 
 Platform=("7A" "7A_Integrated" "7A_2way" "780" "2K" "3A_4000")
 
-echo ----------------------------------------------------
+echo "----------------------------------------------------"
 
 for item_plat in ${Platform[@]}; do
 
@@ -33,13 +35,11 @@ for item_plat in ${Platform[@]}; do
   
   destPath="${ResultPath}/${TestType}/${item_plat}"
   mkdir $destPath -p
-  destResultFile="${ResultPath}/${TestType}/${item_plat}/${srcResultFile}"
+  destResultFile="${ResultPath}/${TestType}/${item_plat}/${descIniFile}"
   echo destResultFile:$destResultFile
  
   \cp $srcResultFile $destResultFile -f
 
 done
 
-
-echo ----------------------------------------------------
-
+echo "----------------------------------------------------"

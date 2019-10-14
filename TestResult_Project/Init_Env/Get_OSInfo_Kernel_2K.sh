@@ -6,7 +6,7 @@
 #fi
 
 #----------------------------------------------------------------------------------------
-TestType="OS"
+TestType="Kernel"
 Platform="2K"
 #----------------------------------------------------------------------------------------
 
@@ -118,17 +118,5 @@ echo "***************************************************"
 echo "Group [10]:get the os info of the nodes"
 
 sh get_DetailInfo.sh $TestType $Platform "IOstress"
-
-echo "***************************************************"
-
-#第十五组测试
-echo "***************************************************"
-echo "Group [15]:get the os info of the nodes"
-
-sh get_DetailInfo.sh $TestType $Platform "gcc"
-sh get_DetailInfo.sh $TestType $Platform "glibc"
-sh get_DetailInfo.sh $TestType $Platform "binutils"
-sh get_DetailInfo.sh $TestType $Platform "openSSL"
-sh get_DetailInfo.sh $TestType $Platform "SpecJvm2008"
 
 echo "***************************************************"

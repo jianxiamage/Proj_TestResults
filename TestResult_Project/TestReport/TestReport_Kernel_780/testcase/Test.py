@@ -123,10 +123,10 @@ class netperf(unittest.TestCase):
 
 
 #==============================================================
-#TestCase: BasicSystemInfo
-class BasicSystemInfo(unittest.TestCase):
+#TestCase: Compiler Test
+class Compiler(unittest.TestCase):
 
-    case_name='BasicSystemInfo'
+    case_name='Compiler'
 
     def setUp(self):
         print 'setUp...'
@@ -135,15 +135,389 @@ class BasicSystemInfo(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_BasicSystemInfo_Node1(self):
+    def test_Compiler_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_BasicSystemInfo_Node2(self):
+    def test_Compiler_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_BasicSystemInfo_Node3(self):
+    def test_Compiler_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
+#==============================================================
+#TestCase: top Test
+class top(unittest.TestCase):
+
+    case_name='top'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_top_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_top_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_top_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+
+#==============================================================
+#TestCase: ps Test
+class ps(unittest.TestCase):
+
+    case_name='ps'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_ps_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_ps_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_ps_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: iostat Test
+class iostat(unittest.TestCase):
+
+    case_name='iostat'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_iostat_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_iostat_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_iostat_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: interrupts Test
+class interrupts(unittest.TestCase):
+
+    case_name='interrupts'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_interrupts_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_interrupts_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_interrupts_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: getrandom Test
+class getrandom(unittest.TestCase):
+
+    case_name='getrandom'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_getrandom_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_getrandom_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_getrandom_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: ring-test Test
+class ring_test(unittest.TestCase):
+
+    case_name='ring-test'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_ring_test_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_ring_test_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_ring_test_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: unalign Test
+class unalign(unittest.TestCase):
+
+    case_name='unalign'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_unalign_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_unalign_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_unalign_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: kernel_madd_support_check Test
+class kernel_madd_support_check(unittest.TestCase):
+
+    case_name='kernel_madd_support_check'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_kernel_madd_support_check_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_kernel_madd_support_check_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_kernel_madd_support_check_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: audit-write Test
+class audit_write(unittest.TestCase):
+
+    case_name='audit-write'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_audit_write_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_audit_write_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_audit_write_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: auditctl Test
+class auditctl(unittest.TestCase):
+
+    case_name='auditctl'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_auditctl_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_auditctl_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_auditctl_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: cpu_occupy Test
+class cpu_occupy(unittest.TestCase):
+
+    case_name='cpu_occupy'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_cpu_occupy_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_cpu_occupy_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_cpu_occupy_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: kernel_interrupts_count Test
+class kernel_interrupts_count(unittest.TestCase):
+
+    case_name='kernel_interrupts_count'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_kernel_interrupts_count_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_kernel_interrupts_count_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_kernel_interrupts_count_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: kernel_ll_sc Test
+class kernel_ll_sc(unittest.TestCase):
+
+    case_name='kernel_ll_sc'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_kernel_ll_sc_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_kernel_ll_sc_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_kernel_ll_sc_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: unaligned_instructions Test
+class unaligned_instructions(unittest.TestCase):
+
+    case_name='unaligned_instructions'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_unaligned_instructions_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_unaligned_instructions_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_unaligned_instructions_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: fpuemustats Test
+class fpuemustats(unittest.TestCase):
+
+    case_name='fpuemustats'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_fpuemustats_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_fpuemustats_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_fpuemustats_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: compiler_ll_sc Test
+class compiler_ll_sc(unittest.TestCase):
+
+    case_name='compiler_ll_sc'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_compiler_ll_sc_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_compiler_ll_sc_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_compiler_ll_sc_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: filesystem_ll_sc Test
+class filesystem_ll_sc(unittest.TestCase):
+
+    case_name='filesystem_ll_sc'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_filesystem_ll_sc_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_filesystem_ll_sc_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_filesystem_ll_sc_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
 #TestCase: netperf_direct
@@ -511,6 +885,3 @@ class IOstress(unittest.TestCase):
 
     def test_IOstress_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
-
-
-#==============================================================

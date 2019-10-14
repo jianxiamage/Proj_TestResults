@@ -2,7 +2,6 @@
 
 #/data/测试类型/测试平台/TestResults.ini
 
-
 #rm -rf /data
 #测试结果配置文件存储
 #/data/测试类型/测试平台/TestResults_测试平台.ini

@@ -6,8 +6,8 @@
 #fi
 
 #----------------------------------------------------------------------------------------
-TestType="OS"
-Platform="2K"
+TestType="Kernel"
+Platform="3A_4000"
 #----------------------------------------------------------------------------------------
 
 echo "开始获取测试节点系统信息文件:[$TestType],[$Platform]"
@@ -15,6 +15,7 @@ echo "开始获取测试节点系统信息文件:[$TestType],[$Platform]"
 #第一组测试
 echo "***************************************************"
 echo "Group [1]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "Compiler"
 sh get_DetailInfo.sh $TestType $Platform "top"
@@ -46,6 +47,7 @@ echo "***************************************************"
 #第二组测试
 echo "***************************************************"
 echo "Group [2]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "netperf-direct"
 sh get_DetailInfo.sh $TestType $Platform "scp-dir"
@@ -59,6 +61,7 @@ echo "***************************************************"
 #第三组测试
 echo "***************************************************"
 echo "Group [3]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "scp-2"
 sh get_DetailInfo.sh $TestType $Platform "scp-1"
@@ -70,6 +73,7 @@ echo "***************************************************"
 #第四组测试
 echo "***************************************************"
 echo "Group [4]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "spec2006-1core"
 sh get_DetailInfo.sh $TestType $Platform "spec2006-ncore"
@@ -84,6 +88,7 @@ echo "***************************************************"
 #第六组测试
 echo "***************************************************"
 echo "Group [6]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "runltp"
 
@@ -97,6 +102,7 @@ echo "***************************************************"
 #第八组测试
 echo "***************************************************"
 echo "Group [8]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "scp-BigFile"
 
@@ -105,6 +111,7 @@ echo "***************************************************"
 #第九组测试
 echo "***************************************************"
 echo "Group [9]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "ltpstress"
 
@@ -116,19 +123,8 @@ echo "***************************************************"
 #第十组测试
 echo "***************************************************"
 echo "Group [10]:get the os info of the nodes"
+echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "IOstress"
-
-echo "***************************************************"
-
-#第十五组测试
-echo "***************************************************"
-echo "Group [15]:get the os info of the nodes"
-
-sh get_DetailInfo.sh $TestType $Platform "gcc"
-sh get_DetailInfo.sh $TestType $Platform "glibc"
-sh get_DetailInfo.sh $TestType $Platform "binutils"
-sh get_DetailInfo.sh $TestType $Platform "openSSL"
-sh get_DetailInfo.sh $TestType $Platform "SpecJvm2008"
 
 echo "***************************************************"

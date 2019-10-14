@@ -76,7 +76,7 @@ check_result()
 
     TestName="$1"
     echo "--------------------------------------------------------"
-    echo Begin to get the state of Test Case:[$TestName]
+    echo Begin to get the state of Test Case:[$TestName],TestType:[$TestType],Platform:[$Platform]
     echo "--------------------------------------------------------"
     i=0
     exec 3< $testcase_ip_path_tmp
