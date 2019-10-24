@@ -219,8 +219,10 @@ case $TestCase in
     then
         echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
         echo 测试用例:$TestCase 的测试结果文件内容为:
-        grep -A 16 "=====" $TestCase_absdir/CFP2000.001.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
-        grep -A 14 "=====" $TestCase_absdir/CINT2000.001.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
+        #CFP2000.001.asc
+        #CINT2000.001.asc
+        grep -A 16 "=====" $TestCase_absdir/CFP2000.*.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
+        grep -A 14 "=====" $TestCase_absdir/CINT2000.*.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
 
         echo --------------------------------------------------------------------------------
         \cp "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt" $destPath -f || echo copy failed!
@@ -251,8 +253,10 @@ case $TestCase in
         echo [$testcase_file]
         echo --------------------------------------------------------------------------------
         echo 测试用例:$TestCase 的测试结果文件内容为:
-        grep -A 16 "=====" $TestCase_absdir/CFP2000.002.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
-        grep -A 14 "=====" $TestCase_absdir/CINT2000.002.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
+        #CFP2000.002.asc
+        #CINT2000.002.asc
+        grep -A 16 "=====" $TestCase_absdir/CFP2000.*.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
+        grep -A 14 "=====" $TestCase_absdir/CINT2000.*.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
 
         \cp "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt" $destPath -f || echo copy failed!
         \cp "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt" $destPath -f || echo copy failed!
