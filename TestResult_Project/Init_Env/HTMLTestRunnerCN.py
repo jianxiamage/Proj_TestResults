@@ -785,7 +785,7 @@ class HTMLTestRunner(Template_mixin):
     def get_node_num(self,input_str):
 
         '''
-        #获取测试返回的列表信息,截取其中的测试用例名称
+        #获取测试返回的列表信息,截取其中的测试节点号码
         #示例:
         test_SpecJvm2008_Node3 (Test.SpecJvm2008)
         获取->Node3,最终获取->3
