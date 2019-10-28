@@ -58,7 +58,12 @@ function getOSInfo()
          continue
      fi
      #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" || { echo 'Error!'; continue; }
-     sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
+     #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
+     sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /home/os_info.txt" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
+     if [ $? -ne 0 ];then
+       echo "Not executed the init file."
+       \cp StdOSInfo.ini  "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini" -f
+     fi
      echo "${IP_testcase}" >> $IPCount_File
    }&
    done
