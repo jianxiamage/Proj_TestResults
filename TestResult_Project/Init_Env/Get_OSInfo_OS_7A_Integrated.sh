@@ -35,6 +35,23 @@ sh get_DetailInfo.sh $TestType $Platform "fpuemustats"
 sh get_DetailInfo.sh $TestType $Platform "compiler_ll_sc"
 sh get_DetailInfo.sh $TestType $Platform "filesystem_ll_sc"
 
+sh get_DetailInfo.sh $TestType $Platform "docker_search_pull_start"
+sh get_DetailInfo.sh $TestType $Platform "run_stop_rm"
+sh get_DetailInfo.sh $TestType $Platform "container_export_import"
+sh get_DetailInfo.sh $TestType $Platform "images_export_import"
+sh get_DetailInfo.sh $TestType $Platform "namespace-net"
+sh get_DetailInfo.sh $TestType $Platform "namespace-pid"
+sh get_DetailInfo.sh $TestType $Platform "docker_log"
+sh get_DetailInfo.sh $TestType $Platform "docker_rmi"
+
+sh get_DetailInfo.sh $TestType $Platform "rpm_list_check"
+sh get_DetailInfo.sh $TestType $Platform "rpm_installed_check"
+sh get_DetailInfo.sh $TestType $Platform "rpm_list_info_check"
+sh get_DetailInfo.sh $TestType $Platform "rpm_installed_info_check"
+
+sh get_DetailInfo.sh $TestType $Platform "test_lua"
+
+
 sh get_DetailInfo.sh $TestType $Platform "ping"
 sh get_DetailInfo.sh $TestType $Platform "wget"
 sh get_DetailInfo.sh $TestType $Platform "iozone"
