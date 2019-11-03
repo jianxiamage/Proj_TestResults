@@ -520,6 +520,292 @@ class filesystem_ll_sc(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
+#TestCase: docker_search_pull_start Test
+class docker_search_pull_start(unittest.TestCase):
+
+    case_name='docker_search_pull_start'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_docker_search_pull_start_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_docker_search_pull_start_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_docker_search_pull_start_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: run_stop_rm Test
+class run_stop_rm(unittest.TestCase):
+
+    case_name='run_stop_rm'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_run_stop_rm_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_run_stop_rm_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_run_stop_rm_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: container_export_import Test
+class container_export_import(unittest.TestCase):
+
+    case_name='container_export_import'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_container_export_import_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_container_export_import_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_container_export_import_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: images_export_import Test
+class images_export_import(unittest.TestCase):
+
+    case_name='images_export_import'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_images_export_import_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_images_export_import_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_images_export_import_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: namespace-net Test
+class namespace-net(unittest.TestCase):
+
+    case_name='namespace-net'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_namespace-net_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_namespace-net_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_namespace-net_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: namespace-pid Test
+class namespace-pid(unittest.TestCase):
+
+    case_name='namespace-pid'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_namespace-pid_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_namespace-pid_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_namespace-pid_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: docker_log Test
+class docker_log(unittest.TestCase):
+
+    case_name='docker_log'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_docker_log_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_docker_log_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_docker_log_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: docker_rmi Test
+class docker_rmi(unittest.TestCase):
+
+    case_name='docker_rmi'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_docker_rmi_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_docker_rmi_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_docker_rmi_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: rpm_list_check Test
+class rpm_list_check(unittest.TestCase):
+
+    case_name='rpm_list_check'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_rpm_list_check_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_rpm_list_check_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_rpm_list_check_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: rpm_installed_check Test
+class rpm_installed_check(unittest.TestCase):
+
+    case_name='rpm_installed_check'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_rpm_installed_check_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_rpm_installed_check_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_rpm_installed_check_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: rpm_list_info_check Test
+class rpm_list_info_check(unittest.TestCase):
+
+    case_name='rpm_list_info_check'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_rpm_list_info_check_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_rpm_list_info_check_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_rpm_list_info_check_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: rpm_installed_info_check Test
+class rpm_installed_info_check(unittest.TestCase):
+
+    case_name='rpm_installed_info_check'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_rpm_installed_info_check_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_rpm_installed_info_check_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_rpm_installed_info_check_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: test_lua Test
+class test_lua(unittest.TestCase):
+
+    case_name='test_lua'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_test_lua_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_test_lua_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_test_lua_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
 #TestCase: netperf_direct
 class netperf_direct(unittest.TestCase):
 
@@ -885,7 +1171,6 @@ class IOstress(unittest.TestCase):
 
     def test_IOstress_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
-
 
 #==============================================================
 #TestCase: gcc
