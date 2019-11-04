@@ -64,7 +64,7 @@ echo "***************************************************"
 echo "***************************************************"
 echo "Group [2]:set test result info to config file"
 
-sh set_result_tag.sh $TestType $Platform "netperf-direct"
+sh set_result_tag.sh $TestType $Platform "netperf_direct"
 sh set_result_tag.sh $TestType $Platform "scp-dir"
 sh set_result_tag.sh $TestType $Platform "lmbench"
 sh set_result_tag.sh $TestType $Platform "stream"

@@ -523,7 +523,7 @@ class filesystem_ll_sc(unittest.TestCase):
 #TestCase: netperf_direct
 class netperf_direct(unittest.TestCase):
 
-    case_name='netperf-direct'
+    case_name='netperf_direct'
 
     def setUp(self):
         print 'setUp...'

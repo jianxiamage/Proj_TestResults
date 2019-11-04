@@ -608,8 +608,8 @@ class images_export_import(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-net Test
-class namespace-net(unittest.TestCase):
+#TestCase: namespace_net Test
+class namespace_net(unittest.TestCase):
 
     case_name='namespace-net'
 
@@ -620,18 +620,18 @@ class namespace-net(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_namespace-net_Node1(self):
+    def test_namespace_net_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_namespace-net_Node2(self):
+    def test_namespace_net_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_namespace-net_Node3(self):
+    def test_namespace_net_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-pid Test
-class namespace-pid(unittest.TestCase):
+#TestCase: namespace_pid Test
+class namespace_pid(unittest.TestCase):
 
     case_name='namespace-pid'
 
@@ -642,13 +642,13 @@ class namespace-pid(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_namespace-pid_Node1(self):
+    def test_namespace_pid_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_namespace-pid_Node2(self):
+    def test_namespace_pid_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_namespace-pid_Node3(self):
+    def test_namespace_pid_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
@@ -809,7 +809,7 @@ class test_lua(unittest.TestCase):
 #TestCase: netperf_direct
 class netperf_direct(unittest.TestCase):
 
-    case_name='netperf-direct'
+    case_name='netperf_direct'
 
     def setUp(self):
         print 'setUp...'

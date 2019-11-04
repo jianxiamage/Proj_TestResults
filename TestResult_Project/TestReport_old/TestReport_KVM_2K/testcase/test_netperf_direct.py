@@ -8,7 +8,7 @@ from get_test_result import *
 
 class netperf_direct(unittest.TestCase):
     
-    case_name='netperf-direct'
+    case_name='netperf_direct'
 
     def setUp(self):
         print 'setUp...'

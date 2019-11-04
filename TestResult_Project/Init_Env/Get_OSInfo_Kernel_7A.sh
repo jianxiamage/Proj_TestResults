@@ -63,7 +63,7 @@ echo "***************************************************"
 echo "***************************************************"
 echo "Group [2]:get the os info of the nodes"
 
-sh get_DetailInfo.sh $TestType $Platform "netperf-direct"
+sh get_DetailInfo.sh $TestType $Platform "netperf_direct"
 sh get_DetailInfo.sh $TestType $Platform "scp-dir"
 sh get_DetailInfo.sh $TestType $Platform "lmbench"
 sh get_DetailInfo.sh $TestType $Platform "stream"
