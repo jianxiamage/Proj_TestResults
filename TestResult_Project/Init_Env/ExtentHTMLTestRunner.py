@@ -89,6 +89,30 @@ class myconf(ConfigParser.ConfigParser):
     def optionxform(self, optionstr):
         return optionstr
 
+#为解决测试用例名称与#9803标准不一致的情况，
+#例如docker_namespace-pid,但python中不允许横线，只能是docker_namespace_pid
+#因此，需要进行转换，
+#文件TestCaseRelation.file存储了所有测试用例名称的对应关系，
+#如果程序找不到某测试用例名，就查找这个关联文件进行查找
+def getTransferKeyName(TestType,inputName):
+
+    TestCaseFile='TestCaseRelation.file'
+    TestCasePath = TestcasePath + str(TestType) +  '/' + TestCaseFile
+    fr = open(TestCasePath,'r')
+    dic = {}
+    keys = []
+    for line in fr:
+        v = line.strip().split(':')
+        dic[v[0]] = v[1]
+        keys.append(v[0])
+    fr.close()
+    outputName = dic[inputName]
+    #print('======================================')
+    #print(outputName)
+    #print('======================================')
+
+    return outputName
+
 TestcasePath='/data/'
 def getGroupNumByName(TestType,keyName):
 
@@ -101,7 +125,8 @@ def getGroupNumByName(TestType,keyName):
     #判断:如果存在找不到的情况，需要将"_"修改为"-"
     if not config.has_option(sectionName,keyName):
        tmpKeyName = keyName.replace("_","-")
-       keyName = tmpKeyName
+       #keyName = tmpKeyName
+       keyName = getTransferKeyName(TestType,keyName)
     Num=config.get(sectionName,keyName)
     return Num
 
@@ -943,7 +968,7 @@ class Template_mixin(object):
 <!--  output mage Mark-->
 Basic Info:<br>
 IP: [%(ip)s]<br>
-OS_Name: [%(os_name)s],OS_Version: [%(os_ver)s] <br>
+OS_Name:[%(os_name)s],&nbsp;&nbsp;&nbsp;&nbsp;OS_Version:[%(os_ver)s],&nbsp;&nbsp;&nbsp;&nbsp;Kernel_Version:[%(kernel_ver)s] <br>
 """ # variables: (id, output)
     REPORT_TEST_OUTPUT_IMAGE = r""" 
 测试screenshot
@@ -1369,7 +1394,8 @@ class HTMLTestRunner(Template_mixin):
 
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
-           tmpTestCase = TestCase.replace("_","-")
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -1385,7 +1411,8 @@ class HTMLTestRunner(Template_mixin):
 
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
-           tmpTestCase = TestCase.replace("_","-")
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -1397,6 +1424,22 @@ class HTMLTestRunner(Template_mixin):
         retCode=resultStr
         return retCode
 
+    def get_kernel_version(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        config.readfp(open(ip_file))
+        sectionName='Main'
+        keyName='Kernel_Version'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
 
 
     def _generate_report_test(self, rows, cid, tid, n, t, o, e, testCollectionUlList):
@@ -1455,6 +1498,9 @@ class HTMLTestRunner(Template_mixin):
         os_version_val = self.get_os_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
         print(os_version_val)
 
+        kernel_version_val = self.get_kernel_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(kernel_version_val)
+
 
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             #id=cid,
@@ -1464,6 +1510,7 @@ class HTMLTestRunner(Template_mixin):
             output = str(t),
             os_name = str(os_name_val),
             os_ver = str(os_version_val),
+            kernel_ver = str(kernel_version_val),
         )
 
         tBody = self.TBODY % dict(

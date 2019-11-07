@@ -136,11 +136,10 @@ def getTransferKeyName(TestType,inputName):
         dic[v[0]] = v[1]
         keys.append(v[0])
     fr.close()
-    print(dic)
     outputName = dic[inputName]
-    print('======================================')
-    print(outputName)
-    print('======================================')
+    #print('======================================')
+    #print(outputName)
+    #print('======================================')
 
     return outputName
 
