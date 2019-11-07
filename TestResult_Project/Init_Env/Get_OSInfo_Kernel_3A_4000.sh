@@ -15,7 +15,6 @@ echo "开始获取测试节点系统信息文件:[$TestType],[$Platform]"
 #第一组测试
 echo "***************************************************"
 echo "Group [1]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "Compiler"
 sh get_DetailInfo.sh $TestType $Platform "top"
@@ -36,6 +35,15 @@ sh get_DetailInfo.sh $TestType $Platform "fpuemustats"
 sh get_DetailInfo.sh $TestType $Platform "compiler_ll_sc"
 sh get_DetailInfo.sh $TestType $Platform "filesystem_ll_sc"
 
+sh get_DetailInfo.sh $TestType $Platform "c"
+sh get_DetailInfo.sh $TestType $Platform "c++"
+sh get_DetailInfo.sh $TestType $Platform "java"
+sh get_DetailInfo.sh $TestType $Platform "lua"
+sh get_DetailInfo.sh $TestType $Platform "perl"
+sh get_DetailInfo.sh $TestType $Platform "php"
+sh get_DetailInfo.sh $TestType $Platform "ruby"
+sh get_DetailInfo.sh $TestType $Platform "go"
+
 sh get_DetailInfo.sh $TestType $Platform "docker_search_pull_start"
 sh get_DetailInfo.sh $TestType $Platform "run_stop_rm"
 sh get_DetailInfo.sh $TestType $Platform "container_export_import"
@@ -51,7 +59,7 @@ sh get_DetailInfo.sh $TestType $Platform "rpm_list_info_check"
 sh get_DetailInfo.sh $TestType $Platform "rpm_installed_info_check"
 
 sh get_DetailInfo.sh $TestType $Platform "test_lua"
-
+sh get_DetailInfo.sh $TestType $Platform "crond"
 
 sh get_DetailInfo.sh $TestType $Platform "ping"
 sh get_DetailInfo.sh $TestType $Platform "wget"
@@ -64,7 +72,6 @@ echo "***************************************************"
 #第二组测试
 echo "***************************************************"
 echo "Group [2]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "netperf_direct"
 sh get_DetailInfo.sh $TestType $Platform "scp-dir"
@@ -78,7 +85,6 @@ echo "***************************************************"
 #第三组测试
 echo "***************************************************"
 echo "Group [3]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "scp-2"
 sh get_DetailInfo.sh $TestType $Platform "scp-1"
@@ -90,7 +96,6 @@ echo "***************************************************"
 #第四组测试
 echo "***************************************************"
 echo "Group [4]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "spec2006-1core"
 sh get_DetailInfo.sh $TestType $Platform "spec2006-ncore"
@@ -105,7 +110,6 @@ echo "***************************************************"
 #第六组测试
 echo "***************************************************"
 echo "Group [6]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "runltp"
 
@@ -119,7 +123,6 @@ echo "***************************************************"
 #第八组测试
 echo "***************************************************"
 echo "Group [8]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "scp-BigFile"
 
@@ -128,7 +131,6 @@ echo "***************************************************"
 #第九组测试
 echo "***************************************************"
 echo "Group [9]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "ltpstress"
 
@@ -140,7 +142,6 @@ echo "***************************************************"
 #第十组测试
 echo "***************************************************"
 echo "Group [10]:get the os info of the nodes"
-echo "***************************************************"
 
 sh get_DetailInfo.sh $TestType $Platform "IOstress"
 

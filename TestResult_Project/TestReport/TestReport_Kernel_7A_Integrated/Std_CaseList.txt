@@ -20,8 +20,16 @@ docker_search_pull_start
 run_stop_rm
 container_export_import
 images_export_import
-namespace_net
-namespace_pid
+c
+cplusplus
+java
+lua
+perl
+php
+ruby
+go
+docker_namespace_net
+docker_namespace_pid
 docker_log
 docker_rmi
 rpm_list_check
@@ -29,6 +37,7 @@ rpm_installed_check
 rpm_list_info_check
 rpm_installed_info_check
 test_lua
+crond
 ping
 wget
 iozone

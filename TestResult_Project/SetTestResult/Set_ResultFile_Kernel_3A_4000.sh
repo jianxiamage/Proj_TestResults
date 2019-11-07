@@ -36,6 +36,15 @@ sh set_result_tag.sh $TestType $Platform "fpuemustats"
 sh set_result_tag.sh $TestType $Platform "compiler_ll_sc"
 sh set_result_tag.sh $TestType $Platform "filesystem_ll_sc"
 
+sh set_result_tag.sh $TestType $Platform "c"
+sh set_result_tag.sh $TestType $Platform "c++"
+sh set_result_tag.sh $TestType $Platform "java"
+sh set_result_tag.sh $TestType $Platform "lua"
+sh set_result_tag.sh $TestType $Platform "perl"
+sh set_result_tag.sh $TestType $Platform "php"
+sh set_result_tag.sh $TestType $Platform "ruby"
+sh set_result_tag.sh $TestType $Platform "go"
+
 sh set_result_tag.sh $TestType $Platform "docker_search_pull_start"
 sh set_result_tag.sh $TestType $Platform "run_stop_rm"
 sh set_result_tag.sh $TestType $Platform "container_export_import"
@@ -51,6 +60,7 @@ sh set_result_tag.sh $TestType $Platform "rpm_list_info_check"
 sh set_result_tag.sh $TestType $Platform "rpm_installed_info_check"
 
 sh set_result_tag.sh $TestType $Platform "test_lua"
+sh set_result_tag.sh $TestType $Platform "crond"
 
 sh set_result_tag.sh $TestType $Platform "ping"
 sh set_result_tag.sh $TestType $Platform "wget"
