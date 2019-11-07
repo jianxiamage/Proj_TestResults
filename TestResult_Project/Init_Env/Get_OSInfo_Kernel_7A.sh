@@ -50,6 +50,7 @@ sh get_DetailInfo.sh $TestType $Platform "rpm_list_info_check"
 sh get_DetailInfo.sh $TestType $Platform "rpm_installed_info_check"
 
 sh get_DetailInfo.sh $TestType $Platform "test_lua"
+sh get_DetailInfo.sh $TestType $Platform "crond"
 
 sh get_DetailInfo.sh $TestType $Platform "ping"
 sh get_DetailInfo.sh $TestType $Platform "wget"

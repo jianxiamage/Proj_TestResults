@@ -29,6 +29,7 @@ rpm_installed_check:rpm_installed_check
 rpm_list_info_check:rpm_list_info_check
 rpm_installed_info_check:rpm_installed_info_check
 test_lua:test_lua
+crond:crond
 ping:ping
 wget:wget
 iozone:iozone
