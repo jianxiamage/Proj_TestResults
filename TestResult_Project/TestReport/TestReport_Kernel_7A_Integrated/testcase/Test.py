@@ -608,10 +608,10 @@ class images_export_import(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-net Test
+#TestCase: docker_namespace-net Test
 class namespace_net(unittest.TestCase):
 
-    case_name='namespace-net'
+    case_name='docker_namespace-net'
 
     def setUp(self):
         print 'setUp...'
@@ -630,10 +630,10 @@ class namespace_net(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-pid Test
+#TestCase: docker_namespace-pid Test
 class namespace_pid(unittest.TestCase):
 
-    case_name='namespace-pid'
+    case_name='docker_namespace-pid'
 
     def setUp(self):
         print 'setUp...'

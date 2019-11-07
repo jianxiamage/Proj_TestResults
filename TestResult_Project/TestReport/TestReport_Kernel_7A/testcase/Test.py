@@ -608,10 +608,10 @@ class images_export_import(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-net Test
-class namespace_net(unittest.TestCase):
+#TestCase: docker_namespace-net Test
+class docker_namespace_net(unittest.TestCase):
 
-    case_name='namespace-net'
+    case_name='docker_namespace-net'
 
     def setUp(self):
         print 'setUp...'
@@ -620,20 +620,20 @@ class namespace_net(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_namespace_net_Node1(self):
+    def test_docker_namespace_net_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_namespace_net_Node2(self):
+    def test_docker_namespace_net_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_namespace_net_Node3(self):
+    def test_docker_namespace_net_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: namespace-pid Test
-class namespace_pid(unittest.TestCase):
+#TestCase: docker_namespace-pid Test
+class docker_namespace_pid(unittest.TestCase):
 
-    case_name='namespace-pid'
+    case_name='docker_namespace-pid'
 
     def setUp(self):
         print 'setUp...'
@@ -642,13 +642,13 @@ class namespace_pid(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_namespace_pid_Node1(self):
+    def test_docker_namespace_pid_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_namespace_pid_Node2(self):
+    def test_docker_namespace_pid_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_namespace_pid_Node3(self):
+    def test_docker_namespace_pid_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================

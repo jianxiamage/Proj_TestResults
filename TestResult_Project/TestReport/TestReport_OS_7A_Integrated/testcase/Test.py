@@ -611,7 +611,7 @@ class images_export_import(unittest.TestCase):
 #TestCase: namespace_net Test
 class namespace_net(unittest.TestCase):
 
-    case_name='namespace-net'
+    case_name='docker_namespace-net'
 
     def setUp(self):
         print 'setUp...'
@@ -633,7 +633,7 @@ class namespace_net(unittest.TestCase):
 #TestCase: namespace_pid Test
 class namespace_pid(unittest.TestCase):
 
-    case_name='namespace-pid'
+    case_name='docker_namespace-pid'
 
     def setUp(self):
         print 'setUp...'

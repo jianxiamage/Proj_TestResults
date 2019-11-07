@@ -118,6 +118,33 @@ class myconf(ConfigParser.ConfigParser):
         return optionstr
 
 TestcasePath='/data/'
+
+#为解决测试用例名称与#9803标准不一致的情况，
+#例如docker_namespace-pid,但python中不允许横线，只能是docker_namespace_pid
+#因此，需要进行转换，
+#文件TestCaseRelation.file存储了所有测试用例名称的对应关系，
+#如果程序找不到某测试用例名，就查找这个关联文件进行查找
+def getTransferKeyName(TestType,inputName):
+
+    TestCaseFile='TestCaseRelation.file'
+    TestCasePath = TestcasePath + str(TestType) +  '/' + TestCaseFile
+    fr = open(TestCasePath,'r')
+    dic = {}
+    keys = []
+    for line in fr:
+        v = line.strip().split(':')
+        dic[v[0]] = v[1]
+        keys.append(v[0])
+    fr.close()
+    print(dic)
+    outputName = dic[inputName]
+    print('======================================')
+    print(outputName)
+    print('======================================')
+
+    return outputName
+
+
 def getGroupNumByName(TestType,keyName):
 
     GroupIniFile='TestcaseGroup_' + TestType +'.ini'
@@ -128,8 +155,9 @@ def getGroupNumByName(TestType,keyName):
     sectionName='GroupNum'
     #判断:如果存在找不到的情况，需要将"_"修改为"-"
     if not config.has_option(sectionName,keyName):
-       tmpKeyName = keyName.replace("_","-")
-       keyName = tmpKeyName
+       #tmpKeyName = keyName.replace("_","-")
+       #keyName = tmpKeyName
+       keyName = getTransferKeyName(TestType,keyName)
     Num=config.get(sectionName,keyName)
     return Num
 
@@ -803,7 +831,8 @@ class HTMLTestRunner(Template_mixin):
 
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
-           tmpTestCase = TestCase.replace("_","-")
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -819,7 +848,8 @@ class HTMLTestRunner(Template_mixin):
 
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
-           tmpTestCase = TestCase.replace("_","-")
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -835,7 +865,8 @@ class HTMLTestRunner(Template_mixin):
 
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
-           tmpTestCase = TestCase.replace("_","-")
+           #tmpTestCase = TestCase.replace("_","-")
+           tmpTestCase = getTransferKeyName(TestType,TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
