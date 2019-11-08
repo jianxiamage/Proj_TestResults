@@ -24,6 +24,6 @@ echo "Begin to merge Performance test run points files by Excel for each test ca
 Merge_Excel="Merge_Excel_${TestType}_${Platform}"
 sh ${Merge_Excel}.sh
 
-echo "Begin to summary Performance test run points files by Excel for all the performance test cases.TestType:[$Kernel],TestPlat:[$Platform]"
+echo "Begin to summary Performance test run points files by Excel for all the performance test cases.TestType:[$TestType],TestPlat:[$Platform]"
 Summary_Excel="Summary_Excel_${TestType}_${Platform}"
 sh ${Summary_Excel}.sh
