@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #if [ $# -ne 3 ];then
 # echo "usage: $0 TestType Platform TestCase" 
@@ -35,6 +36,12 @@ sh set_result_tag.sh $TestType $Platform "fpuemustats"
 sh set_result_tag.sh $TestType $Platform "compiler_ll_sc"
 sh set_result_tag.sh $TestType $Platform "filesystem_ll_sc"
 
+sh set_result_tag.sh $TestType $Platform "arpd"
+sh set_result_tag.sh $TestType $Platform "bridge"
+sh set_result_tag.sh $TestType $Platform "cbq"
+sh set_result_tag.sh $TestType $Platform "net_service"
+sh set_result_tag.sh $TestType $Platform "net_setting"
+
 sh set_result_tag.sh $TestType $Platform "c"
 sh set_result_tag.sh $TestType $Platform "c++"
 sh set_result_tag.sh $TestType $Platform "java"
@@ -60,6 +67,10 @@ sh set_result_tag.sh $TestType $Platform "rpm_installed_info_check"
 
 sh set_result_tag.sh $TestType $Platform "test_lua"
 sh set_result_tag.sh $TestType $Platform "crond"
+
+sh set_result_tag.sh $TestType $Platform "ethtool"
+sh set_result_tag.sh $TestType $Platform "mii-tool"
+sh set_result_tag.sh $TestType $Platform "mongodb"
 
 sh set_result_tag.sh $TestType $Platform "ping"
 sh set_result_tag.sh $TestType $Platform "wget"

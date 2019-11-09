@@ -35,6 +35,21 @@ sh get_DetailInfo.sh $TestType $Platform "fpuemustats"
 sh get_DetailInfo.sh $TestType $Platform "compiler_ll_sc"
 sh get_DetailInfo.sh $TestType $Platform "filesystem_ll_sc"
 
+sh get_DetailInfo.sh $TestType $Platform "arpd"
+sh get_DetailInfo.sh $TestType $Platform "bridge"
+sh get_DetailInfo.sh $TestType $Platform "cbq"
+sh get_DetailInfo.sh $TestType $Platform "net_service"
+sh get_DetailInfo.sh $TestType $Platform "net_setting"
+
+sh get_DetailInfo.sh $TestType $Platform "c"
+sh get_DetailInfo.sh $TestType $Platform "c++"
+sh get_DetailInfo.sh $TestType $Platform "java"
+sh get_DetailInfo.sh $TestType $Platform "lua"
+sh get_DetailInfo.sh $TestType $Platform "perl"
+sh get_DetailInfo.sh $TestType $Platform "php"
+sh get_DetailInfo.sh $TestType $Platform "ruby"
+sh get_DetailInfo.sh $TestType $Platform "go"
+
 sh get_DetailInfo.sh $TestType $Platform "docker_search_pull_start"
 sh get_DetailInfo.sh $TestType $Platform "run_stop_rm"
 sh get_DetailInfo.sh $TestType $Platform "container_export_import"
@@ -50,7 +65,11 @@ sh get_DetailInfo.sh $TestType $Platform "rpm_list_info_check"
 sh get_DetailInfo.sh $TestType $Platform "rpm_installed_info_check"
 
 sh get_DetailInfo.sh $TestType $Platform "test_lua"
+sh get_DetailInfo.sh $TestType $Platform "crond"
 
+sh get_DetailInfo.sh $TestType $Platform "ethtool"
+sh get_DetailInfo.sh $TestType $Platform "mii-tool"
+sh get_DetailInfo.sh $TestType $Platform "mongodb"
 
 sh get_DetailInfo.sh $TestType $Platform "ping"
 sh get_DetailInfo.sh $TestType $Platform "wget"
