@@ -124,10 +124,10 @@ TestcasePath='/data/'
 #因此，需要进行转换，
 #文件TestCaseRelation.file存储了所有测试用例名称的对应关系，
 #如果程序找不到某测试用例名，就查找这个关联文件进行查找
-def getTransferKeyName(TestType,inputName):
+def getTransferKeyName(inputName):
 
     TestCaseFile='TestCaseRelation.file'
-    TestCasePath = TestcasePath + str(TestType) +  '/' + TestCaseFile
+    TestCasePath = TestcasePath + '/' + TestCaseFile
     fr = open(TestCasePath,'r')
     dic = {}
     keys = []
@@ -156,7 +156,7 @@ def getGroupNumByName(TestType,keyName):
     if not config.has_option(sectionName,keyName):
        #tmpKeyName = keyName.replace("_","-")
        #keyName = tmpKeyName
-       keyName = getTransferKeyName(TestType,keyName)
+       keyName = getTransferKeyName(keyName)
     Num=config.get(sectionName,keyName)
     return Num
 
@@ -749,6 +749,27 @@ class HTMLTestRunner(Template_mixin):
         )
         return heading
  
+    #测试用例名称转换成对应的中文表达，便于见名知义
+    def getCaseFullName(self,inputName):
+    
+        TestCaseFile='TestCaseRef.txt'
+        TestCasePath = TestcasePath + '/' + TestCaseFile
+        fr = open(TestCasePath,'r')
+        dic = {}
+        keys = []
+        for line in fr:
+            v = line.strip().split('=')
+            dic[v[0]] = v[1]
+            keys.append(v[0])
+        fr.close()
+        outputName = dic[inputName]
+        #print('======================================')
+        #print(outputName)
+        #print('======================================')
+    
+        return outputName
+
+
     #生成报告  --Findyou添加注释
     def _generate_report(self, result):
         rows = []
@@ -768,7 +789,9 @@ class HTMLTestRunner(Template_mixin):
                 name = "%s.%s" % (cls.__module__, cls.__name__)
             doc = cls.__doc__ and cls.__doc__.split("\n")[0] or ""
             desc = doc and '%s: %s' % (name, doc) or name
- 
+            tmp_desc = desc.replace('Test.','')
+            desc = self.getCaseFullName(tmp_desc)            
+
             row = self.REPORT_CLASS_TMPL % dict(
                 style = ne > 0 and 'warning' or nf > 0 and 'danger' or 'success',
                 desc = desc,
@@ -831,7 +854,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -848,7 +871,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -865,7 +888,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()

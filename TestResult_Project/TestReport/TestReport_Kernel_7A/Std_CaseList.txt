@@ -16,10 +16,11 @@ unaligned_instructions
 fpuemustats
 compiler_ll_sc
 filesystem_ll_sc
-docker_search_pull_start
-run_stop_rm
-container_export_import
-images_export_import
+arpd
+bridge
+cbq
+net_service
+net_setting
 c
 cplusplus
 java
@@ -28,6 +29,10 @@ perl
 php
 ruby
 go
+docker_search_pull_start
+run_stop_rm
+container_export_import
+images_export_import
 docker_namespace_net
 docker_namespace_pid
 docker_log
@@ -38,6 +43,9 @@ rpm_list_info_check
 rpm_installed_info_check
 test_lua
 crond
+ethtool
+mii_tool
+mongodb
 ping
 wget
 iozone

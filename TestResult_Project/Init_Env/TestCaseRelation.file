@@ -20,6 +20,11 @@ docker_search_pull_start:docker_search_pull_start
 run_stop_rm:run_stop_rm
 container_export_import:container_export_import
 images_export_import:images_export_import
+arpd:arpd
+bridge:bridge
+cbq:cbq
+net_service:net_service
+net_setting:net_setting
 c:c
 cplusplus:c++
 java:java
@@ -38,6 +43,9 @@ rpm_list_info_check:rpm_list_info_check
 rpm_installed_info_check:rpm_installed_info_check
 test_lua:test_lua
 crond:crond
+ethtool:ethtool
+mii_tool:mii-tool
+mongodb:mongodb
 ping:ping
 wget:wget
 iozone:iozone
