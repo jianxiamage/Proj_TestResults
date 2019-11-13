@@ -514,8 +514,8 @@ table       { font-size: 100%; }
 <!--  output mage Mark-->
 测试节点基本信息:
 IP: [%(ip)s]
-OS_Name: [%(os_name)s],OS_Version: [%(os_ver)s],Kernel_Version: [%(kernel_ver)s]
-StartTime: [%(test_StartTime)s]
+系统类别: [%(os_name)s],系统版本: [%(os_ver)s],内核版本: [%(kernel_ver)s]
+%(test_StartTime)s
 """ # variables: (id, output)
  
     # ------------------------------------------------------------------------
@@ -917,6 +917,47 @@ class HTMLTestRunner(Template_mixin):
         resultStr=config.get(sectionName,keyName)
         retCode=resultStr
         return retCode
+    #------------------------------------------------------------------------------------
+    #按照测试部门要求:只需要对需要进行监控的性能或压力测试添加测试开始时间显示
+    #因此，本函数功能是筛选出来需要显示测试时间的测试用例类型(文件字段设置为1则需要显示)
+    #------------------------------------------------------------------------------------
+    def getCaseType(self,inputName):
+
+        TestCaseFile='TestCaseType.txt'
+        TestCasePath = TestcasePath + '/' + TestCaseFile
+        fr = open(TestCasePath,'r')
+        dic = {}
+        keys = []
+        for line in fr:
+            v = line.strip().split('=')
+            dic[v[0]] = v[1]
+            keys.append(v[0])
+        fr.close()
+        outputType = dic[inputName]
+
+        return outputType
+
+    #------------------------------------------------------------------------------------
+    #本函数功能:将原来的测试节点名称(函数名)修改为用户友好的节点说明信息
+    #           并发节点_1
+    #           并发节点_2
+    #           并发节点_3
+    #------------------------------------------------------------------------------------
+    def setCaseType(self,inputName):
+
+        TestCaseFile='TestCaseType.txt'
+        TestCasePath = TestcasePath + '/' + TestCaseFile
+        fr = open(TestCasePath,'r')
+        dic = {}
+        keys = []
+        for line in fr:
+            v = line.strip().split('=')
+            dic[v[0]] = v[1]
+            keys.append(v[0])
+        fr.close()
+        outputType = dic[inputName]
+
+        return outputType
 
  
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
@@ -928,6 +969,7 @@ class HTMLTestRunner(Template_mixin):
         name = t.id().split('.')[-1]
         doc = t.shortDescription() or ""
         desc = doc and ('%s: %s' % (name, doc)) or name
+        old_desc = desc
         tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL
  
         # utf-8 支持中文 - Findyou
@@ -973,6 +1015,20 @@ class HTMLTestRunner(Template_mixin):
         test_startTime_val = self.get_test_time(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
         print(test_startTime_val)
 
+        #获取测试用例类型，用于显示测试开始时间
+        desc_tmp = old_desc
+	back_desc = desc_tmp.replace('test_','',1).split('_')[-1]
+        tmp_str = "_" + back_desc
+        tmp_desc = desc_tmp.replace('test_','',1).replace(tmp_str,"")
+        type_case = self.getCaseType(tmp_desc)
+     
+        #提取并发执行节点测试函数的序号部分，以友好方式显示(并发节点_1),而不是显示函数名
+        num_node = back_desc.replace('Node','',1)
+        str_node_name = '并发节点_' + num_node
+        print('================================================')
+        print(str_node_name)
+        print('================================================')
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             #id = tid,
             #output = saxutils.escape(uo+ue),
@@ -981,14 +1037,17 @@ class HTMLTestRunner(Template_mixin):
             os_name = str(os_name_val),
             os_ver = str(os_version_val),
             kernel_ver = str(kernel_version_val),
-            test_StartTime = str(test_startTime_val),
+            #test_StartTime = str(test_startTime_val),
+            #test_StartTime = "StartTime: [" + str(test_startTime_val)+"]" if int(type_case) else "",
+            test_StartTime = "测试开始时间: [" + str(test_startTime_val)+"]" if int(type_case) else "",
+            case_type = tmp_desc
         )
  
         row = tmpl % dict(
             tid = tid,
             Class = (n == 0 and 'hiddenRow' or 'none'),
             style = n == 2 and 'errorCase' or (n == 1 and 'failCase' or 'passCase'),
-            desc = desc,
+            desc = str_node_name,
             script = script,
             status = self.STATUS[n],
         )
