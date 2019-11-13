@@ -939,9 +939,9 @@ class HTMLTestRunner(Template_mixin):
 
     #------------------------------------------------------------------------------------
     #本函数功能:将原来的测试节点名称(函数名)修改为用户友好的节点说明信息
-    #           并发节点_1
-    #           并发节点_2
-    #           并发节点_3
+    #           并发测试节点_1
+    #           并发测试节点_2
+    #           并发测试节点_3
     #------------------------------------------------------------------------------------
     def setCaseType(self,inputName):
 
@@ -1022,9 +1022,9 @@ class HTMLTestRunner(Template_mixin):
         tmp_desc = desc_tmp.replace('test_','',1).replace(tmp_str,"")
         type_case = self.getCaseType(tmp_desc)
      
-        #提取并发执行节点测试函数的序号部分，以友好方式显示(并发节点_1),而不是显示函数名
+        #提取并发执行节点测试函数的序号部分，以友好方式显示(并发测试节点_1),而不是显示函数名
         num_node = back_desc.replace('Node','',1)
-        str_node_name = '并发节点_' + num_node
+        str_node_name = '并发测试节点_' + num_node
         print('================================================')
         print(str_node_name)
         print('================================================')
