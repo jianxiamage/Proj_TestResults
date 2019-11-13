@@ -515,6 +515,7 @@ table       { font-size: 100%; }
 测试节点基本信息:
 IP: [%(ip)s]
 OS_Name: [%(os_name)s],OS_Version: [%(os_ver)s],Kernel_Version: [%(kernel_ver)s]
+StartTime: [%(test_StartTime)s]
 """ # variables: (id, output)
  
     # ------------------------------------------------------------------------
@@ -900,6 +901,23 @@ class HTMLTestRunner(Template_mixin):
         retCode=resultStr
         return retCode
 
+    def get_test_time(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/TestInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = getTransferKeyName(TestCase)
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/TestInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        #self.remove_BOM(ip_file)
+        config.readfp(open(ip_file))
+        sectionName='TestInfo'
+        keyName='StartTime'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
  
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
@@ -952,6 +970,9 @@ class HTMLTestRunner(Template_mixin):
         kernel_version_val = self.get_kernel_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
         print(kernel_version_val)
 
+        test_startTime_val = self.get_test_time(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(test_startTime_val)
+
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             #id = tid,
             #output = saxutils.escape(uo+ue),
@@ -960,6 +981,7 @@ class HTMLTestRunner(Template_mixin):
             os_name = str(os_name_val),
             os_ver = str(os_version_val),
             kernel_ver = str(kernel_version_val),
+            test_StartTime = str(test_startTime_val),
         )
  
         row = tmpl % dict(
