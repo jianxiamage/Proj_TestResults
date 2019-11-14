@@ -94,10 +94,10 @@ class myconf(ConfigParser.ConfigParser):
 #因此，需要进行转换，
 #文件TestCaseRelation.file存储了所有测试用例名称的对应关系，
 #如果程序找不到某测试用例名，就查找这个关联文件进行查找
-def getTransferKeyName(TestType,inputName):
+def getTransferKeyName(inputName):
 
     TestCaseFile='TestCaseRelation.file'
-    TestCasePath = TestcasePath + str(TestType) +  '/' + TestCaseFile
+    TestCasePath = TestcasePath + '/' + TestCaseFile
     fr = open(TestCasePath,'r')
     dic = {}
     keys = []
@@ -126,7 +126,7 @@ def getGroupNumByName(TestType,keyName):
     if not config.has_option(sectionName,keyName):
        tmpKeyName = keyName.replace("_","-")
        #keyName = tmpKeyName
-       keyName = getTransferKeyName(TestType,keyName)
+       keyName = getTransferKeyName(keyName)
     Num=config.get(sectionName,keyName)
     return Num
 
@@ -966,9 +966,10 @@ class Template_mixin(object):
 
     REPORT_TEST_OUTPUT_TMPL = r"""
 <!--  output mage Mark-->
-Basic Info:<br>
-IP: [%(ip)s]<br>
-OS_Name:[%(os_name)s],&nbsp;&nbsp;&nbsp;&nbsp;OS_Version:[%(os_ver)s],&nbsp;&nbsp;&nbsp;&nbsp;Kernel_Version:[%(kernel_ver)s] <br>
+基本信息:<br>
+节点IP: [%(ip)s]<br>
+系统类别: [%(os_name)s],&nbsp;&nbsp;&nbsp;&nbsp;系统版本: [%(os_ver)s],&nbsp;&nbsp;&nbsp;&nbsp;内核版本: [%(kernel_ver)s]<br>
+%(test_StartTime)s
 """ # variables: (id, output)
     REPORT_TEST_OUTPUT_IMAGE = r""" 
 测试screenshot
@@ -1241,6 +1242,26 @@ class HTMLTestRunner(Template_mixin):
         )
         return dashboard_view
 
+    #测试用例名称转换成对应的中文表达，便于见名知义
+    def getCaseFullName(self,inputName):
+
+        TestCaseFile='TestCaseRef.txt'
+        TestCasePath = TestcasePath + '/' + TestCaseFile
+        fr = open(TestCasePath,'r')
+        dic = {}
+        keys = []
+        for line in fr:
+            v = line.strip().split('=')
+            dic[v[0]] = v[1]
+            keys.append(v[0])
+        fr.close()
+        outputName = dic[inputName]
+        #print('======================================')
+        #print(outputName)
+        #print('======================================')
+
+        return outputName
+
     def _generate_report(self, result):
         rows = []
         row1s = []
@@ -1264,6 +1285,9 @@ class HTMLTestRunner(Template_mixin):
             doc = cls.__doc__ and cls.__doc__.split("\n")[0] or ""
             # desc = doc and '%s: %s' % (name, doc) or name
             desc = doc and '%s' % (name) or name
+            #显示测试用例对应中文名称
+            tmp_desc = desc.replace('Test.','')
+            desc = self.getCaseFullName(tmp_desc)
 
             # section中suite name
             sectionName = self.SECTION_SUIT_NAME % dict(
@@ -1395,7 +1419,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -1412,7 +1436,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -1429,7 +1453,7 @@ class HTMLTestRunner(Template_mixin):
         ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         if not os.path.isfile(ip_file):
            #tmpTestCase = TestCase.replace("_","-")
-           tmpTestCase = getTransferKeyName(TestType,TestCase)
+           tmpTestCase = getTransferKeyName(TestCase)
            ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/OSInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
         #config = ConfigParser.ConfigParser()
         config = myconf()
@@ -1441,6 +1465,43 @@ class HTMLTestRunner(Template_mixin):
         retCode=resultStr
         return retCode
 
+    def get_test_time(self,TestType,Platform,TestCase,NodeNum,ip_input):
+
+        ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/TestInfo/' + str(TestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        if not os.path.isfile(ip_file):
+           tmpTestCase = getTransferKeyName(TestCase)
+           ip_file = ResultPath + str(TestType) + '/' + str(Platform) + '/' + 'Detail/TestInfo/' + str(tmpTestCase) + '/Node' + str(NodeNum) + '_' + str(ip_input) + '.ini'
+        #config = ConfigParser.ConfigParser()
+        config = myconf()
+
+        #self.remove_BOM(ip_file)
+        config.readfp(open(ip_file))
+        sectionName='TestInfo'
+        keyName='StartTime'
+        resultStr=config.get(sectionName,keyName)
+        retCode=resultStr
+        return retCode
+
+    #------------------------------------------------------------------------------------
+    #按照测试部门要求:只需要对需要进行监控的性能或压力测试添加测试开始时间显示
+    #因此，本函数功能是筛选出来需要显示测试时间的测试用例类型(文件字段设置为1则需要显示)
+    #------------------------------------------------------------------------------------
+    def getCaseType(self,inputName):
+
+        TestCaseFile='TestCaseType.txt'
+        TestCasePath = TestcasePath + '/' + TestCaseFile
+        fr = open(TestCasePath,'r')
+        dic = {}
+        keys = []
+        for line in fr:
+            v = line.strip().split('=')
+            dic[v[0]] = v[1]
+            keys.append(v[0])
+        fr.close()
+        outputType = dic[inputName]
+
+        return outputType
+
 
     def _generate_report_test(self, rows, cid, tid, n, t, o, e, testCollectionUlList):
         # e.g. 'pt1.1', 'ft1.1', etc
@@ -1449,6 +1510,8 @@ class HTMLTestRunner(Template_mixin):
         name = t.id().split('.')[-1]
         doc = t.shortDescription() or ""
         desc = doc and ('%s: %s' % (name, doc)) or name
+        #进行转换
+        old_desc = desc
         tmpl = has_output and self.TBODY or self.REPORT_TEST_NO_OUTPUT_TMPL
 
         # o and e should be byte string because they are collected from stdout and stderr?
@@ -1501,6 +1564,30 @@ class HTMLTestRunner(Template_mixin):
         kernel_version_val = self.get_kernel_version(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
         print(kernel_version_val)
 
+        test_startTime_val = self.get_test_time(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
+        print(test_startTime_val)
+
+        #获取测试用例类型，用于显示测试开始时间
+        desc_tmp = old_desc
+        back_desc = desc_tmp.replace('test_','',1).split('_')[-1]
+        tmp_str = "_" + back_desc
+        tmp_desc = desc_tmp.replace('test_','',1).replace(tmp_str,"")
+        type_case = self.getCaseType(tmp_desc)
+
+        #------------------------------------------------------------------------------------
+        #提取并发执行节点测试函数的序号部分，以友好方式显示(并发测试节点_1),而不是显示函数名
+        #将原来的测试节点名称(函数名)修改为用户友好的节点说明信息
+        #并发测试节点_1
+        #并发测试节点_2
+        #并发测试节点_3
+        #------------------------------------------------------------------------------------
+
+        num_node = back_desc.replace('Node','',1)
+        str_node_name = '并发测试节点_' + num_node
+        print('================================================')
+        print(str_node_name)
+        print('================================================')
+
 
         script = self.REPORT_TEST_OUTPUT_TMPL % dict(
             #id=cid,
@@ -1511,6 +1598,8 @@ class HTMLTestRunner(Template_mixin):
             os_name = str(os_name_val),
             os_ver = str(os_version_val),
             kernel_ver = str(kernel_version_val),
+            #test_StartTime = "StartTime: [" + str(test_startTime_val)+"]" if int(type_case) else "",
+            test_StartTime = "测试开始时间: [" + str(test_startTime_val)+"]" if int(type_case) else "",
         )
 
         tBody = self.TBODY % dict(
@@ -1529,7 +1618,8 @@ class HTMLTestRunner(Template_mixin):
         tcll = self.TEST_COLLECTION_UL_LIST % dict(
             node_level=nodeLevel,
             status_span=statusSpan,
-            desc=name,
+            #desc=name,
+            desc = str_node_name, #修改并发节点名称为中文显示,而不是显示函数名称
             doc=doc,
             t_body=tBody,
         )
@@ -1542,6 +1632,7 @@ class HTMLTestRunner(Template_mixin):
             Class = (n == 0 and 'hiddenRow' or 'none'),
             style = n == 2 and 'errorCase' or (n == 1 and 'failCase' or 'none'),
             desc = desc,
+            #desc = str_node_name,
             script = script,
             # image = image[image.find("image"):(int(image.find("png"))+3)],
             images = images,

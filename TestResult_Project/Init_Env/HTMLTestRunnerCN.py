@@ -513,7 +513,7 @@ table       { font-size: 100%; }
     REPORT_TEST_OUTPUT_TMPL = r"""
 <!--  output mage Mark-->
 测试节点基本信息:
-IP: [%(ip)s]
+节点IP: [%(ip)s]
 系统类别: [%(os_name)s],系统版本: [%(os_ver)s],内核版本: [%(kernel_ver)s]
 %(test_StartTime)s
 """ # variables: (id, output)
@@ -917,33 +917,12 @@ class HTMLTestRunner(Template_mixin):
         resultStr=config.get(sectionName,keyName)
         retCode=resultStr
         return retCode
+
     #------------------------------------------------------------------------------------
     #按照测试部门要求:只需要对需要进行监控的性能或压力测试添加测试开始时间显示
     #因此，本函数功能是筛选出来需要显示测试时间的测试用例类型(文件字段设置为1则需要显示)
     #------------------------------------------------------------------------------------
     def getCaseType(self,inputName):
-
-        TestCaseFile='TestCaseType.txt'
-        TestCasePath = TestcasePath + '/' + TestCaseFile
-        fr = open(TestCasePath,'r')
-        dic = {}
-        keys = []
-        for line in fr:
-            v = line.strip().split('=')
-            dic[v[0]] = v[1]
-            keys.append(v[0])
-        fr.close()
-        outputType = dic[inputName]
-
-        return outputType
-
-    #------------------------------------------------------------------------------------
-    #本函数功能:将原来的测试节点名称(函数名)修改为用户友好的节点说明信息
-    #           并发测试节点_1
-    #           并发测试节点_2
-    #           并发测试节点_3
-    #------------------------------------------------------------------------------------
-    def setCaseType(self,inputName):
 
         TestCaseFile='TestCaseType.txt'
         TestCasePath = TestcasePath + '/' + TestCaseFile
@@ -1022,7 +1001,12 @@ class HTMLTestRunner(Template_mixin):
         tmp_desc = desc_tmp.replace('test_','',1).replace(tmp_str,"")
         type_case = self.getCaseType(tmp_desc)
      
-        #提取并发执行节点测试函数的序号部分，以友好方式显示(并发测试节点_1),而不是显示函数名
+        #------------------------------------------------------------------------------------
+        #原来的测试节点名称(函数名)修改为用户友好的节点说明信息
+        #并发测试节点_1
+        #并发测试节点_2
+        #并发测试节点_3
+        #------------------------------------------------------------------------------------
         num_node = back_desc.replace('Node','',1)
         str_node_name = '并发测试节点_' + num_node
         print('================================================')
@@ -1040,7 +1024,6 @@ class HTMLTestRunner(Template_mixin):
             #test_StartTime = str(test_startTime_val),
             #test_StartTime = "StartTime: [" + str(test_startTime_val)+"]" if int(type_case) else "",
             test_StartTime = "测试开始时间: [" + str(test_startTime_val)+"]" if int(type_case) else "",
-            case_type = tmp_desc
         )
  
         row = tmpl % dict(
