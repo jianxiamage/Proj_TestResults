@@ -120,7 +120,7 @@ if __name__ == "__main__":
   
       GEN_HTML = filename
       #运行完自动在网页中显示
-      webbrowser.open(GEN_HTML,new = 1)
+      #webbrowser.open(GEN_HTML,new = 1)
 
 
   except Exception as E:

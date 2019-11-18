@@ -7,7 +7,7 @@ set -e
 #fi
 
 #----------------------------------------------------------------------------------------
-TestType="Kernel"
+TestType="KVM"
 Platform="7A"
 #----------------------------------------------------------------------------------------
 
@@ -157,3 +157,15 @@ echo "Group [10]:get test info files"
 sh get_TestInfo.sh $TestType $Platform "IOstress"
 
 echo "***************************************************"
+#第十五组测试
+echo "***************************************************"
+echo "Group [15]:get test info files"
+
+sh get_TestInfo.sh $TestType $Platform "gcc"
+sh get_TestInfo.sh $TestType $Platform "glibc"
+sh get_TestInfo.sh $TestType $Platform "binutils"
+sh get_TestInfo.sh $TestType $Platform "openSSL"
+sh get_TestInfo.sh $TestType $Platform "SpecJvm2008"
+
+echo "***************************************************"
+
