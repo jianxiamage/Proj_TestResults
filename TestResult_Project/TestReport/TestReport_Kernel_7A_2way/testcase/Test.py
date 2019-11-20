@@ -968,10 +968,10 @@ class rpm_installed_info_check(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
-#TestCase: test_lua Test
-class test_lua(unittest.TestCase):
+#TestCase: luajit Test
+class luajit(unittest.TestCase):
 
-    case_name='test_lua'
+    case_name='luajit'
 
     def setUp(self):
         print 'setUp...'
@@ -980,13 +980,13 @@ class test_lua(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_test_lua_Node1(self):
+    def test_luajit_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_test_lua_Node2(self):
+    def test_luajit_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_test_lua_Node3(self):
+    def test_luajit_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================

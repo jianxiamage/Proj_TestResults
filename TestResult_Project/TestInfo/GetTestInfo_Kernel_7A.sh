@@ -65,7 +65,7 @@ sh get_TestInfo.sh $TestType $Platform "rpm_installed_check"
 sh get_TestInfo.sh $TestType $Platform "rpm_list_info_check"
 sh get_TestInfo.sh $TestType $Platform "rpm_installed_info_check"
 
-sh get_TestInfo.sh $TestType $Platform "test_lua"
+sh get_TestInfo.sh $TestType $Platform "luajit"
 sh get_TestInfo.sh $TestType $Platform "crond"
 
 sh get_TestInfo.sh $TestType $Platform "ethtool"

@@ -28,7 +28,7 @@ rpm_list_check
 rpm_installed_check
 rpm_list_info_check
 rpm_installed_info_check
-test_lua
+luajit
 ping
 wget
 iozone

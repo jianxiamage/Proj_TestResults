@@ -37,7 +37,7 @@ docker_namespace_net
 docker_namespace_pid
 docker_log
 docker_rmi
-test_lua
+luajit
 rpm_list_check
 rpm_installed_check
 rpm_list_info_check

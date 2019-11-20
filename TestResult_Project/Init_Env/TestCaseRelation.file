@@ -41,7 +41,7 @@ rpm_list_check:rpm_list_check
 rpm_installed_check:rpm_installed_check
 rpm_list_info_check:rpm_list_info_check
 rpm_installed_info_check:rpm_installed_info_check
-test_lua:test_lua
+luajit:luajit
 crond:crond
 ethtool:ethtool
 mii_tool:mii-tool

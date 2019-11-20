@@ -65,7 +65,7 @@ sh set_result_tag.sh $TestType $Platform "rpm_installed_check"
 sh set_result_tag.sh $TestType $Platform "rpm_list_info_check"
 sh set_result_tag.sh $TestType $Platform "rpm_installed_info_check"
 
-sh set_result_tag.sh $TestType $Platform "test_lua"
+sh set_result_tag.sh $TestType $Platform "luajit"
 sh set_result_tag.sh $TestType $Platform "crond"
 
 sh set_result_tag.sh $TestType $Platform "ethtool"
