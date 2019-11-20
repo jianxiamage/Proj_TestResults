@@ -12,4 +12,7 @@ TestResult_Project/Extended_GetResultsXls/KVM
 TestResult_Project/Init_Env/OS
 TestResult_Project/Init_Env/Kernel
 TestResult_Project/Init_Env/KVM
+TestResult_Project/TestInfo/OS
+TestResult_Project/TestInfo/Kernel
+TestResult_Project/TestInfo/KVM
 TestResult_Project/TestReport/*/report.html
