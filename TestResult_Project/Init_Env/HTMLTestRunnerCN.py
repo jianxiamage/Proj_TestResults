@@ -120,7 +120,7 @@ class myconf(ConfigParser.ConfigParser):
 TestcasePath='/data/'
 
 #为解决测试用例名称与#9803标准不一致的情况，
-#例如docker_namespace-pid,但python中不允许横线，只能是docker_namespace_pid
+#例如docker_namespace_pid,但python中不允许横线，只能是docker_namespace_pid
 #因此，需要进行转换，
 #文件TestCaseRelation.file存储了所有测试用例名称的对应关系，
 #如果程序找不到某测试用例名，就查找这个关联文件进行查找

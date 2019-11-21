@@ -33,8 +33,8 @@ perl:perl
 php:php
 ruby:ruby
 go:go
-docker_namespace_net:docker_namespace-net
-docker_namespace_pid:docker_namespace-pid
+docker_namespace_net:docker_namespace_net
+docker_namespace_pid:docker_namespace_pid
 docker_log:docker_log
 docker_rmi:docker_rmi
 rpm_list_check:rpm_list_check
