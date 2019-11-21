@@ -1059,7 +1059,7 @@ class mii_tool(unittest.TestCase):
 #TestCase: mongodb Test
 class mongodb(unittest.TestCase):
 
-    case_name='mii-tool'
+    case_name='mongodb'
 
     def setUp(self):
         print 'setUp...'

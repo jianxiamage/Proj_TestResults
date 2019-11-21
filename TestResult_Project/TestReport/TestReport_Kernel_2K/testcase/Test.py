@@ -1012,6 +1012,182 @@ class crond(unittest.TestCase):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
 #==============================================================
+#TestCase: ethtool Test
+class ethtool(unittest.TestCase):
+
+    case_name='ethtool'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_ethtool_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_ethtool_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_ethtool_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: mii_tool Test
+class mii_tool(unittest.TestCase):
+
+    case_name='mii-tool'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_mii_tool_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_mii_tool_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_mii_tool_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: mongodb Test
+class mongodb(unittest.TestCase):
+
+    case_name='mongodb'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_mongodb_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_mongodb_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_mongodb_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: arpd Test
+class arpd(unittest.TestCase):
+
+    case_name='arpd'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_arpd_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_arpd_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_arpd_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: bridge Test
+class bridge(unittest.TestCase):
+
+    case_name='bridge'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_bridge_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_bridge_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_bridge_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: cbq Test
+class cbq(unittest.TestCase):
+
+    case_name='cbq'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_cbq_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_cbq_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_cbq_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: net_service Test
+class net_service(unittest.TestCase):
+
+    case_name='net_service'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_net_service_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_net_service_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_net_service_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
+#TestCase: net_setting Test
+class net_setting(unittest.TestCase):
+
+    case_name='net_service'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_net_setting_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_net_setting_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_net_setting_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
+#==============================================================
 #TestCase: netperf_direct
 class netperf_direct(unittest.TestCase):
 
@@ -1378,3 +1554,4 @@ class IOstress(unittest.TestCase):
     def test_IOstress_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
+#==============================================================

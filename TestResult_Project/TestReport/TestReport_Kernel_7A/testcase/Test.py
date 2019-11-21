@@ -1059,7 +1059,7 @@ class mii_tool(unittest.TestCase):
 #TestCase: mongodb Test
 class mongodb(unittest.TestCase):
 
-    case_name='mii-tool'
+    case_name='mongodb'
 
     def setUp(self):
         print 'setUp...'
@@ -1554,3 +1554,4 @@ class IOstress(unittest.TestCase):
     def test_IOstress_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
+#==============================================================
