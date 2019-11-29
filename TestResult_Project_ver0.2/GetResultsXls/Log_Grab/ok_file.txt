@@ -1,0 +1,8 @@
+TestType:[OS] Platform:[7A] TestCase:[stream] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[iozone] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[spec2000-1core] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[SpecJvm2008] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[UnixBench] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[spec2006-ncore] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[spec2000-ncore] grabing result file success!
+TestType:[OS] Platform:[7A] TestCase:[spec2006-1core] grabing result file success!

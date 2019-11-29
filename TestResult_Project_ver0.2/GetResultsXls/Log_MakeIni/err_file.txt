@@ -1,0 +1,1 @@
+TestType:[OS] Platform:[7A] TestCase:[spec2006-ncore] setting result file failed!

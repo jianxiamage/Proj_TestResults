@@ -1,0 +1,98 @@
+make all
+make[1]: Entering directory `/home/UnixBench'
+Checking distribution of files
+./pgms  exists
+./src  exists
+./testdir  exists
+./tmp  exists
+./results  exists
+make[1]: Leaving directory `/home/UnixBench'
+
+   #    #  #    #  #  #    #          #####   ######  #    #   ####   #    #
+   #    #  ##   #  #   #  #           #    #  #       ##   #  #    #  #    #
+   #    #  # #  #  #    ##            #####   #####   # #  #  #       ######
+   #    #  #  # #  #    ##            #    #  #       #  # #  #       #    #
+   #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
+    ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+
+4 x Dhrystone 2 using register variables  1 2 3 4 5 6 7 8 9 10
+
+4 x Double-Precision Whetstone  1 2 3 4 5 6 7 8 9 10
+
+4 x Execl Throughput  1 2 3
+
+4 x File Copy 1024 bufsize 2000 maxblocks  1 2 3
+
+4 x File Copy 256 bufsize 500 maxblocks  1 2 3
+
+4 x File Copy 4096 bufsize 8000 maxblocks  1 2 3
+
+4 x Pipe Throughput  1 2 3 4 5 6 7 8 9 10
+
+4 x Pipe-based Context Switching  1 2 3 4 5 6 7 8 9 10
+
+4 x Process Creation  1 2 3
+
+4 x System Call Overhead  1 2 3 4 5 6 7 8 9 10
+
+4 x Shell Scripts (1 concurrent)  1 2 3
+
+4 x Shell Scripts (8 concurrent)  1 2 3
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: localhost: GNU/Linux
+   OS: GNU/Linux -- 3.10.0-5.lns7.mips64el -- #1 SMP PREEMPT Tue Nov 12 12:02:36 CST 2019
+   Machine: mips64 (mips64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 1: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 2: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 3: ICT Loongson-3A R3 (Loongson-3A3000) @ 1450MHz (0.0 bogomips)
+          
+   23:40:00 up 1 day,  7:19,  2 users,  load average: 7.46, 3.98, 2.10; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: 五 11月 15 2019 23:40:00 - 00:08:12
+4 CPUs in system; running 4 parallel copies of tests
+
+Dhrystone 2 using register variables       30427819.4 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     4161.3 MWIPS (9.9 s, 7 samples)
+Execl Throughput                               5869.4 lps   (29.9 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        152312.8 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks           39006.6 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks        537847.5 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             1562655.8 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 475269.7 lps   (10.0 s, 7 samples)
+Process Creation                              10068.6 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   7367.6 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                   1021.7 lpm   (60.1 s, 2 samples)
+System Call Overhead                        1294018.7 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   30427819.4   2607.4
+Double-Precision Whetstone                       55.0       4161.3    756.6
+Execl Throughput                                 43.0       5869.4   1365.0
+File Copy 1024 bufsize 2000 maxblocks          3960.0     152312.8    384.6
+File Copy 256 bufsize 500 maxblocks            1655.0      39006.6    235.7
+File Copy 4096 bufsize 8000 maxblocks          5800.0     537847.5    927.3
+Pipe Throughput                               12440.0    1562655.8   1256.2
+Pipe-based Context Switching                   4000.0     475269.7   1188.2
+Process Creation                                126.0      10068.6    799.1
+Shell Scripts (1 concurrent)                     42.4       7367.6   1737.6
+Shell Scripts (8 concurrent)                      6.0       1021.7   1702.8
+System Call Overhead                          15000.0    1294018.7    862.7
+                                                                   ========
+System Benchmarks Index Score                                         969.4
+

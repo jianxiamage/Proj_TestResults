@@ -1,0 +1,5 @@
+                                                            random  random    bkwd   record   stride                                   
+              KB  reclen   write rewrite    read    reread    read   write    read  rewrite     read   fwrite frewrite   fread  freread
+        16777216   16384  142348  139950   274875   274695  279066  128149                                                          
+
+iozone test complete.
