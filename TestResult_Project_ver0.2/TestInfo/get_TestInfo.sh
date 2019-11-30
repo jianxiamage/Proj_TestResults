@@ -31,7 +31,7 @@ onLineFlag=0
 #--------------------------------------------
 resultsPath="/data"
 detailDir="Detail"
-TestInfoDir="TestInfoDetail"
+TestInfoDir="TestInfo"
 destPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestInfoDir}/$TestCase/"
 rm -rf $destPath
 mkdir $destPath -p

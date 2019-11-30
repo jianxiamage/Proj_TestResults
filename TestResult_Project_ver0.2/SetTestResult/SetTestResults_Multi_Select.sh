@@ -17,7 +17,7 @@ Platform="$2"
 #Platform="7A_Integrated"
 #----------------------------------------------------------------------------------------
 ResultPath='/data'
-ResultFile="TestResults_new.ini"
+ResultFile="TestResults.ini"
 IniDir="TestIniDir"
 srcIniPath="${ResultPath}/${TestType}/${Platform}/${IniDir}"
 destPath="${ResultPath}/${TestType}/${Platform}"
@@ -74,11 +74,11 @@ wait
 echo "***************************************************"
 stop_time=`date +%s`  #定义脚本运行的结束时间
 
+echo "***************************************************"
 echo "Exec Time:`expr $stop_time - $start_time`s"
+echo "***************************************************"
 exec 3<&-                         #关闭文件描述符的读
 exec 3>&-                         #关闭文件描述符的写
-
-pwd
 
 echo "Merge the results ini file to 1 file..."
 :> ${destFile} 

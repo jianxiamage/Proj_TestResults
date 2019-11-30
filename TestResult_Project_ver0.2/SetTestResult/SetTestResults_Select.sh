@@ -17,7 +17,7 @@ Platform="$2"
 #Platform="7A_Integrated"
 #----------------------------------------------------------------------------------------
 ResultPath='/data'
-ResultFile="TestResults_new.ini"
+ResultFile="TestResults.ini"
 IniDir="TestIniDir"
 srcIniPath="${ResultPath}/${TestType}/${Platform}/${IniDir}"
 destPath="${ResultPath}/${TestType}/${Platform}"
