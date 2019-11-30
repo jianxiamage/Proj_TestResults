@@ -12,11 +12,16 @@ TestResult_Project*/Extended_GetResultsXls/KVM
 TestResult_Project*/Init_Env/OS
 TestResult_Project*/Init_Env/Kernel
 TestResult_Project*/Init_Env/KVM
+TestResult_Project*/OSInfo/OS
+TestResult_Project*/OSInfo/Kernel
+TestResult_Project*/OSInfo/KVM
 TestResult_Project*/TestInfo/OS
 TestResult_Project*/TestInfo/Kernel
 TestResult_Project*/TestInfo/KVM
 TestResult_Project*/TestReport/*/report.html
 TestResult_Project*/GetResultsXls/Log*
+TestResult_Project*/GetResultsXls/Excel_Create*
+TestResult_Project*/GetResultsXls/Excel_Merge*
 TestResult_Project*/GetResultsXls/TestMark*
 TestResult_Project*/SetTestResult/TestMark*
 TestResult_Project*/TestInfo/TestMark*
