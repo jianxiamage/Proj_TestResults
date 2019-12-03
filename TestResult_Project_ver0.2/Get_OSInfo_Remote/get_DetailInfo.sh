@@ -59,7 +59,8 @@ function getOSInfo()
      fi
      #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" || { echo 'Error!'; continue; }
      #sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /.buildstamp" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
-     sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no ${ServerUser}@${IP_testcase} "cat /home/os_info.txt" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
+     #sshpass -p $ServerPass  ssh -o StrictHostKeyChecking=no ${ServerUser}@${IP_testcase} "cat /home/os_info.txt" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
+     sshpass -p $ServerPass  ssh -o StrictHostKeyChecking=no -o ConnectTimeout=3 -o ConnectionAttempts=1 -o ServerAliveInterval=1  ${ServerUser}@${IP_testcase} "cat /home/os_info.txt" >> "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini"
      if [ $? -ne 0 ];then
        echo "Get the OS info file failed!"
        \cp StdOSInfo.ini  "${testcaseDir}/${TestCase}/Node${i}_${IP_testcase}.ini" -f
@@ -68,7 +69,6 @@ function getOSInfo()
    }&
    done
    wait
-   
    count_ip_result=`cat $IPCount_File|wc -l`
    echo "能够连接的ip个数:${count_ip_result}"
    
