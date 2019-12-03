@@ -26,3 +26,5 @@ TestResult_Project*/GetResultsXls/TestMark*
 TestResult_Project*/SetTestResult/TestMark*
 TestResult_Project*/TestInfo/TestMark*
 TestResult_Project*/OSInfo/TestMark*
+TestResult_Project*/SetTestResult/ok_file.txt
+TestResult_Project*/SetTestResult/err_file.txt
