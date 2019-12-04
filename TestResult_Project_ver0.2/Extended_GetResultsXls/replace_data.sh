@@ -5,7 +5,7 @@
 #只需要修改一个文件即可
 
 oldstr="/data/"
-newstr="/data-std/"
+newstr="/data/"
 
 #sed -i  "s#${oldstr}#${str}#g" $(find -type f -name "*.py")
 

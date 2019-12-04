@@ -12,7 +12,7 @@ TestCase_absdir="$4"  #输入参数为绝对路径的原因是:含有不确定�
 TestCase_absfile="$5"
 Node_num="$6"
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath=$(cat result_path.txt)
 #ResultIniFile=$srcResultFile
 #echo srcFile:$ResultIniFile
 PointsPath='Points_Files'

@@ -20,7 +20,7 @@ class myconf(ConfigParser.ConfigParser):
 workbook = xlwt.Workbook(encoding='utf-8')
 booksheet = workbook.add_sheet('UnixBench_4thread', cell_overwrite_ok=True)
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'

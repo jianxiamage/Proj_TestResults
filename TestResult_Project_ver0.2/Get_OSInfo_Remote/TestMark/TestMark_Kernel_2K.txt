@@ -1,12 +1,12 @@
 当前测试用例:Compiler
-当前测试用例:interrupts
 当前测试用例:top
+当前测试用例:interrupts
 当前测试用例:ps
 当前测试用例:iostat
 当前测试用例:getrandom
-当前测试用例:ring-test
 当前测试用例:unalign
 当前测试用例:kernel_madd_support_check
+当前测试用例:ring-test
 当前测试用例:audit-write
 当前测试用例:auditctl
 当前测试用例:cpu_occupy
@@ -14,8 +14,8 @@
 当前测试用例:kernel_ll_sc
 当前测试用例:unaligned_instructions
 当前测试用例:fpuemustats
-当前测试用例:filesystem_ll_sc
 当前测试用例:compiler_ll_sc
+当前测试用例:filesystem_ll_sc
 当前测试用例:docker_search_pull_start
 当前测试用例:run_stop_rm
 当前测试用例:container_export_import

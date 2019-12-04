@@ -10,7 +10,7 @@ TestType="$1"
 Platform="$2"
 TestCase="$3"
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath=$(cat result_path.txt)
 #ResultIniFile=$srcResultFile
 #echo srcFile:$ResultIniFile
 PointsPath='Points_Files'

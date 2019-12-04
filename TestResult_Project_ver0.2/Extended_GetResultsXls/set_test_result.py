@@ -9,7 +9,7 @@ import ConfigParser
 from get_GroupNum import *
 
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 ResultIniFile='TestResults.ini'
 
 def setResult(TestType,Platform,TestCase,NodeNum,keyValue):

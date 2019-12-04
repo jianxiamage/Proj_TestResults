@@ -12,7 +12,7 @@ import xlwt
 workbook = xlwt.Workbook(encoding='utf-8')
 booksheet = workbook.add_sheet('spec2006_ncore_CINT', cell_overwrite_ok=True)
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 detailDir='Detail'
 PointsPath='Points_Files'
 curPointsPath='ini_Points'

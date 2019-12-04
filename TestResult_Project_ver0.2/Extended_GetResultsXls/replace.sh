@@ -4,7 +4,7 @@
 #例如多个文件中使用的路径,可以事先存在文件中,这样当目录发生修改时,
 #只需要修改一个文件即可
 
-newstr="resultsPath=\$(cat data_path.txt)"
+newstr="resultsPath=\$(cat result_path.txt)"
 oldstr="resultsPath='/data'"
 
 #sed -i  "s#${oldstr}#${newstr}#g" $(find -type f -name "*.sh")

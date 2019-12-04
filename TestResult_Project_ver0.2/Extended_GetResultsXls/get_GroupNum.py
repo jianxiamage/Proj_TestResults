@@ -5,7 +5,7 @@ import sys  #引入模块
 import traceback
 import ConfigParser
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 def getGroupNumByName(TestType,keyName):
 
     GroupIniFile='TestcaseGroup_' + TestType +'.ini'

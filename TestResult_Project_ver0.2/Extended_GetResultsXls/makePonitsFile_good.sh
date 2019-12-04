@@ -12,7 +12,7 @@ TestCase="$3"
 TestCase_absdir="$4"  #输入参数为绝对路径的原因是:含有不确定的包含ip的目录，直接获取比较困难,需再确认
 Node_num="$5"
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath=$(cat result_path.txt)
 #ResultIniFile=$srcResultFile
 #echo srcFile:$ResultIniFile
 PointsPath='Points_Files'

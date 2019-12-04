@@ -18,7 +18,7 @@ class myconf(ConfigParser.ConfigParser):
 #stream测试，无论单核测试还是多核测试均含有浮点和整型两种文件
 #因此，相比只生成一个结果文件的测试项(例如iozone)要多加一个类型参数
 #-------------------------------------------------
-ResultPath='/data-std/'
+ResultPath='/data/'
 PointsPath='Points_Files'
 #global sectionName
 #sectionName='stream-1core'

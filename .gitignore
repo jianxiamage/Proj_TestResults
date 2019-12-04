@@ -28,3 +28,6 @@ TestResult_Project*/TestInfo/TestMark*
 TestResult_Project*/OSInfo/TestMark*
 TestResult_Project*/SetTestResult/ok_file.txt
 TestResult_Project*/SetTestResult/err_file.txt
+TestResult_Project*/Get_OSInfo_Remote/OS*
+TestResult_Project*/Get_OSInfo_Remote/Kernel*
+TestResult_Project*/Get_OSInfo_Remote/KVM*

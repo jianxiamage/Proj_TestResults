@@ -13,7 +13,7 @@ Platform="$2"
 TestCase="$3"
 Node_num="$4"
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath=$(cat result_path.txt)
 PointsPath='Points_Files'
 testMode='1thread'
 #----------------------------------------------------------------------------------------

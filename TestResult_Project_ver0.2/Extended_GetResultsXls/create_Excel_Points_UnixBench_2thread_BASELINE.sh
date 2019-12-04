@@ -15,7 +15,7 @@ TestCase="$3"
 TestSel="2" #TestSel 代表哪一种线程测试
 TestMode="BASELINE"
 #----------------------------------------------------------------------------------------
-resultsPath=$(cat data_path.txt)
+resultsPath=$(cat result_path.txt)
 PointsPath='Points_Files'
 Node_count=0
 #----------------------------------------------------------------------------------------

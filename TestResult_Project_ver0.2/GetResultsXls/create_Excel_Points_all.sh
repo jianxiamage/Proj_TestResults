@@ -14,7 +14,7 @@ resultsPath='/data'
 PointsPath='Points_Files'
 #----------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------
-Excel_create_dir='Excel_create'
+Excel_create_dir='Excel_Create'
 okfile=${Excel_create_dir}/ok_file.txt
 errfile=${Excel_create_dir}/err_file.txt
 #----------------------------------------------------------------------------------------

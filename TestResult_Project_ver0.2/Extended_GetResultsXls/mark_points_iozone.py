@@ -13,7 +13,7 @@ class myconf(ConfigParser.ConfigParser):
     def optionxform(self, optionstr):
         return optionstr
 
-ResultPath='/data-std/'
+ResultPath='/data/'
 PointsPath='Points_Files'
 sectionName='EXT3 File System'
 
