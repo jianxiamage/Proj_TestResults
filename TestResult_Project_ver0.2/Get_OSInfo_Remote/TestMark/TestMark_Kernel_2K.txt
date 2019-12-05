@@ -1,12 +1,12 @@
-当前测试用例:Compiler
 当前测试用例:top
-当前测试用例:interrupts
-当前测试用例:ps
 当前测试用例:iostat
+当前测试用例:interrupts
+当前测试用例:Compiler
+当前测试用例:ps
 当前测试用例:getrandom
+当前测试用例:ring-test
 当前测试用例:unalign
 当前测试用例:kernel_madd_support_check
-当前测试用例:ring-test
 当前测试用例:audit-write
 当前测试用例:auditctl
 当前测试用例:cpu_occupy
