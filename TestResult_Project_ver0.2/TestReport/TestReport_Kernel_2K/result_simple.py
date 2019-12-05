@@ -73,6 +73,7 @@ def creatsuite():
                 ret_str = get_str(test_str)
                 if ret_str == str_case:
                    test_suite_new.append(test_case)         
+
     j = 0
     for j in xrange(len(test_suite_new)):
     #for test_case in test_suite_new:
