@@ -63,7 +63,7 @@ def creatsuite():
     for i in xrange(len(result)):
         print i + 1, result[i]
         str_case = ''.join(result[i])
-        #print('========================current test case:%s') %(str_case)
+    
         #for test_suite in package_tests:
         for test_case in new_test_suite:
                 #testunit.addTests(test_case)

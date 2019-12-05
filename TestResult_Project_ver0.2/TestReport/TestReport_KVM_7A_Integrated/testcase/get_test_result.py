@@ -7,8 +7,6 @@ import os
 import traceback
 import ConfigParser
 
-#from get_GroupNum import *
-
 #ResultIniPath='/data/OS/7A/TestResults.ini'
 def getResult(TestCase,NodeNum):
 
@@ -29,7 +27,7 @@ def getResult(TestCase,NodeNum):
 
     config = ConfigParser.ConfigParser()
     config.readfp(open(ResultIniPath))
-    #Group_num=getGroupNumByName(TestCase)
+
     sectionName = str(TestCase)
     keyName = 'node_'+ str(NodeNum)
     resultStr=config.get(sectionName,keyName)

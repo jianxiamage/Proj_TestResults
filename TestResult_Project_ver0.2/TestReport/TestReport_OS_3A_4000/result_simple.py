@@ -73,6 +73,7 @@ def creatsuite():
                 ret_str = get_str(test_str)
                 if ret_str == str_case:
                    test_suite_new.append(test_case)         
+
     j = 0
     for j in xrange(len(test_suite_new)):
     #for test_case in test_suite_new:
@@ -120,7 +121,7 @@ if __name__ == "__main__":
   
       GEN_HTML = filename
       #运行完自动在网页中显示
-      webbrowser.open(GEN_HTML,new = 1)
+      #webbrowser.open(GEN_HTML,new = 1)
 
 
   except Exception as E:
