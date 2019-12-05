@@ -89,6 +89,8 @@ do
 done
 wait
 
+\cp "${destClassFile}" "TestSuite_${TestType}.py" -f
+
 echo "*********************************************"
 stop_time=`date +%s`  #定义脚本运行的结束时间
 

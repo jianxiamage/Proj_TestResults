@@ -34,6 +34,10 @@ echo "Begin to create Test Report Dir.TestType:[$TestType],TestPlat:[$Platform]"
 #添加测试用例文件（主要功能是确立测试用例以及顺序）
 \cp ${StdTestFilePath}/Std_CaseList_${TestType}.txt ${TestReportDir}/Std_CaseList.txt -f
 
+
+\cp ${StdTestFilePath}/TestSuite_${TestType}.py ${TestReportDir}/testcase/Test.py -f
+
+
 stop_time=`date +%s`  #定义脚本运行的结束时间
 
 echo "Create Test Report Dir finished.TestType:[$TestType],TestPlat:[$Platform]"

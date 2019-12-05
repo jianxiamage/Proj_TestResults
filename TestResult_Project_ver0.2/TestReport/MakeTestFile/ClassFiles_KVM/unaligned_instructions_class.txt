@@ -1,8 +1,8 @@
 #-----------------------------------------------------------
 
-class Demo(unittest.TestCase):
+class unaligned_instructions(unittest.TestCase):
 
-    case_name='Demo'
+    case_name='unaligned_instructions'
 
     def setUp(self):
         print 'setUp...'
@@ -11,12 +11,12 @@ class Demo(unittest.TestCase):
         print 'tearDown...'
 
     # 测试函数
-    def test_Demo_Node1(self):
+    def test_unaligned_instructions_Node1(self):
         self.assertEqual(getResult(self.case_name,1) , 0)
 
-    def test_Demo_Node2(self):
+    def test_unaligned_instructions_Node2(self):
         self.assertEqual(getResult(self.case_name,2) , 0)
 
-    def test_Demo_Node3(self):
+    def test_unaligned_instructions_Node3(self):
         self.assertEqual(getResult(self.case_name,3) , 0)
 
