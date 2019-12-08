@@ -19,7 +19,7 @@ Platform="$2"
 #----------------------------------------------------------------------------------------
 outputDir=TestMark
 outputFile="${outputDir}/TestMark_${TestType}_${Platform}.txt"
-TestListFile="TestCaseList/TestCaseList_${TestType}.txt"
+TestListFile="../Init_Env/TestCaseList/TestCaseList_${TestType}.txt"
 #----------------------------------------------------------------------------------------
 
 if [ ! -s $TestListFile ]

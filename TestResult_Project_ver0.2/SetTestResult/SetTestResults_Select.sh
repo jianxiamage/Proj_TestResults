@@ -25,7 +25,7 @@ destFile="${destPath}/${ResultFile}"
 #----------------------------------------------------------------------------------------
 outputDir=TestMark
 outputFile="${outputDir}/TestMark_${TestType}_${Platform}.txt"
-TestListFile="TestCaseList/TestCaseList_${TestType}.txt"
+TestListFile="../Init_Env/TestCaseList/TestCaseList_${TestType}.txt"
 #----------------------------------------------------------------------------------------
 okfile='ok_file.txt'
 errfile='err_file.txt'

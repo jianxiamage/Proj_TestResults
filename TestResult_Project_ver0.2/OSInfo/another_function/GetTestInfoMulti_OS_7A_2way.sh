@@ -18,7 +18,7 @@ echo "***************************************************"
 rm -rf TestCase_Count.txt
 
 case_count=0
-for line in `cat TestCaseList.txt`
+for line in `cat ../Init_Env/TestCaseList.txt`
 do
 {
   case_name=$line
