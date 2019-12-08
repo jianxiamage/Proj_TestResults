@@ -1,8 +1,8 @@
-当前测试用例:top
 当前测试用例:interrupts
 当前测试用例:Compiler
-当前测试用例:iostat
+当前测试用例:top
 当前测试用例:ps
+当前测试用例:iostat
 当前测试用例:getrandom
 当前测试用例:ring-test
 当前测试用例:unalign
@@ -43,6 +43,7 @@
 当前测试用例:rpm_installed_info_check
 当前测试用例:luajit
 当前测试用例:crond
+当前测试用例:fstab
 当前测试用例:ethtool
 当前测试用例:mii-tool
 当前测试用例:mongodb

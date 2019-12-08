@@ -43,6 +43,7 @@ rpm_installed_check=功能测试:[rpm_installed_check] 1072-已安装包检查
 rpm_list_info_check=功能测试:[rpm_list_info_check] 1073-检查可安装软件包产品信息
 rpm_installed_info_check=功能测试:[rpm_installed_info_check] 1074-检查已安装软件包产品信息
 crond=功能测试:[crond] 本地服务-crond服务
+fstab=功能测试:[fstab] f21-1148:3.自动挂载文件系统 
 ethtool=功能测试:[ethtool] 1061:2.ethtool查看应网口状态,1062:3.ethtool查询网络收发包统计,1063:4.ethtool更改网卡工作模式
 mii_tool=功能测试:[mii_tool] 1064:5.mii-tool查看应网口状态,1065:6.mii-tool更改网卡工作模式
 mongodb=功能测试:[mongodb] 1155:2.mongodb

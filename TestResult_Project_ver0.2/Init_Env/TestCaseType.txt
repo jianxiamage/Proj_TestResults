@@ -43,6 +43,7 @@ rpm_installed_check=1
 rpm_list_info_check=1
 rpm_installed_info_check=1
 crond=1
+fstab=1
 ethtool=1
 mii_tool=1
 mongodb=1

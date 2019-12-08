@@ -43,6 +43,7 @@ rpm_installed_check
 rpm_list_info_check
 rpm_installed_info_check
 crond
+fstab
 ethtool
 mii_tool
 mongodb

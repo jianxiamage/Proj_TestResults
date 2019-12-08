@@ -9,7 +9,7 @@ TestType=$1
 Platform=$2
 #------------------------------------------------------
 #标准模板用以添加新的测试报告项目
-Std_TestReprotDir="TestReport_Dir" 
+Std_TestReportDir="TestReport_Dir" 
 
 #根据测试类型及测试平台的不同生成的新的测试报告项目目录
 TestReportDir="TestReport_${TestType}_${Platform}" 
@@ -26,9 +26,11 @@ start_time=`date +%s` #定义脚本运行的开始时间
 
 echo "Begin to create Test Report Dir.TestType:[$TestType],TestPlat:[$Platform]"
 
+rm -rf ${TestReportDir}
+
 #mkdir $TestReportDir -p
 #制作测试报告代码模板
-\cp -draf ${Std_TestReprotDir} ${TestReportDir}
+\cp -draf ${Std_TestReportDir} ${TestReportDir}
 
 #向新制作的测试报告项目中添加所需文件
 #添加测试用例文件（主要功能是确立测试用例以及顺序）

@@ -43,6 +43,7 @@ rpm_list_info_check
 rpm_installed_info_check
 luajit
 crond
+fstab
 ethtool
 mii-tool
 mongodb

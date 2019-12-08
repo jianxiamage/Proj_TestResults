@@ -37,12 +37,13 @@ docker_namespace_net:docker_namespace_net
 docker_namespace_pid:docker_namespace_pid
 docker_log:docker_log
 docker_rmi:docker_rmi
+luajit:luajit
 rpm_list_check:rpm_list_check
 rpm_installed_check:rpm_installed_check
 rpm_list_info_check:rpm_list_info_check
 rpm_installed_info_check:rpm_installed_info_check
-luajit:luajit
 crond:crond
+fstab:fstab
 ethtool:ethtool
 mii_tool:mii-tool
 mongodb:mongodb
