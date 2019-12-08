@@ -2,6 +2,7 @@
 
 #----------------------------------------------------
 srcGroupFile='TestcaseGroup.ini'
+MarkFile='Classify_Mark/ToldYou.txt'
 ResultPath='/Results'
 #GroupIniFile=$srcGroupFile
 #echo copy the [$srcGroupFile] to dest Dir
@@ -38,6 +39,10 @@ echo "----------------------------------------------------"
 echo "Begin to copy the group file for the test cases..."
 \cp $srcGroupFile $ResultPath -f
 echo "Copy the group file for the test cases End."
+
+echo "Begin to copy the Mark file..."
+\cp $MarkFile $ResultPath -f
+echo "Copy the Mark file End."
 
 echo ----------------------------------------------------
 echo "Init the Classification Path End."
