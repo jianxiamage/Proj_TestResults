@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+
+class mii_tool(unittest.TestCase):
+
+    case_name='mii-tool'
+
+    def setUp(self):
+        print 'setUp...'
+
+    def tearDown(self):
+        print 'tearDown...'
+
+    # 测试函数
+    def test_mii_tool_Node1(self):
+        self.assertEqual(getResult(self.case_name,1) , 0)
+
+    def test_mii_tool_Node2(self):
+        self.assertEqual(getResult(self.case_name,2) , 0)
+
+    def test_mii_tool_Node3(self):
+        self.assertEqual(getResult(self.case_name,3) , 0)
+
