@@ -31,6 +31,7 @@ TestResult_Project*/SetTestResult/err_file.txt
 TestResult_Project*/Get_OSInfo_Remote/OS*
 TestResult_Project*/Get_OSInfo_Remote/Kernel*
 TestResult_Project*/Get_OSInfo_Remote/KVM*
-TestResult_Project_ver0.3/TestReport/*/test_plat.txt
-TestResult_Project_ver0.3/TestReport/*/test_type.txt
-TestResult_Project_ver0.3/TestReport/*/testcase/testResultIni_path.txt
+TestResult_Project*/Get_OSInfo_Remote/TestMark/
+TestResult_Project*/TestReport/*/test_plat.txt
+TestResult_Project*/TestReport/*/test_type.txt
+TestResult_Project*/TestReport/*/testcase/testResultIni_path.txt
