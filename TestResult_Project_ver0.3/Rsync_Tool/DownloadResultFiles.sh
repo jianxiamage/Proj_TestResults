@@ -16,6 +16,13 @@ start_time=`date +%s`              #定义脚本运行的开始时间
 
 sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r \
 $ServerUser@$ServerIP:~/$ServerTestDir/ ${ServerTestDir}
+retCode=$?
+
+if [ $retCode -ne 0 ];
+then
+  echo "Error,download test files from Server:[${ServerIP}] failed!"
+  exit 1
+fi
 
 stop_time=`date +%s`  #定义脚本运行的结束时间
 echo "***************************************************"
