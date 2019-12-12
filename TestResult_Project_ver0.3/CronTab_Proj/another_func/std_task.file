@@ -1,0 +1,1 @@
+*/3 * * * * cd /Proj_TestResults/TestResult_Project_ver0.3; ./Result_Collection.sh
