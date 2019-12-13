@@ -35,3 +35,5 @@ TestResult_Project*/Get_OSInfo_Remote/TestMark/
 TestResult_Project*/TestReport/*/test_plat.txt
 TestResult_Project*/TestReport/*/test_type.txt
 TestResult_Project*/TestReport/*/testcase/testResultIni_path.txt
+TestResult_Project*/CronTab_Proj/crontab_bak_*
+TestResult_Project*/Rsync_Tool/crontab_bak_*

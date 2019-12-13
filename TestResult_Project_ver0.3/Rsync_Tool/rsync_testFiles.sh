@@ -7,6 +7,14 @@
 source /etc/profile
 #-------------------------------------------------
 
+#-------------------------------------------------
+logFile="Rsync_AutoTestFiles.log"
+#-------------------------------------------------
+
+#-------------------------------------------------
+source ../Common_Func/create_LogFile.sh $logFile
+#-------------------------------------------------
+
 #--------------------------------------------
 ServerDomain='auto_test.loongson.cn'
 ServerUser='loongson-test'
@@ -24,13 +32,20 @@ LogFile_Rsync=/var/log/local_rsyncd.log
 echo "***************************************************"
 start_time=`date +%s`              #定义脚本运行的开始时间
 
-sshpass -p $ServerPass  ssh -o StrictHostKeychecking=no $ServerUser@$ServerDomain \
+cmdStr="To rsync the test result files with Server:[${ServerIP}] Begin.-------------------------------"
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
+
+sshpass -p $ServerPass  ssh -o StrictHostKeyChecking=no -o ConnectTimeout=3 -o ConnectionAttempts=1 -o ServerAliveInterval=1 \
 "[ -d ~/${ServerTestDir} ]" 
 retCode=$?
 
 if [ $retCode -ne 0 ];
 then 
-  echo "Error,No Directory named [${ServerTestDir}] on Server:[${ServerIP}]!"
+  cmdStr="Error,No Directory named [${ServerTestDir}] on Server:[${ServerIP}]!"
+  echo $cmdStr
+  write_log "INFO" "${cmdStr}"
   exit 1
 fi
 
@@ -41,7 +56,9 @@ retCode=$?
 
 if [ $retCode -ne 0 ];
 then
-  echo "Error,Rsync data with Server:[${ServerIP}] failed!"
+  cmdStr="Error,Rsync data with Server:[${ServerIP}] failed!"
+  echo $cmdStr
+  write_log "INFO" "${cmdStr}"
   exit 1
 fi
 
@@ -50,5 +67,12 @@ fi
 stop_time=`date +%s`  #定义脚本运行的结束时间
 
 echo "***************************************************"
-echo "Exec Time:`expr $stop_time - $start_time`s"
+cmdStr="Exec Time:`expr $stop_time - $start_time`s"
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
 echo "***************************************************"
+
+cmdStr="To rsync the test result files with Server:[${ServerIP}] End.---------------------------------"
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
