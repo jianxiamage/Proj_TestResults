@@ -1,10 +1,12 @@
 #!/bin/bash
 #set -e
 
+#---------------------------------------------------------------------
 #功能：
 #多线程执行指定测试类型和测试平台下的测试信息文件(测试开始时间)下载
 #最终目的是在每个测试用例的指定目录下生成相应的测试开始时间
 #从而便于在前端页面查看每个测试用例对应的测试开始时间
+#---------------------------------------------------------------------
 
 if [ $# -ne 2 ];then
  echo "usage: $0 TestType Platform" 
@@ -33,6 +35,8 @@ rm -rf $outputFile
 
 echo "Begin to get the OS Info of the test nodes:[${TestType}],[${Platform}]..."
 
+#备份knownhosts文件
+\cp /root/.ssh/known_hosts /home/ -f
 #删除knownhosts文件，防止远程连接出错
 rm -rf /root/.ssh/known_hosts
 
@@ -69,5 +73,8 @@ echo "Exec Time:`expr $stop_time - $start_time`s"
 echo "***************************************************"
 exec 3<&-                         #关闭文件描述符的读
 exec 3>&-                         #关闭文件描述符的写
+
+#恢复knownhosts文件
+\cp  /home/known_hosts /root/.ssh/ -f
 
 echo "get the OS Info of the test nodes End.:[${TestType}],[${Platform}]"
