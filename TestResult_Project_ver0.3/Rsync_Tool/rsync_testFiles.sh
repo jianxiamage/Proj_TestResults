@@ -22,7 +22,7 @@ ServerPass='loongson'
 #--------------------------------------------
 
 AutoTestDir='/AutoTest'
-ServerTestDir='autotest_result1'
+ServerTestDir='autotest_result'
 #--------------------------------------------
 #域名转IP
 ServerIP=`dig +short $ServerDomain`
@@ -38,7 +38,7 @@ write_log "INFO" "${cmdStr}"
 
 
 sshpass -p $ServerPass  ssh -o StrictHostKeyChecking=no -o ConnectTimeout=3 -o ConnectionAttempts=1 -o ServerAliveInterval=1 \
-"[ -d ~/${ServerTestDir} ]" 
+$ServerUser@$ServerIP "[ -d ~/${ServerTestDir} ]" 
 retCode=$?
 
 if [ $retCode -ne 0 ];
@@ -51,7 +51,7 @@ fi
 
 rm -rf ${LogFile_Rsync}
 sshpass -p $ServerPass rsync -avzP --delete -e 'ssh -p 22' --log-file="${LogFile_Rsync}" \
-$ServerUser@$ServerDomain:~/$ServerTestDir $AutoTestDir
+$ServerUser@$ServerIP:~/$ServerTestDir $AutoTestDir
 retCode=$?
 
 if [ $retCode -ne 0 ];
@@ -72,7 +72,14 @@ echo $cmdStr
 write_log "INFO" "${cmdStr}"
 echo "***************************************************"
 
-cmdStr="To rsync the test result files with Server:[${ServerIP}] End.---------------------------------"
+cmdStr="The detail rsync log:"
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 
+cmdStr=$(cat ${LogFile_Rsync})
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
+cmdStr="To rsync the test result files with Server:[${ServerIP}] End.---------------------------------"
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
