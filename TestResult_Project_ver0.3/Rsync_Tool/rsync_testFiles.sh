@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#-------------------------------------------------
+#设置环境变量，防止定时任务调用时出错
+#. /etc/profile
+#. ~/.bash_profile
+source /etc/profile
+#-------------------------------------------------
+
 #--------------------------------------------
 ServerDomain='auto_test.loongson.cn'
 ServerUser='loongson-test'
