@@ -8,7 +8,6 @@
 if [ $# -ne 2 ];then
   cmdStr="usage: $0 TestType Platform"
   echo $cmdStr
-  write_log "INFO" "${cmdStr}"
   exit 1
 fi
 #-------------------------------------------------
@@ -29,12 +28,30 @@ source /etc/profile
 source ./Common_Func/create_LogFile.sh $logFile
 #-------------------------------------------------
 
+#-------------------------------------------------
+
 
 start_time=`date +%s`              #定义脚本运行的开始时间
 
 cmdStr="To collect Test Results Begin.-------------------------------"
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
+
+#获取测试节点的系统信息
+#例如:系统类型，系统版本，内核版本
+#由于系统信息会在测试开始不久后就上传到服务器上，理论上只需执行一次即可
+#这里是每次收集结果都执行一次，因为任务开启时间不好界定
+echo "*********************************************************"
+cmdStr="Begin to get OS Info..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd Get_OSInfo_Server
+sh GetOSInfo_Multi_Select.sh ${TestType} ${Platform}
+popd
+cmdStr="Getting OS Info End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
 
 #获取测试节点的测试信息
 #获取测试开始时间

@@ -24,7 +24,7 @@ KernelVerFile="KernelVer_${TestType}_${Platform}.txt"
 #--------------------------------------------
 retCode=0
 #--------------------------------------------
-OSInfo_Dir="OSInfo"
+OSInfo_Dir="../Init_Env/OSInfo_Server"
 #--------------------------------------------
 dataPath="/data"
 ResultsPath="/Results"

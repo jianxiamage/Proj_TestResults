@@ -85,8 +85,7 @@ function writeIPFile()
      keyName="ip_${NodeNum}"
      #echo "第[$i] 个keyName:$keyName"
      IP_testcase=$(readIni $ip_list_path $sectionName $keyName)
-     #echo 第[$i]个ip:$IP_testcase
-     #记录每个测试用例对应的ip列表到一个文件中
+     echo 第[$i]个ip:$IP_testcase
      echo $IP_testcase  >>  $testcase_ip_path
    done
 
@@ -123,25 +122,27 @@ check_result()
         workdir=$(cd $(dirname $0); pwd)
 
         echo 第[$i]个ip:$host
-        #ping -c3 -i0.3 -W1 $host &>/dev/null
-        #if [ $? -ne 0 ] ;then
-        #  echo "[${host}] can not be connected!"
-        #  onLineFlag=1
-        #  \cp $workdir/StdOSInfo.ini "$destPath/Node${i}_${host}.ini" -f
-        #  continue
-        #fi
+        ping -c3 -i0.3 -W1 $host &>/dev/null
+        if [ $? -ne 0 ] ;then
+           echo "[${host}] can not be connected!"
+           onLineFlag=1
+           \cp $workdir/StdOSInfo.ini "$destPath/Node${i}_${host}.ini" -f
+           continue
+        fi
 
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no  \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/OS_Info/${TestName}_${host}_osinfo.txt "$destPath/Node${i}_${host}.ini"
 
-        \cp ${AutoTestDir}/$ServerTestDir/OS_Info/${host}_osinfo.txt "$destPath/Node${i}_${host}.ini" -f || (echo "${TestName}_${host}_osinfo.txt Not exists!"; retCode=1);
-        retCode=$?
+        \cp ${AutoTestDir}/$ServerTestDir/$TestName/OS_Info/${TestName}_${host}_osinfo.txt "$destPath/Node${i}_${host}.ini" || (echo "${TestName}_${host}_osinfo.txt Not exists!"; retCode=1);
 
+        retCode=$?
+        #if [ $? -ne 0 ];then
         if [ $retCode -ne 0 ];then
            echo "Node:[${host}]:Get OS Info file failed."
            \cp $workdir/StdOSInfo.ini "$destPath/Node${i}_${host}.ini" -f
            continue
         fi
+
 
     done < $testcase_ip_path_tmp
 
