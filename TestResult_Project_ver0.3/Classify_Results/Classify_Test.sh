@@ -32,6 +32,8 @@ SortPath="UnKnown"
 srcPath="${dataPath}/${TestType}/${Platform}"
 destPath=""
 #--------------------------------------------
+BasicInfoFile=${srcPath}/BasicInfo.txt
+#--------------------------------------------
 
 if [ ! -d ${srcPath} ];
 then 
@@ -78,6 +80,21 @@ case ${os_type} in
         exit 1
         ;;
 esac
+
+#-------------------------------------------------------------------
+MarkTime=$(date "+%Y-%m-%d %H:%M:%S")
+echo $MarkTime
+#-------------------------------------------------------------------
+#记录当前的测试信息到目标目录中，便于简单查看当前的测试情况，如时间，平台等
+rm -f $BasicInfoFile
+
+echo MarkTime:[${MarkTime}] > $BasicInfoFile
+echo ClassifyType:[${classify_name}] >> $BasicInfoFile
+echo TestType:[${TestType}] >> $BasicInfoFile
+echo Platform:[${Platform}] >> $BasicInfoFile
+echo OS_Type:[${os_type}] >> $BasicInfoFile
+echo OS_Ver:[${os_ver}] >> $BasicInfoFile
+echo Kernel_Ver:[${kernel_ver}] >> $BasicInfoFile
 
 destPath="${ResultsPath}/${SortPath}/${Platform}/${TestType}"
 echo "destPath for Backup:[${destPath}]"

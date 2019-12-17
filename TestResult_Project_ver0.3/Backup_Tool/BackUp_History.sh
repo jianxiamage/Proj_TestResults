@@ -38,6 +38,7 @@ then
   exit 1
 fi
 
+#-------------------------------------------------------------------
 mkdir $destPath -p
 
 #获取测试机器的操作系统信息，包括系统类型，系统版本及内核版本
@@ -83,6 +84,8 @@ case ${TestType} in
         ;;
 esac
 
+
+#备份当前的测试结果
 destPath="${resultsPath}/${TestType}/${bakPath}/${Platform}/${BakType}"
 echo "destPath for Backup:[${destPath}]"
 mkdir $destPath -p
