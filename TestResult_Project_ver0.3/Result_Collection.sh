@@ -56,13 +56,13 @@ write_log "INFO" "${cmdStr}"
 #获取测试节点的测试信息
 #获取测试开始时间
 echo "*********************************************************"
-cmdStr="Begin to get Test Info(Test Beginning Time...)"
+cmdStr="Begin to get Test Info(Test Beginning Time)..."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 pushd TestInfo
 sh GetTestInfo_Multi_Select.sh ${TestType} ${Platform}
 popd
-cmdStr="Get Test Info(Test Beginning Time...) End."
+cmdStr="Get Test Info(Test Beginning Time) End."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 
