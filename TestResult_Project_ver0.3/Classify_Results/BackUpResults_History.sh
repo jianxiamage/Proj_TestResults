@@ -110,7 +110,7 @@ esac
 
 
 echo "SortPath:${SortPath}"
-destPath="${ResultsPath}/${SortPath}/${bakPath}/${Platform}/${BakType}"
+destPath="${ResultsPath}/${SortPath}/${bakPath}/${Platform}/${TestType}/${BakType}"
 
 echo "destPath for Backup:[${destPath}]"
 mkdir $destPath -p
