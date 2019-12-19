@@ -48,7 +48,8 @@ function getOSInfo()
   
    for((i=1;i<=count_items;i++));
    do
-   {  IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
+   { 
+     IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
      echo 第[$i]个ip:$IP_testcase
      ping -c3 -i0.3 -W1 $IP_testcase &>/dev/null
      if [ $? -ne 0 ] ;then
