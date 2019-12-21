@@ -11,7 +11,8 @@ ServerIP=`dig +short $ServerDomain`
 
 AutoTestDir='/AutoTest'
 ServerTestDir='autotest_result'
-OS_InfoDir="/home/${ServerUser}/${autotest_dir}/OS_Info"
+#OS_InfoDir="/home/${ServerUser}/${autotest_dir}/OS_Info"  #远程服务器下载目录
+OS_InfoDir="${AutoTestDir}/${autotest_dir}/OS_Info"  #本地服务器同步目录
 #--------------------------------------------
 
 #--------------------------------------------
@@ -70,8 +71,10 @@ function getOSInfo()
    #echo "keyName:$keyName"
    IP_testcase=$(readIni $ip_list_path $sectionName $keyName)
 
-   sshpass -p $ServerPass  scp -o StrictHostKeyChecking=no -o ConnectTimeout=3 -o ConnectionAttempts=1 -o ServerAliveInterval=1 \
-   $ServerUser@$ServerIP:$OS_InfoDir/${IP_testcase}_osinfo.txt ${BuildInfoFile}
+   #sshpass -p $ServerPass  scp -o StrictHostKeyChecking=no -o ConnectTimeout=3 -o ConnectionAttempts=1 -o ServerAliveInterval=1 \
+   #$ServerUser@$ServerIP:$OS_InfoDir/${IP_testcase}_osinfo.txt ${BuildInfoFile}
+
+   \cp $OS_InfoDir/${IP_testcase}_osinfo.txt ${BuildInfoFile} -f
 
    #\cp ${IP_testcase}_osinfo.txt ${BuildInfoFile} -f
    #"${BuildInfoFile}"

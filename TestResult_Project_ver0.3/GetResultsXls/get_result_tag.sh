@@ -5,7 +5,7 @@ ServerIP='auto_test.loongson.cn'
 ServerUser='loongson-test'
 ServerPass='loongson'
 #--------------------------------------------
-
+AutoTestDir="/AutoTest"
 ServerTestDir='autotest_result'
 #--------------------------------------------
 #items_count=3

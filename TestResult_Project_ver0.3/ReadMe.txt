@@ -2,7 +2,7 @@
 Common_Func  //公共方法库
 Env_Init.sh  //初始化脚本，每次大的任务启动，需要手动清理环境
 Result_Collection.sh //结果收集脚本,最核心脚本
-RemoteNodeOSInfo.sh  //远程执行命令脚本，获取远程测试节点的系统信息,备用
+RemoteNodeOSInfo.sh  //远程执行命令脚本，获取远程测试节点的系统信息,备用,已放置在目录:AlternativeFunc
 Init_Env    //初始化小项目，对测试结果存放目录进行环境清理
 
 Result_Collection.sh 脚本调用的项目(收集测试结果的所有小项目)

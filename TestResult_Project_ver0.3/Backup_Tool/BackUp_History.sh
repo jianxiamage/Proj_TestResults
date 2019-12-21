@@ -24,7 +24,7 @@ KernelVerFile="KernelVer_${TestType}_${Platform}.txt"
 #--------------------------------------------
 retCode=0
 #--------------------------------------------
-OSInfo_Dir="../Init_Env/OSInfo_Server"
+OSInfo_Dir="../Common_Func/OSInfo_Server"
 #--------------------------------------------
 resultsPath="/data"
 bakPath="History_Bak"
@@ -43,7 +43,7 @@ mkdir $destPath -p
 
 #获取测试机器的操作系统信息，包括系统类型，系统版本及内核版本
 pushd ${OSInfo_Dir}
-sh get_OSInfo.sh ${TestType} ${Platform} top
+sh get_OSInfo.sh ${TestType} ${Platform}
 if [ $? -ne 0 ];
 then
   echo "Get the OS Info failed,Backup failed!exit..." 
