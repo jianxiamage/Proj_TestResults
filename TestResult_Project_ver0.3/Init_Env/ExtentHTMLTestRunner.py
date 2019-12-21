@@ -970,6 +970,7 @@ class Template_mixin(object):
 节点IP: [%(ip)s]<br>
 系统类别: [%(os_name)s],&nbsp;&nbsp;&nbsp;&nbsp;系统版本: [%(os_ver)s],&nbsp;&nbsp;&nbsp;&nbsp;内核版本: [%(kernel_ver)s]<br>
 %(test_StartTime)s
+详情:<a href="Detail/LogInfo/%(test_casename)s/Node%(test_nodenum)s_%(ip)s.txt" target="_blank">节点状态及日志信息</a>
 """ # variables: (id, output)
     REPORT_TEST_OUTPUT_IMAGE = r""" 
 测试screenshot
@@ -1567,6 +1568,11 @@ class HTMLTestRunner(Template_mixin):
         test_startTime_val = self.get_test_time(self.test_type, self.test_plat, str(Case_Name), str(Node_Num), ip_info )
         print(test_startTime_val)
 
+        test_type_val = self.test_type
+        test_plat_val = self.test_plat
+        test_casename_val = str(Case_Name)
+        test_nodenum_val = str(Node_Num)
+
         #获取测试用例类型，用于显示测试开始时间
         desc_tmp = old_desc
         back_desc = desc_tmp.replace('test_','',1).split('_')[-1]
@@ -1600,6 +1606,10 @@ class HTMLTestRunner(Template_mixin):
             kernel_ver = str(kernel_version_val),
             #test_StartTime = "StartTime: [" + str(test_startTime_val)+"]" if int(type_case) else "",
             test_StartTime = "测试开始时间: [" + str(test_startTime_val)+"]" if int(type_case) else "",
+            test_type = str(test_type_val),
+            test_plat = str(test_plat_val),
+            test_casename = str(test_casename_val),
+            test_nodenum = str(test_nodenum_val),
         )
 
         tBody = self.TBODY % dict(
