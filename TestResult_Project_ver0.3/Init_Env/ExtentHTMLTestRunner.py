@@ -311,6 +311,12 @@ class Template_mixin(object):
                     <span class='label suite-start-time blue darken-3'>Statistical_time: %(start_time)s</span>
                 </a>
             </li>
+
+            <li>
+                <a href='#!'>
+                                <a href="Results_Excel/%(test_plat)s_%(test_type)s.xls" title="转到性能测试跑分汇总表格">附:性能测试跑分结果</a>
+                </a>
+            </li>
         <!-- 
             <li>
                 <a href='#!'>
@@ -1379,6 +1385,7 @@ class HTMLTestRunner(Template_mixin):
             fail=str(result.failure_count),
             error=str(result.error_count),
             category_view=category_view,
+
         )
         return report
 

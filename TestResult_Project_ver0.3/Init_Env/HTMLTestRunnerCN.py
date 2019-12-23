@@ -444,6 +444,7 @@ table       { font-size: 100%; }
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ %(fail)s }</a>
 <a class="btn btn-warning" href='javascript:showCase(2)'>错误{ %(error)s }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ %(count)s }</a>
+<a class="btn btn-performance" title="转到性能测试跑分汇总表格" href="Results_Excel/%(test_plat)s_%(test_type)s.xls">附:性能测试跑分结果</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
