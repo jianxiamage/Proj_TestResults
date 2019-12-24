@@ -66,6 +66,19 @@ cmdStr="Get Test Info(Test Beginning Time) End."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 
+#获取测试节点详情(在线状态及日志)
+echo "*********************************************************"
+cmdStr="Begin to get Test Detail Info(OnLine or OffLine,and Log Info)..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd Get_LogInfo
+sh Get_LogInfo_Multi_Select.sh ${TestType} ${Platform}
+popd
+cmdStr="Get Test Detail Info(OnLine or OffLine,and Log Info) End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
+
 #设置测试结果标记(初始值:1,成功:0)
 echo "*********************************************************"
 cmdStr="Begin to set Test Result Tag..."

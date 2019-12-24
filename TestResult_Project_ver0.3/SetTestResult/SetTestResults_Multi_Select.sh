@@ -19,7 +19,8 @@ Platform="$2"
 ResultPath='/data'
 ResultFile="TestResults.ini"
 IniDir="TestIniDir"
-srcIniPath="${ResultPath}/${TestType}/${Platform}/${IniDir}"
+detailPath="Detail"
+srcIniPath="${ResultPath}/${TestType}/${Platform}/${detailPath}/${IniDir}"
 destPath="${ResultPath}/${TestType}/${Platform}"
 destFile="${destPath}/${ResultFile}"
 #----------------------------------------------------------------------------------------

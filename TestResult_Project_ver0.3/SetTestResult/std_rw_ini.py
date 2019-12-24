@@ -68,6 +68,7 @@ if __name__ == "__main__":
   
       ResultPath='/data/'
       TestIniPath='TestIniDir'
+      detailPath='Detail'
       test_case_type = sys.argv[1]
       test_case_platform = sys.argv[2]
       test_case = sys.argv[3]
@@ -76,7 +77,7 @@ if __name__ == "__main__":
   
 
       #IniFile = ResultPath + '/' + test_case_type + test_case_platform + test_case + '.ini'
-      IniPath = os.path.join(ResultPath,test_case_type,test_case_platform,TestIniPath)
+      IniPath = os.path.join(ResultPath,test_case_type,test_case_platform,detailPath,TestIniPath)
       #print("IniFile path is:[%s]" %(IniPath))
       isExists=os.path.exists(IniPath)
       if not isExists:
