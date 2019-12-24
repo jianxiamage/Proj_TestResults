@@ -34,8 +34,8 @@ mkdir $DestPath -p
 resultsPath=/data
 IPListIniFile='ip_list.ini'
 ip_list_path=${resultsPath}/${TestType}/${Platform}/${IPListIniFile}
-err_file=err_IPList.txt
-ok_file=ok_IPList.txt
+err_file=${TestType}_${Platform}_err_IPList.txt
+ok_file=${TestType}_${Platform}_ok_IPList.txt
 test_logDir="/Test_Log"  #远程节点log目录
 #--------------------------------------------------------------------
 #记录节点在线状态
@@ -91,6 +91,11 @@ function get_NodeIP()
    done
 }
 
+#------------------------------------------------------
+#函数功能:
+#根据获取测试节点的在线状态,写入本程序日志，
+#用以说明当前程序的执行情况
+#------------------------------------------------------
 function write_outputInfo()
 {
   if [ $# -ne 2 ];then
@@ -136,26 +141,48 @@ function write_outputInfo()
 
 }
 
-
-#------------------------------------------
-#备份knownhosts文件
-\cp /root/.ssh/known_hosts /home/ -f
-#删除knownhosts文件，防止远程连接出错
-rm -rf /root/.ssh/known_hosts
 #------------------------------------------
 
 :> $err_file
 start_time=`date +%s`              #定义脚本运行的开始时间
 
+#-------------------------------------------------------------
 #调用函数，生成ip列表文件
 get_NodeIP
+#-------------------------------------------------------------
 
+#-------------------------------------------------------------
 #将文件中存储的ip列表转换成数组
-#declare -a nodeIP_list
-#nodeIP_list=($(cat $ip_file))
-#
-#nodeIP_list_len=${#nodeIP_list[*]}
-#echo "节点数量:$nodeIP_list_len"
+#清理ssh环境，防止目标节点认证发生改变时，ssh连接失败的情况
+#清理原因:
+#一台主机上有多个Linux系统，会经常切换
+#(如重装系统或者重新拷盘，但保持ip不变)，那么这些系统使用同一ip，
+#登录过一次后就会把ssh信息记录在本地的~/.ssh/known_hsots文件中，
+#切换该系统后再用ssh访问这台主机就会出现冲突警告
+#-------------------------------------------------------------
+
+cmdStr="Delete the public key in the file:~/.ssh/knownhosts!"
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+
+declare -a nodeIP_list
+nodeIP_list=($(cat $ip_file))
+
+nodeIP_list_len=${#nodeIP_list[*]}
+echo "节点数量:$nodeIP_list_len"
+
+echo 数组大小:$nodeIP_list_len
+i=0
+while [ $i -lt $nodeIP_list_len ]
+do
+  echo -----------这是第$[i+1]个IP:开始--------------
+  node_ip=$(echo ${nodeIP_list[$i]} | awk -F ' ' '{print $1}')
+  echo node ip is :$node_ip
+  ssh-keygen -R $node_ip
+  echo -----------这是第$[i+1]个IP:结束--------------
+  let i++
+done
+#-------------------------------------------------------------
 
 #start_time=`date +%s`              #定义脚本运行的开始时间
 [ -e /tmp/fd1 ] || mkfifo /tmp/fd1 #创建有名管道
@@ -202,7 +229,3 @@ echo "***************************************************"
 exec 3<&-                         #关闭文件描述符的读
 exec 3>&-                         #关闭文件描述符的写
 
-#-------------------------------------------
-#恢复knownhosts文件
-\cp  /home/known_hosts /root/.ssh/ -f
-#-------------------------------------------

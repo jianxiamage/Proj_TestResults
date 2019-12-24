@@ -976,7 +976,7 @@ class Template_mixin(object):
 节点IP: [%(ip)s]<br>
 系统类别: [%(os_name)s],&nbsp;&nbsp;&nbsp;&nbsp;系统版本: [%(os_ver)s],&nbsp;&nbsp;&nbsp;&nbsp;内核版本: [%(kernel_ver)s]<br>
 %(test_StartTime)s
-详情:<a href="Detail/LogInfo/%(test_casename)s/Node%(test_nodenum)s_%(ip)s.txt" target="_blank">节点状态及日志信息</a>
+<br>详情:<a href="Detail/LogInfo/%(test_casename)s/Node%(test_nodenum)s_%(ip)s.txt" target="_blank">节点状态及日志信息</a>
 """ # variables: (id, output)
     REPORT_TEST_OUTPUT_IMAGE = r""" 
 测试screenshot

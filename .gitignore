@@ -40,3 +40,7 @@ TestResult_Project*/CronTab_Proj/crontab_bak_*
 TestResult_Project*/Rsync_Tool/crontab_bak_*
 TestResult_Project*/GetResultsXls/err_file.txt
 TestResult_Project*/GetResultsXls/ok_file.txt
+TestResult_Project*/Rsync_Log/err_file.txt
+TestResult_Project*/Rsync_Log/*ipList.txt
+TestResult_Project*/Get_LogInfo/*err_IPList.txt
+TestResult_Project*/Get_LogInfo/*ok_IPList.txt
