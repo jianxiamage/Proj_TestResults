@@ -444,7 +444,7 @@ table       { font-size: 100%; }
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ %(fail)s }</a>
 <a class="btn btn-warning" href='javascript:showCase(2)'>错误{ %(error)s }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ %(count)s }</a>
-<a class="btn btn-performance" title="转到性能测试跑分汇总表格" href="Results_Excel/%(test_plat)s_%(test_type)s.xls">附:性能测试跑分结果</a>
+<a class="btn btn-performance" title="转到性能测试跑分汇总表格" href="Results_Excel/%(test_plat_Ex)s_%(test_type_Ex)s.xls">附:性能测试跑分结果</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -816,6 +816,8 @@ class HTMLTestRunner(Template_mixin):
             fail = str(result.failure_count),
             error = str(result.error_count),
             passrate =self.passrate,
+            test_type_Ex=self.test_type,
+            test_plat_Ex=self.test_plat,
         )
         return report
  
@@ -998,7 +1000,8 @@ class HTMLTestRunner(Template_mixin):
 
         test_type_val = self.test_type
         test_plat_val = self.test_plat
-        test_casename_val = str(Case_Name)
+        #test_casename_val = str(Case_Name)
+        test_casename_val = getTransferKeyName(Case_Name)
         test_nodenum_val = str(Node_Num)
 
         #获取测试用例类型，用于显示测试开始时间
