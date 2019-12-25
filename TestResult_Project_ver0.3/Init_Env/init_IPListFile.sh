@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#-----------------------------------------------------------
 IPListFileName='ip_list'
 IPListFile='ip_list.ini'
 
@@ -14,7 +15,15 @@ mkdir $ResultPath -p
 TestType=("OS" "Kernel" "KVM")
 
 Platform=("7A" "7A_Integrated" "7A_2way" "780" "2K" "3A_4000")
+#-----------------------------------------------------------
 
+#-----------------------------------------------------------
+#首先，同步服务器上的IP_List目录和本地IP_List目录
+#使得当前的IP_List保存最新的ip列表
+#-----------------------------------------------------------
+
+#-----------------------------------------------------------
+#初始化ip列表
 for item_type in ${TestType[@]}; do
 
   #echo $item_type
@@ -31,7 +40,7 @@ for item_type in ${TestType[@]}; do
     echo destIPListFile:$destIPListFile
     
     #\cp $IPListFile  $destIPListFile
-    \cp $srcPath $destIPListFile
+    \cp $srcPath $destIPListFile -f
    
   done
 
