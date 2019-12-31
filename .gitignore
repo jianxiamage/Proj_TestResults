@@ -23,8 +23,6 @@ TestResult_Project*/GetResultsXls/Log*
 TestResult_Project*/GetResultsXls/Excel_Create*
 TestResult_Project*/GetResultsXls/Excel_Merge*
 TestResult_Project*/GetResultsXls/TestMark*
-TestResult_Project_*/GetResultsXls/ini_Points
-TestResult_Project_*/Extended_GetResultsXls/ini_Points
 TestResult_Project*/SetTestResult/TestMark*
 TestResult_Project*/TestInfo/TestMark*
 TestResult_Project*/OSInfo/TestMark*
