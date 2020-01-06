@@ -111,7 +111,7 @@ function write_outputInfo()
 
     0)
        cmdStr="[${NodeIP}] is onLine."
-       echo $cmdStr | tee -a ${StateFile}
+       echo $cmdStr | tee ${StateFile}
        write_log "INFO" "${cmdStr}"
 
        ;;
