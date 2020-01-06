@@ -28,6 +28,9 @@ crontabFile_Tag="${TestType}_${Platform}"
 #要定时执行的任务
 TASK_CMD="cd ${CUR_PATH}; ./Rsync_Log_Multi.sh ${Para_Tag}"
 
+#替换关键字
+keyword="Rsync_Log_Multi.sh ${Para_Tag}"
+
 # 要添加的crontab任务计划
 CRONTAB_TASK="*/5 * * * * ${TASK_CMD}"
 
@@ -50,7 +53,7 @@ function add_crontab()
     #echo "替换之前"
 
     #sed -i "#.*${TASK_CMD}#d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
-    sed -i "/${Para_Tag}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
+    sed -i "/${keyword}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
 
     #echo "替换之后"
     #cat $CRONTAB_BAK_FILE
