@@ -134,10 +134,12 @@ check_result()
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no  \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/OS_Info/${TestName}_${host}_osinfo.txt "$destPath/Node${i}_${host}.ini"
 
-        \cp ${AutoTestDir}/$ServerTestDir/OS_Info/${host}_osinfo.txt "$destPath/Node${i}_${host}.ini" -f || (echo "${TestName}_${host}_osinfo.txt Not exists!"; retCode=1);
+        \cp ${AutoTestDir}/$ServerTestDir/OS_Info/${host}_osinfo.txt "$destPath/Node${i}_${host}.ini" -f
+        #(echo "${TestName}_${host}_osinfo.txt Not exists!"; retCode=1);
         retCode=$?
 
         if [ $retCode -ne 0 ];then
+           echo "${TestName}_${host}_osinfo.txt Not exists!"
            echo "Node:[${host}]:Get OS Info file failed."
            \cp $workdir/StdOSInfo.ini "$destPath/Node${i}_${host}.ini" -f
            continue

@@ -4,7 +4,7 @@ Version=21
 BugURL=http://bugs.loongnix.org
 IsFinal=True
 UUID=20200103-RC1.mips64
-BUILD=202001032050
-Kernel_Version=3.10.84-23.fc21.loongson.1.mips64el
+BUILD=202001031804
+Kernel_Version=3.10.0-693.fc21.loongson.2k.1.mips64el
 [Compose]
 Lorax=19.6.28-1
