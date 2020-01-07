@@ -107,7 +107,7 @@ function write_outputInfo()
     2)
        echo "[${NodeIP}]:OffLine" | tee  ${StateFile} 
        echo "It can not be connected(ping error)!" | tee -a ${StateFile} 
-       echo "Maybe the test node was down or the Stress Test is running!" | tee -a ${StateFile} 
+       #echo "Maybe the test node was down or the Stress Test is running!" | tee -a ${StateFile} 
        cmdStr="[${NodeIP}]:It can not ping!Maybe it was Down or the Stress Test is running!"
        echo $cmdStr
        write_log "ERROR" "${cmdStr}"
