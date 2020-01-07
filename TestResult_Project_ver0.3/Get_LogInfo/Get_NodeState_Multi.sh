@@ -59,10 +59,10 @@ rm -rf $ip_file
 #而且，如果测试类型为：OS，则有第15组，测试类型为：Kernel，则没有第15组，
 #因此，以下逻辑为不同测试类型的分组具体情况
 #------------------------------------------------------------------------
-if [ "$TestType"=="Kernel" ];
+if [ "$TestType" == "Kernel" ];
 then
   group_list="1 2 3 4 6 8 9 10"
-elif [ "$TestType"=="OS" ];
+elif [ "$TestType" == "OS" ];
   then
   group_list="1 2 3 4 6 8 9 10 15"
 else
