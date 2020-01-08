@@ -64,7 +64,7 @@ function add_crontab()
     echo "${CRONTAB_TASK}" >> ${CRONTAB_BAK_FILE}
     crontab ${CRONTAB_BAK_FILE}
     
-    echo 'Complete'
+    echo 'Add task Complete'
 }
 
 # 清除crontab任务函数
@@ -72,10 +72,11 @@ function remove_crontab(){
     echo 'Delete crontab task...'
     crontab -l > ${CRONTAB_BAK_FILE} 2>/dev/null
     #sed -i "/.*${SCRIPT_NAME}/d" ${CRONTAB_BAK_FILE}
-    sed -i "/${Para_Tag}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
+    #sed -i "/${Para_Tag}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
+    sed -i "/${keyword}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
     crontab ${CRONTAB_BAK_FILE}
     
-    echo 'Complete'
+    echo 'Delete task Complete'
 }
 
 #选择操作
