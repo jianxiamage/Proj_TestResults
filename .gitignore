@@ -47,3 +47,4 @@ TestResult_Project*/Rsync_Log/err_file.txt
 TestResult_Project*/Rsync_Log/*ipList.txt
 TestResult_Project*/Get_LogInfo/*err_IPList.txt
 TestResult_Project*/Get_LogInfo/*ok_IPList.txt
+TestResult_Project*/Rsync_Log/crontab_bak_Log_*
