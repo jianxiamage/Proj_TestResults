@@ -41,6 +41,10 @@ test_logDir="/Test_Log"  #远程节点log目录
 #记录节点在线状态
 node_state_Path=$resultsPath/$TestType/$Platform/Detail/NodeState
 #--------------------------------------------------------------------
+
+rm -rf $ok_file
+rm -rf $err_file
+
 mkdir $node_state_Path -p
 
 echo "ip_list_path is:$ip_list_path"
@@ -202,7 +206,7 @@ read -u3                           #代表从管道中读取一个令牌
   echo "当前测试用例:$node_ip" 
   sh get_NodeState.sh $TestType $Platform $node_ip
   retCode=$?
-  if [ $retCode -ne 0 ]
+  if [ $retCode -eq 0 ]
   then
     echo $node_ip >> $ok_file
   else

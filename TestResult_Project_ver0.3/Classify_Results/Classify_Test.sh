@@ -67,7 +67,7 @@ case ${os_type} in
         SortPath=${classify_name}
 
         ;;
-    "Loongnix Server")
+    "Loongnix-Server")
 
         echo "Test Type:${TestType}"
         classify_name='Server'
@@ -76,7 +76,7 @@ case ${os_type} in
         ;;
 
     *)
-        echo "Not support the current OS Type:${TestType}"
+        echo "Not support the current OS Type:${os_type}"
         exit 1
         ;;
 esac

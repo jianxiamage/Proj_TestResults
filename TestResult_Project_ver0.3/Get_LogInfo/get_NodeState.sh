@@ -25,6 +25,14 @@ start_time=`date +%s`              #定义脚本运行的开始时间
 cmdStr="To check the state of the node:[${NodeIP}] Begin.======================="
 echo $cmdStr
 
+keyStr="0.0.0"
+if [[ $NodeIP =~ $keyStr ]]
+then
+  cmdStr="Error,[${NodeIP}]:Not existed!"
+  echo $cmdStr
+  exit 4
+fi
+
 #首先尝试目标节点是否能够ping通
 ping -c3 -i0.3 -W1 $NodeIP &>/dev/null
 if [ $? -ne 0 ] ;then
