@@ -48,3 +48,9 @@ TestResult_Project*/Rsync_Log/*ipList.txt
 TestResult_Project*/Get_LogInfo/*err_IPList.txt
 TestResult_Project*/Get_LogInfo/*ok_IPList.txt
 TestResult_Project*/Rsync_Log/crontab_bak_Log_*
+TestResult_Project*/Common_Func/OSInfo_Server/BuildInfo_*.txt
+TestResult_Project*/Common_Func/OSInfo_Server/KernelVer_*.txt
+TestResult_Project*/Common_Func/OSInfo_Server/OSType_*.txt
+TestResult_Project*/Common_Func/OSInfo_Server/OSVer_*.txt
+TestResult_Project*/Get_LogInfo/*_ipList.txt
+
