@@ -53,4 +53,7 @@ TestResult_Project*/Common_Func/OSInfo_Server/KernelVer_*.txt
 TestResult_Project*/Common_Func/OSInfo_Server/OSType_*.txt
 TestResult_Project*/Common_Func/OSInfo_Server/OSVer_*.txt
 TestResult_Project*/Get_LogInfo/*_ipList.txt
-
+TestResult_Project*/DataBase_Results/Perform_Score/Log_*
+TestResult_Project/DataBase_Results/Perform_Score/TestMark_*
+TestResult_Project*/DataBase_Results/Bak_Perform_Score/Log_*
+TestResult_Project*/DataBase_Results/Bak_Perform_Score/TestMark_*
