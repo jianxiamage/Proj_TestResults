@@ -40,6 +40,12 @@ echo "---------------------------------"
 mkvirtualenv env-report
 
 echo "---------------------------------"
+echo 'creating the virtual environment:env-database...'
+echo "---------------------------------"
+mkvirtualenv env-database
+
+
+echo "---------------------------------"
 echo 'show virtual environment:'
 echo "---------------------------------"
 lsvirtualenv -b
@@ -77,6 +83,16 @@ report_pkgDir="${env_dir}/env-report/lib/python2.7/site-packages"
 cp ExtentHTMLTestRunner.py ${report_pkgDir}
 cp HTMLTestRunnerCN.py ${report_pkgDir}
 cp HTMLTestRunner.py ${report_pkgDir}
+
+echo ---------------------------------
+echo 'change to virtualenv:env-excel'
+echo ---------------------------------
+workon env-database
+
+#安装MySQL驱动前要安装必要的包
+#yum install python-devel -y
+pip install MySQL-python
+
 
 echo "------------------------------------------------------------------"
 echo "OK,Now the python virtual environment is successfully completed."
