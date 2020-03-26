@@ -14,6 +14,7 @@ TestReport         //生成测试报告
 GetResultsXls      //生成性能跑分Excel文件
 Backup_Tool        //备份测试结果到指定目录
 Classify_Results   //重新将当前测试结果分类(最新要求为PC,Server,KVM)
+DataBase_Results   //将测试结果及备份数据写入数据库
 
 CronTab_Proj       //定时任务,用于定时收集测试结果
 Rsync_Tool         //同步任务,将服务器上的测试结果文件同步到本地服务器
@@ -27,7 +28,7 @@ Get_OSInfo_Remote
 1.前提
   在此之前，需要确定所有要收集测试结果的平台都已经正确配置，
   这些配置包括，确认ip，确认jenkins相关配置，节点配置，
-  服务器10.2.5.25旧的结果文件备份后清空autotest_result目录内的内容
+  对于每一轮测试,服务器10.2.5.25旧的结果文件备份后清空autotest_result目录内的内容
   开启所有相关的jenkins任务之后，确认各任务无误稳定后，再开始进行结果收集
   注:当前结果收集和jenkins任务两者独立，为确保收集工作正常开展，可以不必着急收集
      例如，可以等待jenkins任务开启一小时之后再开启，避免jenkins任务有错误发生，

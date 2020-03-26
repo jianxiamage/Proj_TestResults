@@ -31,7 +31,6 @@ TASK_CMD="cd ${last_dir}; ./Result_Collection.sh ${Para_Tag}"
 #要替换的任务关键字
 keyword="Result_Collection.sh ${Para_Tag}"
 
-
 # 要添加的crontab任务计划
 CRONTAB_TASK="*/5 * * * * ${TASK_CMD}"
 

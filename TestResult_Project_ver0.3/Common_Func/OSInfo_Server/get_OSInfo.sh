@@ -53,11 +53,25 @@ OSInfoDir="OSInfo"
 #destPath="${TestType}/${Platform}/${OSInfoDir}/$TestCase/"
 #mkdir $destPath -p
 
+#初始化文件
+rm -rf $BuildInfoFile
+rm -rf $OSTypeFile
+rm -rf $OSVerFile
+rm -rf $KernelVerFile
+
 function getOSInfo()
 {
    
    retCode=0
    echo "TestType:[$TestType],Platform:[$Platform]"
+
+   if [ ! -s $node_state_File ]
+   then
+     echo "File:[${node_state_File}] is not existed!"
+     echo "No OnLine file exists!"
+     retCode=1
+     return $retCode
+   fi
 
    IP_testcase=$(cat $node_state_File | head -n 1)
 
@@ -97,6 +111,6 @@ function getOSInfo()
 
 
 #下载远程节点系统信息到本地
-getOSInfo $TestCase || { exit 1; }
+getOSInfo || { exit 1; }
 
 echo "--------------------------------------------------------"

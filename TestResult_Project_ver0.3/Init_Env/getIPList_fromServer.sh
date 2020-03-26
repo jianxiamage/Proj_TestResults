@@ -16,4 +16,3 @@ dir_Local=$(cat Dir_Local.txt)
 
 #实际执行
 lftp -e "mirror --delete --verbose ${dir_Server} ${dir_Local};exit" ${IP_Server}
-

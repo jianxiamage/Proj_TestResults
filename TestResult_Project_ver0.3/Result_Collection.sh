@@ -16,7 +16,7 @@ fi
 TestType="$1"
 Platform="$2"
 #-------------------------------------------------
-
+OSInfo_Dir="./Common_Func/OSInfo_Server"
 #-------------------------------------------------
 logFile="Collection_${TestType}_${Platform}.log"
 #-------------------------------------------------
@@ -78,6 +78,28 @@ cmdStr="Get Test Detail Info(OnLine or OffLine,and Log Info) End."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 
+#===============================================================
+#查看是否所有的机器都已连接不上，则不再收集结果
+echo "*********************************************************"
+cmdStr="Begin to check the node state..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd ${OSInfo_Dir}
+sh check_NodeState.sh ${TestType} ${Platform}
+if [ $? -ne 0 ];
+then
+  cmdStr="All the test nodes are DOWN!EXIT..."
+  echo $cmdStr
+  write_log "ERROR" "${cmdStr}"
+  exit 1
+fi
+popd
+cmdStr="Checking the node state End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+echo "*********************************************************"
+
+#===============================================================
 
 #设置测试结果标记(初始值:1,成功:0)
 echo "*********************************************************"
@@ -178,6 +200,20 @@ echo "*********************************************************"
 cmdStr="Classify The Test Results End."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
+
+#数据库信息写入及备份
+echo "*********************************************************"
+cmdStr="Begin to write DB tables and to Backup..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd DataBase_Results
+sh OneKey_DataBase_Multi_Select.sh ${TestType} ${Platform} 
+popd
+cmdStr="To write DB tables and to Backup End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+echo "*********************************************************"
+
 
 stop_time=`date +%s`  #定义脚本运行的结束时间
 

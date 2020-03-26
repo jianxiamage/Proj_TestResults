@@ -9,6 +9,8 @@ ServerPass='loongson'
 AutoTestDir='/AutoTest'
 ServerTestDir='autotest_result'
 #--------------------------------------------
+time_dir=Time_Begin
+#--------------------------------------------
 #items_count=3
 #--------------------------------------------
 
@@ -124,20 +126,20 @@ check_result()
         workdir=$(cd $(dirname $0); pwd)
 
         echo 第[$i]个ip:$host
-        ping -c3 -i0.3 -W1 $host &>/dev/null
-        if [ $? -ne 0 ] ;then
-           echo "[${host}] can not be connected!"
-           onLineFlag=1
-           \cp $workdir/StdTestInfo.ini "$destPath/Node${i}_${host}.ini" -f
-           continue
-        fi
+        #ping -c3 -i0.3 -W1 $host &>/dev/null
+        #if [ $? -ne 0 ] ;then
+        #   echo "[${host}] can not be connected!"
+        #   onLineFlag=1
+        #   \cp $workdir/StdTestInfo.ini "$destPath/Node${i}_${host}.ini" -f
+        #   continue
+        #fi
 
          
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/*_${host}.out ${testcaseDir}/${TestName}
         #将原有逻辑scp的方式修正为提前下载，本地筛选的方式,防止网络性能差等导致的程序可用性差的问题
         retCode=0
-        \cp ${AutoTestDir}/$ServerTestDir/$TestName/*_${host}.out ${testcaseDir}/${TestName} || (echo "${host}.out Not exists!"; retCode=1);
+        \cp ${AutoTestDir}/$ServerTestDir/$TestName/${time_dir}/*_${host}.out ${testcaseDir}/${TestName} || (echo "${host}.out Not exists!"; retCode=1);
 
         #if [ $? -ne 0 ];then
         if [ ${retCode} -ne 0 ];then

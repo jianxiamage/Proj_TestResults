@@ -41,9 +41,9 @@ test_logDir="/Test_Log"  #远程节点log目录
 #记录节点在线状态
 node_state_Path=$resultsPath/$TestType/$Platform/Detail/NodeState
 #--------------------------------------------------------------------
-
 rm -rf $ok_file
 rm -rf $err_file
+rm -rf $node_state_Path
 
 mkdir $node_state_Path -p
 
@@ -115,7 +115,7 @@ function write_outputInfo()
 
     0)
        cmdStr="[${NodeIP}] is onLine."
-       echo $cmdStr | tee ${StateFile}
+       echo $cmdStr | tee  ${StateFile}
        write_log "INFO" "${cmdStr}"
 
        ;;
@@ -222,8 +222,8 @@ read -u3                           #代表从管道中读取一个令牌
 done
 wait
 
-\cp $ok_file $node_state_Path/OnLine.txt -f
-\cp $err_file $node_state_Path/OffLine.txt -f
+\cp $ok_file $node_state_Path/OnLine.txt -f || echo "All the nodes are Down!"
+\cp $err_file $node_state_Path/OffLine.txt -f || echo "All the nodes are On!"
 
 echo "***************************************************"
 stop_time=`date +%s`  #定义脚本运行的结束时间

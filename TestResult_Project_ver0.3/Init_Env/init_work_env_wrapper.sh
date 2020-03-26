@@ -1,21 +1,29 @@
 #!/bin/bash　　
 
+#-------------------------------------
+work_dir=/home/work
+#-------------------------------------
+
+#-------------------------------------
+#install pip
+yum -y install python-pip
+#-------------------------------------
+
 #查看是否存在要创建的虚拟目录，如果没有旧创建
-if [ ! -d "/home/work" ]; then
-  echo "/home/work Not Exist, build it"
-  mkdir /home/work
+if [ ! -d "${work_dir}" ]; then
+  echo "${work_dir} Not Exist, build it"
+  mkdir $work_dir
 else
-  echo "/home/work already exists"
+  echo "${work_dir} already exists"
+  echo "python virtual env already exists"
+  exit 0
 fi
 
 pushd .
 
-cd /home/work/
+cd $work_dir
 
-rm -rf *
-
-#install pip
-yum -y install python-pip
+#rm -rf *
 
 echo "---------------------------------"
 echo 'installing virtualenvwrapper...'

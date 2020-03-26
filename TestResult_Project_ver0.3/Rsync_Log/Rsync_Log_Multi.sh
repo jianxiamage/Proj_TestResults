@@ -52,7 +52,7 @@ if [ "$TestType" == "Kernel" ];
 then
   group_list="1 2 3 4 6 8 9 10"
 elif [ "$TestType" == "OS" ];
-then
+  then
   group_list="1 2 3 4 6 8 9 10 15"
 else
   group_list="1 2 3 4 6 8 9 10 15"
