@@ -29,10 +29,12 @@ resultsFile="TestResults.ini"
 searchDir="Search"
 ResultsDir="caseResults"
 srcPath="${web_Path}/${class_type}/${history_Dir}/${Platform}/${TestType}"
-destPath="${web_Path}/${class_type}/${searchDir}/${Platform}/${TestType}"
+#destPath="${web_Path}/${class_type}/${searchDir}/${Platform}/${TestType}"
+destPath="${web_Path}/${class_type}/${Platform}/${TestType}/${searchDir}"
 Results_destPath="${destPath}/${ResultsDir}"
 case_destPath="${Results_destPath}/${TestCase}"
 #-------------------------------------------------------------------------
+#rm -rf $destPath
 mkdir $destPath -p
 mkdir $Results_destPath -p
 mkdir $case_destPath -p
@@ -68,7 +70,7 @@ echo count_items is:$count_items
 
 for((i=1;i<=count_items;i++));
 do
-  echo "[History]" > ${case_destPath}/${TestCase}_${i}.file
+  echo "[History]" > ${case_destPath}/${TestCase}_${i}.ini
   for item in ${Dir_List[@]}
   do
        #拼接测试结果文件路径
@@ -78,10 +80,11 @@ do
        sectionName="iozone"
        keyName="node_${i}"
        #echo "第[$i] 个keyName:$keyName"
-       keyVal=$(readIni $history_resultFile $sectionName $keyName)
+       keyVal_tmp=$(readIni $history_resultFile $sectionName $keyName)
+       keyVal=$([ "$keyVal_tmp" == 0 ] && echo "成功" || echo "失败")
        echo "case->[iozone],Ver->[${item}]node->[${i}],result->[${keyVal}]"
        #记录历史结果到一个文件中
-       echo "${item} = ${keyVal}" >> ${case_destPath}/${TestCase}_${i}.file
+       echo "${item} = ${keyVal}" >> ${case_destPath}/${TestCase}_${i}.ini
   done
 done
 

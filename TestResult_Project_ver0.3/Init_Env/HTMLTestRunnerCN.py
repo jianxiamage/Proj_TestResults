@@ -518,6 +518,7 @@ table       { font-size: 100%; }
 系统类别: [%(os_name)s],系统版本: [%(os_ver)s],内核版本: [%(kernel_ver)s]
 %(test_StartTime)s
 详情:<a href="Detail/LogInfo/%(test_casename)s/Node%(test_nodenum)s_%(ip)s.txt" target="_blank">节点状态及日志信息</a>
+历史记录:<a href="Search/caseResultsHtml/%(test_casename)s/%(test_casename)s_%(test_nodenum)s.html" target="_blank">历史版本结果查看</a>
 """ # variables: (id, output)
  
     # ------------------------------------------------------------------------
