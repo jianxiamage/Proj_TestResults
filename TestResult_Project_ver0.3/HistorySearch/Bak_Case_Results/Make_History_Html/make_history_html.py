@@ -5,6 +5,7 @@ import  time,os
 import webbrowser
 import ConfigParser
 import traceback
+from collections import OrderedDict
 
 #------------------------------------------
 web_Path='/Results/'
@@ -151,7 +152,9 @@ if __name__ == '__main__':
       print('--------------------------')
       #sys.exit(0)
 
-      dicts = {}
+      #dicts = {}
+      dicts = OrderedDict() #需要字典按照自定义方式进行排序，否则使用dicts = {}是乱序
+
       result_code = read_iniFile(iniFileName,dicts)
       for k,v in dicts.items():
            print('-------k-------------------')
