@@ -158,12 +158,16 @@ if __name__ == '__main__':
       #sys.exit(0)
 
       MaxCount=3  #并发节点最大为3个
-
+      Relative_Path = '../../' + case_results_path + '/' + test_case
       for i in range(1,MaxCount+1):
-        BASELINE_path = srcPath + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
-        RESULT_path = srcPath + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
-        INDEX_path = srcPath + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
-        Benchmarks_path = srcPath + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
+        #BASELINE_path = srcPath + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
+        BASELINE_path = Relative_Path + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
+        #RESULT_path = srcPath + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
+        RESULT_path = Relative_Path + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
+        #INDEX_path = srcPath + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
+        INDEX_path = Relative_Path + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
+        #Benchmarks_path = srcPath + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
+        Benchmarks_path = Relative_Path + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
         #print(file_path)
         table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,BASELINE_path=BASELINE_path,RESULT_path=RESULT_path,INDEX_path=INDEX_path,Benchmarks_path=Benchmarks_path)
         table_tr0 += table_td

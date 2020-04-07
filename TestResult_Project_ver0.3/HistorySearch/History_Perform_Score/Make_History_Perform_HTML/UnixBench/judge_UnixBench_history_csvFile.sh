@@ -51,7 +51,7 @@ do
   if [ $? -eq 0 ];
   then
     echo "Begin to make csv files for UnixBench $i thread..."
-    TestMode="UnixBench_${i}thread"
+    TestMode="${i}thread"
     sh get_history_html_UnixBench.sh $TestType $Platform $class_type $TestCase $TestMode
   fi
 done

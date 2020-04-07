@@ -153,9 +153,10 @@ if __name__ == '__main__':
       #sys.exit(0)
 
       MaxCount=3  #并发节点最大为3个
-
+      Relative_Path = '../../' + case_results_path + '/' + test_case
       for i in range(1,MaxCount+1):
-        file_path = srcPath + '/' + csvFilePre + str(i) + csvFileEnd
+        #file_path = srcPath + '/' + csvFilePre + str(i) + csvFileEnd
+        file_path = Relative_Path + '/' + csvFilePre + str(i) + csvFileEnd
         #print(file_path)
         table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,file_path=file_path)
         table_tr0 += table_td

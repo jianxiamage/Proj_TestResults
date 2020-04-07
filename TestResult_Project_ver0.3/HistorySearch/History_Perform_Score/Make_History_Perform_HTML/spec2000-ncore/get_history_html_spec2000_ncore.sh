@@ -25,7 +25,7 @@ TestCase="$4"
 
 
 #浮点型测试
-python make_spec2000_ncore_history_html.py $TestType $Platform $class_type "spec2000-1core_CFP"
+python make_spec2000_ncore_history_html.py $TestType $Platform $class_type "spec2000-ncore_CFP"
 
 #整型测试
-python make_spec2000_ncore_history_html.py $TestType $Platform $class_type "spec2000-1core_CINT"
+python make_spec2000_ncore_history_html.py $TestType $Platform $class_type "spec2000-ncore_CINT"

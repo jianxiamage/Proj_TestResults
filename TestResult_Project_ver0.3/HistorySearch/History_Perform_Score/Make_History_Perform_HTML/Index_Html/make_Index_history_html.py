@@ -213,21 +213,23 @@ if __name__ == '__main__':
       #-------------------------------------------------------------------
       case_name = 'iozone'
       case_html = case_name + '.html'
-      href_path = dest_scorePath + '/' + case_name + '/' + case_html
+      #当前路径就是测试用例目录，因此无需寻找相对路径
+      #href_path = dest_scorePath + '/' + case_name + '/' + case_html
+      href_path = case_name + '/' + case_html
       #href_path = os.path.join(dest_scorePath,case_html)
       table_iozone = html.TABLE_TMPL_TOTAL_ONE % dict(case_name=case_name,href_path=href_path)
 
       #-------------------------------------------------------------------
       #测试用例:stream
       #-------------------------------------------------------------------
-      case_name_1 = 'stream-1core'
-      case_name_2 = 'stream-ncore'
+      case_name_1 = 'stream_1core'
+      case_name_2 = 'stream_ncore'
       case_html_1 = case_name_1 + '.html'
       case_html_2 = case_name_2 + '.html'
-      href_path_1 = dest_scorePath + '/' + case_name_1 + '/' + case_html_1
-      href_path_2 = dest_scorePath + '/' + case_name_2 + '/' + case_html_2
-      #href_path_1 = os.path.join(dest_scorePath,case_html_1)
-      #href_path_2 = os.path.join(dest_scorePath,case_html_2)
+      #href_path_1 = dest_scorePath + '/' + case_name_1 + '/' + case_html_1
+      href_path_1 = case_name_1 + '/' + case_html_1
+      #href_path_2 = dest_scorePath + '/' + case_name_2 + '/' + case_html_2
+      href_path_2 = case_name_2 + '/' + case_html_2
       table_stream = html.TABLE_TMPL_TOTAL_TWO % dict(case_name_1=case_name_1,case_name_2=case_name_2,href_path_1=href_path_1,href_path_2=href_path_2)
 
 
@@ -237,12 +239,14 @@ if __name__ == '__main__':
       table_2 = ''
       list_case = ['spec2000-1core', 'spec2000-ncore','spec2006-1core','spec2006-ncore']
       for name in list_case:
-          case_name_1 = name + ':CFP'
-          case_name_2 = name + ':CINT'
+          case_name_1 = name + '_CFP'
+          case_name_2 = name + '_CINT'
           case_html_1 = case_name_1 + '.html'
           case_html_2 = case_name_2 + '.html'
-          href_path_1 = dest_scorePath + '/' + case_name_1 + '/' + case_html_1
-          href_path_2 = dest_scorePath + '/' + case_name_2 + '/' + case_html_2
+          #href_path_1 = dest_scorePath + '/' + case_name_1 + '/' + case_html_1
+          href_path_1 = case_name_1 + '/' + case_html_1
+          #href_path_2 = dest_scorePath + '/' + case_name_2 + '/' + case_html_2
+          href_path_2 = case_name_2 + '/' + case_html_2
           #href_path_1 = os.path.join(dest_scorePath,case_html_1)
           #href_path_2 = os.path.join(dest_scorePath,case_html_2)
           table_tmp = html.TABLE_TMPL_TOTAL_TWO % dict(case_name_1=case_name_1,case_name_2=case_name_2,href_path_1=href_path_1,href_path_2=href_path_2)
@@ -270,7 +274,8 @@ if __name__ == '__main__':
           case_name = name_base + '_' + num + 'thread'
           case_html = case_name + '.html'
           #href_path = dest_scorePath + '/' + case_name + '/' + case_html
-          href_path = dest_scorePath + '/' + case_dir + '/' + case_html
+          #href_path = dest_scorePath + '/' + case_dir + '/' + case_html
+          href_path = case_dir + '/' + case_html
           #href_path = os.path.join(dest_scorePath,case_html)
           table_tmp = html.TABLE_TMPL_TOTAL_1 % dict(case_name=case_name,href_path=href_path)
           table_tr0 += table_tmp
@@ -280,7 +285,8 @@ if __name__ == '__main__':
       #-------------------------------------------------------------------
       case_name = 'SpecJvm2008'
       case_html = case_name + '.html'
-      href_path = dest_scorePath + '/' + case_name + '/' + case_html
+      #href_path = dest_scorePath + '/' + case_name + '/' + case_html
+      href_path = case_name + '/' + case_html
       #href_path = os.path.join(dest_scorePath,case_html)
       table_SpecJvm2008 = html.TABLE_TMPL_TOTAL_ONE % dict(case_name=case_name,href_path=href_path)
 
