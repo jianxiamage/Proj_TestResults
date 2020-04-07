@@ -4,6 +4,7 @@ import  sys
 import  time,os
 import webbrowser
 import ConfigParser
+import io
 import traceback
 from collections import OrderedDict
 
@@ -15,6 +16,20 @@ if sys.getdefaultencoding() != 'utf-8':
     reload(sys)
     sys.setdefaultencoding('utf-8')
 #------------------------------------------
+
+def get_list_from_file(input_file, list_data=[]):
+    """将文件内容写入List"""
+    try:
+
+        i=1
+        with io.open(input_file, mode= 'rt', encoding='utf-8') as file_handler:
+            lines = file_handler.readlines()
+            for line in lines:
+               res = ''.join(line).strip('\n')
+               #print(res)
+               list_data.append(res)
+    except Exception as e:
+        print("操作出现错误：{}".format(e))
 
 #------------------------------------------
 def get_fileName(input_dir,inputName):
@@ -237,12 +252,25 @@ if __name__ == '__main__':
       #测试用例:UnixBench
       #不同机器执行的线程数不一定，需要判断
       #-------------------------------------------------------------------
-      list_thread_count = ['1', '8']
+
+      #UnixBench跑分结果文件目录(ini文件)
+      UnixBenchPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/Detail/UnixBench/Points_Files' 
+      #的内容存储到list
+      list_thread_count=[]
+      list_file = 'thread_count.cfg'
+      dest_list_file = UnixBenchPath + '/' + list_file
+      print('UnixBench线程数存储文件:')
+      print(dest_list_file)
+      get_list_from_file(dest_list_file,list_thread_count)
+
+      #list_thread_count = ['1', '8']
       name_base = 'UnixBench'
       for num in list_thread_count:
+          case_dir = name_base
           case_name = name_base + '_' + num + 'thread'
           case_html = case_name + '.html'
-          href_path = dest_scorePath + '/' + case_name + '/' + case_html
+          #href_path = dest_scorePath + '/' + case_name + '/' + case_html
+          href_path = dest_scorePath + '/' + case_dir + '/' + case_html
           #href_path = os.path.join(dest_scorePath,case_html)
           table_tmp = html.TABLE_TMPL_TOTAL_1 % dict(case_name=case_name,href_path=href_path)
           table_tr0 += table_tmp
@@ -265,12 +293,13 @@ if __name__ == '__main__':
       #filename = dest_scorePath + '/' + html_name
       filename = os.path.join(dest_scorePath,html_name)
    
+      print('生成html主页Index位置:')
       print(filename)
    
       with open(filename, 'w') as f:
           f.write(output.encode('utf8'))
   
-      webbrowser.open(filename,new = 1)
+      #webbrowser.open(filename,new = 1)
 
   except Exception as E:
       print('str(e):', str(E))

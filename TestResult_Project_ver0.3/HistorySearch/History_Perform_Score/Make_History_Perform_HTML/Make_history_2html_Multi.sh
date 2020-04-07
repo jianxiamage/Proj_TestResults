@@ -41,6 +41,9 @@ rm -rf $errfile
 :> ${okfile}
 :> ${errfile}
 
+pushd Index_Html
+sh Index_Html_Make.sh 
+popd 
 
 echo "Converting the perform ini files to csv files Begin..."
 

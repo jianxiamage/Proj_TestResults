@@ -1,1 +1,0 @@
-TestType:[OS] Platform:[7A_2way] TestCase:[UnixBench] setting result file failed!

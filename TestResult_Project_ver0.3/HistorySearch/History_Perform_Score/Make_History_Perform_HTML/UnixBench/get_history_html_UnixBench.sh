@@ -5,8 +5,8 @@
 #---------------------------------------------------
 
 #验证参数个数
-if [ $# -ne 4 ];then
- echo "usage: $0 TestType Platform class_type TestCase" 
+if [ $# -ne 5 ];then
+ echo "usage: $0 TestType Platform class_type TestCase TestMode" 
  exit 1
 fi
 
@@ -15,6 +15,7 @@ TestType="$1"
 Platform="$2"
 class_type="$3"
 TestCase="$4"
+TestMode="$5"
 #-------------------------------------------------------
 
 #-------------------------------------------------------------------------
@@ -25,5 +26,5 @@ TestCase="$4"
 
 
 #记录历史结果到一个文件中
-python make_iozone_history_html.py $TestType $Platform $class_type $TestCase
+python make_UnixBench_history_html.py $TestType $Platform $class_type $TestCase $TestMode
 
