@@ -34,7 +34,7 @@ case $TestCase in
     echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
-    sh judge_UnixBench_history_csvFile.sh $TestType $Platform $class_type $TestCase
+    sh get_history_html_iozone.sh $TestType $Platform $class_type $TestCase
     retCode=$?
     echo --------------------------------------------------------------------------------
     ;;
