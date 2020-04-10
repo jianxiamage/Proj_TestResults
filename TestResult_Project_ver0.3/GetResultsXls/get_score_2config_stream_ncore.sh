@@ -51,7 +51,7 @@ Node_count=`ls $destResultPath/${TestCase}_ncore*.ini | wc -l`
 echo Node_count is:$Node_count
 
 #若当前查找到的ini文件数不是node_count.cfg的设定值，则失败退出
-if [ $Node_count -ne $count_nodes ];
+if [ $Node_count -ne 0 -a $Node_count -ne $count_nodes ];
 then
   echo "$TestMode file count is not $count_nodes!Please check it!"
   exit 1

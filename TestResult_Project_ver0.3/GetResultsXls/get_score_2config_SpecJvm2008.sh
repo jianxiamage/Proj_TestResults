@@ -20,10 +20,12 @@ Node_count=0
 detailDir="Detail"
 destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
 
+#目录未生成，可能测试未开始
 if [ ! -s $destResultPath ];
 then
-  echo Error! [$destResultPath] not existed!Please check it!
-  exit 1
+  echo "Warnning! [$destResultPath] not existed!Maybe [$TestCase] Not Begin!"
+  mkdir $destResultPath -p
+  #exit 1
 fi
 
 echo -------------------------------------------------------------
@@ -33,20 +35,20 @@ count_nodes=`cat node_count.cfg` || { echo "File:node_count.cfg is not existed!"
 
 ls -l $destResultPath/$TestCase*.ini
 
-#若出错，说明没有找到相关ini文件，程序退出
+#若出错，说明没有找到相关ini文件,需要初始化文件
 if [ $? -ne 0 ];
 then
-  echo "No $TestMode files exists!Please check it!"
-  exit 1
+  echo "No $TestCase files exists!Please check it!"
+  #exit 1
 fi
 
 Node_count=`ls $destResultPath/$TestCase*.ini | wc -l`
 echo Node_count is:$Node_count
 
 #若当前查找到的ini文件数不是node_count.cfg的设定值，则失败退出
-if [ $Node_count -ne $count_nodes ];
+if [ $Node_count -ne 0 -a $Node_count -ne $count_nodes ];
 then
-  echo "$TestMode file count is not $count_nodes!Please check it!"
+  echo "$TestCase file count is not $count_nodes!Please check it!"
   exit 1
 fi
 
