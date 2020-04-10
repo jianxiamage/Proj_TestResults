@@ -16,25 +16,29 @@ Node_num="$4"
 resultsPath='/data'
 PointsPath='Points_Files'
 testMode='CINT'
+curPointsIniDir='ini_Points'
+testcase_pointsFile=$curPointsIniDir/${TestCase}_${testMode}.ini
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
 detailDir="Detail"
 destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}/Points_${TestCase}_${testMode}_${Node_num}.txt"
+#----------------------------------------------------------------------------------------
 
+#----------------------------------------------------------------------------------------
 #测试结果配置文件地址
-destIniPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}/${TestCase}_${testMode}_${Node_num}.ini"
+dest_Path="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
+destIniPath="${dest_Path}/${TestCase}_${testMode}_${Node_num}.ini"
+#----------------------------------------------------------------------------------------
 
 if [ ! -s $destResultPath ];
 then
-  echo Error! [$destResultPath] not existed!Please check it!
-  exit 1
+  echo "[$destResultPath] not existed!Begin to init!"
+  mkdir $dest_Path -p
+  testcase_pointsFile=$curPointsIniDir/${TestCase}.ini
+  \cp $testcase_pointsFile $destIniPath -f
+  exit 0
 fi
 
-if [ ! -s $destIniPath ];
-then
-  echo Error! [$destIniPath] not existed!Please check it!
-  exit 1
-fi
 
 #读取测试结果跑分情况，并记录在相应的配置文件中
 

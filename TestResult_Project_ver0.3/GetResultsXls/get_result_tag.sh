@@ -83,6 +83,7 @@ check_result()
         let i++
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
+        #当前测试若未开始,相应的测试结果文件未生成，就会跳过本次循环
         \cp -draf ${AutoTestDir}/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
 
         echo get [$host] state OK.

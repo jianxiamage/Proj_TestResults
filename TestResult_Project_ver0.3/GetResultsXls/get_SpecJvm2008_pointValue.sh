@@ -15,26 +15,34 @@ Node_num="$4"
 #----------------------------------------------------------------------------------------
 resultsPath='/data'
 PointsPath='Points_Files'
+curPointsIniDir='ini_Points'
+testcase_pointsFile=$curPointsIniDir/$TestCase.ini
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
 detailDir="Detail"
 destResultPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/$TestCase/$PointsPath/Points_${TestCase}_${Node_num}.txt"
 
 #测试结果配置文件地址
-destIniPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}/${TestCase}_${Node_num}.ini"
+dest_Path="${resultsPath}/${TestType}/${Platform}/${detailDir}/${TestCase}/${PointsPath}"
+destIniPath="${dest_Path}/${TestCase}_${Node_num}.ini"
 
+echo "destIniPath=$destIniPath"
 
+#当尚未收集到测试结果时,需要初始化ini文件(值默认0)
 if [ ! -s $destResultPath ];
 then
-  echo Error! [$destResultPath] not existed!Please check it!
-  exit 1
+  echo "[$destResultPath] not existed!Begin to init."
+  mkdir $dest_Path -p
+  testcase_pointsFile=$curPointsIniDir/${TestCase}.ini
+  \cp $testcase_pointsFile $destIniPath -f
+  exit 0
 fi
 
-if [ ! -s $destIniPath ];
-then
-  echo Error! [$destIniPath] not existed!Please check it!
-  exit 1
-fi
+#if [ ! -s $destIniPath ];
+#then
+#  echo Error! [$destIniPath] not existed!Please check it!
+#  exit 1
+#fi
 
 #读取测试结果跑分情况，并记录在相应的配置文件中
 
