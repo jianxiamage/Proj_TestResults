@@ -1,1 +1,1 @@
-3.10.84-23.fc21.loongson.4.mips64el
+3.10.84-23.fc21.loongson.10.mips64el

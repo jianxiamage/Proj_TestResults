@@ -1,10 +1,10 @@
 [Main]
 Product=Fedora
-Version=21
+Version=7
 BugURL=http://bugs.loongnix.org
 IsFinal=True
-UUID=20200121-RC4.mips64
-BUILD=202001211506
-Kernel_Version=3.10.84-23.fc21.loongson.4.mips64el
+UUID=20200403-RC9.mips64
+BUILD=202001221210
+Kernel_Version=3.10.84-23.fc21.loongson.10.mips64el
 [Compose]
 Lorax=19.6.28-1
