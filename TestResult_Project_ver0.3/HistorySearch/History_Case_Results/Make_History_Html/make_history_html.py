@@ -70,6 +70,9 @@ class Template_mixin(object):
             <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
             <h2 style="font-family: Microsoft YaHei">测试结果历史记录</h2>
             <p class='attribute'><strong>测试用例名称: </strong> [%(case_name)s]</p>
+            <p class='attribute'><strong>测试分类: </strong> [%(test_class)s]</p>
+            <p class='attribute'><strong>测试类型: </strong> [%(test_type)s]</p>
+            <p class='attribute'><strong>测试平台: </strong> [%(test_plat)s]</p>
             <style type="text/css" media="screen">
         body  { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px;}
         </style>
@@ -171,7 +174,7 @@ if __name__ == '__main__':
            table_tr0 += table_td
   
   
-      output = html.HTML_TMPL % dict(table_tr = table_tr0,table_tr2=table_tr1,table_tr3=table_tr2,case_name=test_case)
+      output = html.HTML_TMPL % dict(table_tr = table_tr0,table_tr2=table_tr1,table_tr3=table_tr2,case_name=test_case,test_class=class_type,test_type=test_type,test_plat=test_platform)
   
       # 生成html报告
       filename = 'case_history.html'
