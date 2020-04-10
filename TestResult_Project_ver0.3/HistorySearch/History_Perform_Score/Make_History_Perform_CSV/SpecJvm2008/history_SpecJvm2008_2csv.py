@@ -19,6 +19,7 @@ perform_dir='performScore'
 PointsPath='Points_Files'
 #------------------------------------------
 section = 'SpecJvm2008'
+file_header='version,compiler,compress,crypto,derby,mpegaudio,scimark.large,scimark.small,serial,startup,sunflow,xml,Composite-result'
 #------------------------------------------
 
 #防止自动将ini文件中的键名转换成小写
@@ -125,11 +126,10 @@ if __name__=='__main__':
       iniFileName = ResultIniPath + '/' + iniFilePre + node_num + iniFileEnd
       csvFileName = destPath + '/' + test_case + '_' + node_num + '.csv'
       #print('------------------')
-      #print(ResultIniPath)
+      print(ResultIniPath)
       #print(csvFileName)
       #print('------------------')
       #------------------------------------------------------------------------------------
-
 
       #------------------------------------------------------------------------------------
       #历史版本目录列表文件中的内容存储到list
@@ -150,7 +150,6 @@ if __name__=='__main__':
          result_code = read_ini(iniFileName,csvFileName,test_ver)
       #sys.exit(0)
       #------------------------------------------------------------------------------------
-      
 
   except Exception as E:
       print('str(e):', str(E))

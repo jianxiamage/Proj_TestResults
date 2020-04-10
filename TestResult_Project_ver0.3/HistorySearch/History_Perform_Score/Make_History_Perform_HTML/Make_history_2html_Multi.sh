@@ -41,8 +41,9 @@ rm -rf $errfile
 :> ${okfile}
 :> ${errfile}
 
+#生成性能跑分查看主页
 pushd Index_Html
-sh Index_Html_Make.sh 
+sh Index_Html_Make.sh $TestType $Platform
 popd 
 
 echo "Converting the perform ini files to csv files Begin..."
