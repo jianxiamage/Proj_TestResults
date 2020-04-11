@@ -92,7 +92,7 @@ echo $cmdStr
 write_log "INFO" "${cmdStr}"
 echo "***************************************************"
 
-cmdStr="To get history mark of test results Begin.-------------------------------"
+cmdStr="To get history mark of test results End."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
 
