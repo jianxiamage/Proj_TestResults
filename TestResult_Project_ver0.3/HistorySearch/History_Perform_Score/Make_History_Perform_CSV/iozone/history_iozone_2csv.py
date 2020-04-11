@@ -56,16 +56,21 @@ def read_iniHead(inputFile,outputFile):
 
     options = config.options(section)
     optionStr = ','.join(options)
-    print(optionStr)
+    #print(optionStr)
     f.write('version,' + optionStr + '\n')
 
 #将各个字段的值写入csv文件
 def read_ini(inputFile,outputFile,Tag):
+    
+    f = open(outputFile,"a")
 
+    if not os.path.exists(inputFile):
+       values_Str = '0,0,0,0,0,0'
+       f.write(Tag + ',' + values_Str+'\n')
+       return 0
+       
     config = myconf()
     config.readfp(open(inputFile))
-
-    f = open(outputFile,"a")
 
     j=1
     #dicts = {}
@@ -76,7 +81,7 @@ def read_ini(inputFile,outputFile,Tag):
         dicts[option] = config.get(section, option)
         value = dicts[option]
         #print 'section:%s,option:%s,value:%s' %(section,option,value)
-        print(value)
+        #print(value)
         j = j + 1
     
     print('===============================================')
@@ -109,7 +114,9 @@ if __name__=='__main__':
 
       #------------------------------------------------------------------------------------
       #拼接目标文件名
+      Bak_Dir = 'History_Bak'
       ResultIniPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + detailDir + '/' + test_case + '/' + PointsPath
+      Bak_IniPath = web_Path + class_type + '/' + Bak_Dir + '/'+ test_platform + '/' + test_type
       destPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_Dir + '/' + perform_dir + '/' + test_case
       iniFilePre = test_case + '_'
       iniFileEnd = '.ini'
@@ -122,12 +129,10 @@ if __name__=='__main__':
       #------------------------------------------------------------------------------------
 
       #------------------------------------------------------------------------------------
+      #当前测试ini文件路径
       iniFileName = ResultIniPath + '/' + iniFilePre + node_num + iniFileEnd
+      #生成的当前节点csv文件路径
       csvFileName = destPath + '/' + test_case + '_' + node_num + '.csv'
-      #print('------------------')
-      #print(ResultIniPath)
-      #print(csvFileName)
-      #print('------------------')
       #------------------------------------------------------------------------------------
 
 
@@ -147,7 +152,8 @@ if __name__=='__main__':
       for i, val in enumerate(list_data):
          print ("序号:[%s], 版本:[%s]" % (i + 1, val))
          test_ver = val
-         result_code = read_ini(iniFileName,csvFileName,test_ver)
+         curIniFile = Bak_IniPath + '/' + test_ver + '/' + detailDir + '/' + test_case + '/' + PointsPath + '/' + iniFilePre + node_num + iniFileEnd
+         result_code = read_ini(curIniFile,csvFileName,test_ver)
       #sys.exit(0)
       #------------------------------------------------------------------------------------
       

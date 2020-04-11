@@ -49,10 +49,14 @@ def get_list_from_file(input_file, list_data=[]):
 #注意的是写入section行到csv时是覆盖模式"w")
 def read_iniHead(inputFile,outputFile):
 
+    f = open(outputFile,"w")
+    if not os.path.exists(inputFile):
+       values_Str = '0,0,0,0,0,0,0,0,0,0,0,0,0,0,0'
+       f.write(Tag + ',' + values_Str+'\n')
+       return 0
+
     config = myconf()
     config.readfp(open(inputFile))
-
-    f = open(outputFile,"w")
 
     options = config.options(section)
     optionStr = ','.join(options)
@@ -110,7 +114,9 @@ if __name__=='__main__':
 
       #------------------------------------------------------------------------------------
       #拼接目标文件名
+      Bak_Dir = 'History_Bak'
       ResultIniPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + detailDir + '/' + test_case + '/' + PointsPath
+      Bak_IniPath = web_Path + class_type + '/' + Bak_Dir + '/'+ test_platform + '/' + test_type
       destPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_Dir + '/' + perform_dir + '/' + test_case
       iniFilePre = test_case_detail + '_'
       iniFileEnd = '.ini'
@@ -148,7 +154,8 @@ if __name__=='__main__':
       for i, val in enumerate(list_data):
          print ("序号:[%s], 版本:[%s]" % (i + 1, val))
          test_ver = val
-         result_code = read_ini(iniFileName,csvFileName,test_ver)
+         curIniFile = Bak_IniPath + '/' + test_ver + '/' + detailDir + '/' + test_case + '/' + PointsPath + '/' + iniFilePre + node_num + iniFileEnd
+         result_code = read_ini(curIniFile,csvFileName,test_ver)
       #sys.exit(0)
       #------------------------------------------------------------------------------------
 
