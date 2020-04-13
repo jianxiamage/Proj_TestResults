@@ -65,7 +65,7 @@ def read_ini(inputFile,outputFile,Tag):
     f = open(outputFile,"a")
 
     if not os.path.exists(inputFile):
-       values_Str = '0,0,0,0,0,0'
+       values_Str = '0,0,0,0,0,0,0,0,0,0,0,0,0'
        f.write(Tag + ',' + values_Str+'\n')
        return 0
 
