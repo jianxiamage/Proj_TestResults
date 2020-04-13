@@ -8,6 +8,9 @@ ServerPass='loongson'
 AutoTestDir="/AutoTest"
 ServerTestDir='autotest_result'
 #--------------------------------------------
+resultsPath='/data'
+PointsPath='Points_Files'
+#--------------------------------------------
 #items_count=3
 #--------------------------------------------
 
@@ -84,7 +87,8 @@ check_result()
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
         #当前测试若未开始,相应的测试结果文件未生成，就会跳过本次循环
-        \cp -draf ${AutoTestDir}/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
+        #\cp -draf ${AutoTestDir}/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
+        \cp -draf ${AutoTestDir}/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; }
 
         echo get [$host] state OK.
 
@@ -101,7 +105,10 @@ check_result()
 
         hostDirCount=`ls $workdir/$TestType/$Platform/$TestName |grep $host- |wc -l`
         echo ============The number of directories currently containing IP:$host is:$hostDirCount
-        if [ $hostDirCount -ne 1 ];
+        #可能会出现服务器上有多个含有相同ip但时间不同的文件夹，
+        #这是意外情况，实际上是不允许出现这种情况的
+        #还需要排除的是测试尚未进行完的情况，这时正常情况
+        if [ $hostDirCount -ne 0 -a $hostDirCount -ne 1 ];
         then
            echo "Error,more than 1 ip dir existed!Please check it!"
            echo "There must be only 1 ip dir."
@@ -146,6 +153,15 @@ check_result()
     return 0
 }
 
+#-----------------------------------------------------------------------------------
+#删除目标目录下曾经获取的跑分文件(txt格式)
+#如不删除，下次测试会认为已经获取了跑分文件，其实是上次的结果没有删除
+detailDir="Detail"
+destPath="${resultsPath}/${TestType}/${Platform}/${detailDir}/$TestCase/$PointsPath"
+mkdir $destPath -p
+
+rm -rf $destPath/*.txt
+#-----------------------------------------------------------------------------------
 
 rm -rf $testcase_ip_path
 
