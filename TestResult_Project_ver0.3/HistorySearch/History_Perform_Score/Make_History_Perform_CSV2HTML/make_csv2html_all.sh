@@ -28,13 +28,15 @@ echo "class_type:$class_type"
 pushd ${TestCase}
 #---------------------------------------------------
 
+echo [$TestCase] convert csv file to html file finished!
+
 #There are many branches for test cases in judgment.So use case mode...
 case $TestCase in
 "iozone")
     echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
-    sh get_history_iozone.sh $TestType $Platform $class_type
+    sh get_history_iozone_html.sh $TestType $Platform $class_type
     retCode=$?
     echo --------------------------------------------------------------------------------
     ;;
@@ -57,7 +59,7 @@ case $TestCase in
     echo $cmdStr
 
     #stream单核测试
-    sh get_history_stream.sh $TestType $Platform $class_type
+    sh get_history_stream_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -69,7 +71,7 @@ case $TestCase in
     echo $cmdStr
     
     #UnixBench在不同机器上执行不同的线程脚本，会生成不同的测试结果文件，因此需要判断后执行
-    sh judge_UnixBench_history_csvFile.sh $TestType $Platform $class_type
+    sh judge_UnixBench_history_html.sh $TestType $Platform $class_type
     retCode=$?
     #echo --------------------------------------------------------------------------------
     ;;
@@ -80,7 +82,7 @@ case $TestCase in
     echo $cmdStr
     
     #spec2000单核浮点型及整型测试结果
-    sh get_history_spec2000_1core.sh $TestType $Platform $class_type
+    sh get_history_spec2000_1core_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -92,7 +94,7 @@ case $TestCase in
     echo $cmdStr
 
     #spec2000多核浮点型及整型测试结果
-    sh get_history_spec2000_ncore.sh $TestType $Platform $class_type
+    sh get_history_spec2000_ncore_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -104,7 +106,7 @@ case $TestCase in
     echo $cmdStr
 
     #spec2006单核浮点型及整型测试结果
-    sh get_history_spec2006_1core.sh $TestType $Platform $class_type
+    sh get_history_spec2006_1core_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -116,7 +118,7 @@ case $TestCase in
     echo $cmdStr
 
     #spec2000多核浮点型及整型测试结果
-    sh get_history_spec2006_ncore.sh $TestType $Platform $class_type
+    sh get_history_spec2006_ncore_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -127,7 +129,7 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
     #SpecJvm2008测试
-    sh get_history_SpecJvm2008.sh $TestType $Platform $class_type
+    sh get_history_SpecJvm2008_html.sh $TestType $Platform $class_type
     retCode=$?
 
     echo --------------------------------------------------------------------------------
@@ -145,6 +147,6 @@ esac
 popd
 #--------------------------------------
 
-echo [$TestCase] convert Ini file to csv file finished!
+echo [$TestCase] convert csv file to html file finished!
 echo --------------------------------------------------------------------------------
 exit $retCode

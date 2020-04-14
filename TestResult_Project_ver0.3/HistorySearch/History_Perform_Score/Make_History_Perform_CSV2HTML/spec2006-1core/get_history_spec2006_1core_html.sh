@@ -17,9 +17,9 @@ Platform="$2"
 class_type="$3"
 #-------------------------------------------------------
 
-#spec2000单核 浮点型测试 写csv文件
-sh get_history_spec2000_1core_CFP_html.sh $TestType $Platform $class_type
+#spec2006单核 浮点型测试 写csv文件
+sh get_history_spec2006_1core_CFP_html.sh $TestType $Platform $class_type
 
-#spec2000多核 浮点型测试 写csv文件
-sh get_history_spec2000_1core_CINT_html.sh $TestType $Platform $class_type
+#spec2006多核 浮点型测试 写csv文件
+sh get_history_spec2006_1core_CINT_html.sh $TestType $Platform $class_type
 

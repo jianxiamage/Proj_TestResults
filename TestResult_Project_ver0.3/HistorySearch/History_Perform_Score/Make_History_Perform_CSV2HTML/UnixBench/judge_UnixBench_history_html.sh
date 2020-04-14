@@ -52,7 +52,7 @@ do
   then
     echo "Begin to make csv files for UnixBench $i thread..."
     TestMode="UnixBench_${i}thread"
-    sh get_history_UnixBench.sh $TestType $Platform $class_type $TestMode
+    sh get_history_UnixBench_html.sh $TestType $Platform $class_type $TestMode
   fi
 done
 #----------------------------------------------------------------------------------------

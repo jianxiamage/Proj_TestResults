@@ -72,6 +72,19 @@ write_log "INFO" "${cmdStr}"
 echo "*********************************************************"
 
 echo "*********************************************************"
+cmdStr="Begin to make perform score history files(csv)..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd History_Perform_Score/Make_History_Perform_CSV2HTML
+sh Make_history_csv2html_Multi.sh ${TestType} ${Platform}
+popd
+cmdStr="To make perform score history files(csv) End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+echo "*********************************************************"
+
+
+echo "*********************************************************"
 cmdStr="Begin to make perform score history files(html)..."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"

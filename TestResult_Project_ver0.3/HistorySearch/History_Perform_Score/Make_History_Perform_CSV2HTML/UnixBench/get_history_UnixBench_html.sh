@@ -36,8 +36,8 @@ do
        #每次循环都会将同一历史版本的所有字段写入文件
        NodeNum=$i
        #记录历史结果到一个文件中
-       python history_UnixBench_part_2csv.py $TestType $Platform $class_type $TestMode "BASELINE" $NodeNum
-       python history_UnixBench_part_2csv.py $TestType $Platform $class_type $TestMode "RESULT" $NodeNum
-       python history_UnixBench_part_2csv.py $TestType $Platform $class_type $TestMode "INDEX" $NodeNum
-       python history_UnixBench_Benchmarks_2csv.py $TestType $Platform $class_type $TestMode "Benchmarks" $NodeNum
+       python history_UnixBench_part_csv2html.py $TestType $Platform $class_type $TestMode "BASELINE" $NodeNum
+       python history_UnixBench_part_csv2html.py $TestType $Platform $class_type $TestMode "RESULT" $NodeNum
+       python history_UnixBench_part_csv2html.py $TestType $Platform $class_type $TestMode "INDEX" $NodeNum
+       python history_UnixBench_Benchmarks_csv2html.py $TestType $Platform $class_type $TestMode "Benchmarks" $NodeNum
 done

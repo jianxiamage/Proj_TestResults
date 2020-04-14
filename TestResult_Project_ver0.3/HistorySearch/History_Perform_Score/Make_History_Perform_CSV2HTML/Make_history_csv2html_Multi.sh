@@ -3,7 +3,7 @@
 
 #功能：
 #多线程执行程序，
-#最终目的是生成性能跑分文件的csv格式文件，便于存储数据库
+#最终目的是生成性能跑分文件的html格式文件，便于前端展示
 
 if [ $# -ne 2 ];then
  echo "usage: $0 TestType Platform" 
@@ -64,7 +64,7 @@ read -u3                           #代表从管道中读取一个令牌
 {
   case_name=$line
   echo "当前测试用例:$case_name" |tee -a ${outputFile}
-  sh make_Ini2csv_all.sh $TestType $Platform "${case_name}"
+  sh make_csv2html_all.sh $TestType $Platform "${case_name}"
   if [ $? -eq 0 ];
   then
     echo "TestType:[${TestType}] Platform:[${Platform}] TestCase:[${case_name}] setting result file success!" >> $okfile

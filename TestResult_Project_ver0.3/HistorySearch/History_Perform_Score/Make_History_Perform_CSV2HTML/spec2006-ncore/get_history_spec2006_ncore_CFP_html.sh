@@ -34,6 +34,6 @@ do
        #每次循环都会将同一历史版本的所有字段写入文件
        NodeNum=$i
        #记录历史结果到一个文件中
-       python history_spec2006_1core_CFP_csv2html.py $TestType $Platform $class_type $NodeNum
+       python history_spec2006_ncore_CFP_csv2html.py $TestType $Platform $class_type $NodeNum
 done
 

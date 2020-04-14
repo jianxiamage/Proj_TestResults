@@ -31,12 +31,6 @@ def fill_data_head(locls):
     <td align="center">{}</td>\
     <td align="center">{}</td>\
     <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
     '.format(*locls)
     #{}</td><td align="center">{}</td><td align="center">{}</td></tr>\n
     return seg
@@ -44,12 +38,6 @@ def fill_data_head(locls):
 def fill_data(locls):
 # ======================= 表格字段 ======================
     seg='<tr bgcolor="LightGrey">\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
-    <td align="center">{}</td>\
     <td align="center">{}</td>\
     <td align="center">{}</td>\
     <td align="center">{}</td>\
@@ -107,8 +95,7 @@ if __name__ == '__main__':
   try:
 
       #---------------------------------------
-      test_case = 'spec2006-ncore'
-      test_case_detail = 'spec2006-ncore_CFP'
+      test_case = 'iozone'
       #---------------------------------------
 
       #-------------------------------------------------------------------------------
@@ -117,7 +104,9 @@ if __name__ == '__main__':
       test_type = sys.argv[1]
       test_platform = sys.argv[2]
       class_type = sys.argv[3]
-      node_num = sys.argv[4]
+      test_case = sys.argv[4]
+      input_type = sys.argv[5]
+      node_num = sys.argv[6]
       #-------------------------------------------------------------------------------
       search_Dir='Search'
       case_results_path = 'performScore'
@@ -133,9 +122,11 @@ if __name__ == '__main__':
       html = Template_mixin()
       
       #数据
+
       #------------------------------------------------------------------------------------
       #拼接目标文件名
-      destPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_Dir + '/' + perform_dir + '/' + test_case
+      caseDir='UnixBench' #区分单线程和多线程
+      destPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_Dir + '/' + perform_dir + '/' + caseDir
       #------------------------------------------------------------------------------------
 
       #------------------------------------------------------------------------------------
@@ -146,8 +137,8 @@ if __name__ == '__main__':
 
       #------------------------------------------------------------------------------------
       #生成的当前节点csv文件路径
-      csvFileName = destPath + '/' + test_case_detail + '_' + node_num + '.csv'
-      htmlFileName = destPath + '/' + test_case_detail + '_' + node_num + htmlFileEnd
+      csvFileName = destPath + '/' + test_case + '_' + input_type + '_' + node_num + '.csv'
+      htmlFileName = destPath + '/' + test_case + '_' + input_type + '_' +  node_num + htmlFileEnd
       #------------------------------------------------------------------------------------
 
  
