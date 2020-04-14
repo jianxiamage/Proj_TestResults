@@ -139,11 +139,11 @@ if __name__ == '__main__':
           ls.append(line.split(","))
       fr.close()
 
-      print(table_tr0)
+      #print(table_tr0)
 
       table_td = fill_data_head(ls[0])
       table_tr0 += table_td
-      print(table_tr0)
+      #print(table_tr0)
 
       for i in range(len(ls)-1):
           #fill_data(ls[i+1])
