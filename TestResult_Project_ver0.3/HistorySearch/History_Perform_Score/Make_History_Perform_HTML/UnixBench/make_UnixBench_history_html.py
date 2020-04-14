@@ -79,6 +79,26 @@ class Template_mixin(object):
         </head>
         <body>
 
+                <p class='attribute'><strong> 网页查看: </strong></p>
+            <table id='result_table' class="table table-condensed table-bordered table-hover">
+                <colgroup>
+                    <col align='left' />
+                    <col align='right' />
+                    <col align='right' />
+                    <col align='right' />
+                </colgroup>
+                <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+                    <th>节点序号</th>
+                    <th>性能指标一</th>
+                    <th>性能指标二</th>
+                    <th>性能指标三</th>
+                    <th>性能指标四</th>
+                </tr>
+                %(table_tr_html)s
+ 
+            </table>
+
+                <p class='attribute'><srong> 表格查看: </strong></p>
             <table id='result_table' class="table table-condensed table-bordered table-hover">
                 <colgroup>
                     <col align='left' />
@@ -96,17 +116,29 @@ class Template_mixin(object):
                 %(table_tr)s
  
             </table>
+
+
         </body>
         </html>"""
     #总数据
-    TABLE_TMPL_TOTAL = """
-        <tr class='failClass warning'>
+    TABLE_TMPL_CSV = """
+        <tr> 
             <td>%(node_num)s</td>
-            <td><a href="%(BASELINE_path)s" target="_blank">BASELINE</a></td>
+            <td><a href="%(BASELINE_path)s" target="_blank">BASELINE</a></th>
             <td><a href="%(RESULT_path)s" target="_blank">RESULT</a></td>
             <td><a href="%(INDEX_path)s" target="_blank">INDEX</a></td>
             <td><a title="System Benchmarks Index Score" href="%(Benchmarks_path)s" target="_blank">Benchmarks</a></td>
         </tr>"""
+
+    TABLE_TMPL_HTML = """
+        <tr> 
+            <td>%(node_num)s</td>
+            <td><a href="%(BASELINE_path_html)s" target="_blank">BASELINE</a></th>
+            <td><a href="%(RESULT_path_html)s" target="_blank">RESULT</a></td>
+            <td><a href="%(INDEX_path_html)s" target="_blank">INDEX</a></td>
+            <td><a title="System Benchmarks Index Score" href="%(Benchmarks_path_html)s" target="_blank">Benchmarks</a></td>
+        </tr>"""
+
  
 if __name__ == '__main__':
 
@@ -127,6 +159,7 @@ if __name__ == '__main__':
 
 
       table_tr0 = ''
+      table_tr_html = ''
       table_tr1=""
   
       html = Template_mixin()
@@ -160,20 +193,24 @@ if __name__ == '__main__':
       MaxCount=3  #并发节点最大为3个
       Relative_Path = '../../' + case_results_path + '/' + test_case
       for i in range(1,MaxCount+1):
-        #BASELINE_path = srcPath + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
         BASELINE_path = Relative_Path + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
-        #RESULT_path = srcPath + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
         RESULT_path = Relative_Path + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
-        #INDEX_path = srcPath + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
         INDEX_path = Relative_Path + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
-        #Benchmarks_path = srcPath + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
         Benchmarks_path = Relative_Path + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
-        #print(file_path)
-        table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,BASELINE_path=BASELINE_path,RESULT_path=RESULT_path,INDEX_path=INDEX_path,Benchmarks_path=Benchmarks_path)
+        table_td = html.TABLE_TMPL_CSV % dict(node_num=i,BASELINE_path=BASELINE_path,RESULT_path=RESULT_path,INDEX_path=INDEX_path,Benchmarks_path=Benchmarks_path)
         table_tr0 += table_td
 
+
+      for i in range(1,MaxCount+1):
+        BASELINE_path_html = Relative_Path + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + htmlFileEnd
+        RESULT_path_html = Relative_Path + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + htmlFileEnd
+        INDEX_path_html = Relative_Path + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + htmlFileEnd
+        Benchmarks_path_html = Relative_Path + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + htmlFileEnd
+        table_td_html = html.TABLE_TMPL_HTML % dict(node_num=i,BASELINE_path_html=BASELINE_path_html,RESULT_path_html=RESULT_path_html,INDEX_path_html=INDEX_path_html,Benchmarks_path_html=Benchmarks_path_html)
+        table_tr_html += table_td_html
+
       #生成html文件
-      output = html.HTML_TMPL % dict(table_tr = table_tr0,test_class=class_type,test_type=test_type,test_plat=test_platform,case_name=test_case)
+      output = html.HTML_TMPL % dict(table_tr = table_tr0,table_tr_html=table_tr_html,test_class=class_type,test_type=test_type,test_plat=test_platform,case_name=test_case)
   
       #filename=os.path.join(dir,filename)
       filename = htmlFileName

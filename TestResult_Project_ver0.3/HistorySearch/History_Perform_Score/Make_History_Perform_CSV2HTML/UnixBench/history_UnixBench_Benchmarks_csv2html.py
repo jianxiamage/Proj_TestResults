@@ -46,6 +46,7 @@ class Template_mixin(object):
             <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
             <h2 style="font-family: Microsoft YaHei">性能测试跑分结果历史记录</h2>
             <p class='attribute'><strong>测试用例名称: </strong> [%(case_name)s]</p>
+            <p class='attribute'><strong>测试选项: </strong> [%(input_type)s]</p>
             <p class='attribute'><strong>测试节点编号: </strong> [%(node_num)s]</p>
             <p class='attribute'><strong>测试分类: </strong> [%(test_class)s]</p>
             <p class='attribute'><strong>测试类型: </strong> [%(test_type)s]</p>
@@ -144,7 +145,7 @@ if __name__ == '__main__':
           table_tr1 += table_td_con
 
       #生成html文件
-      output = html.HTML_TMPL % dict(table_tr_Head = table_tr0,table_tr_Content=table_tr1,test_class=class_type,test_type=test_type,test_plat=test_platform,case_name=test_case,node_num=node_num)
+      output = html.HTML_TMPL % dict(table_tr_Head = table_tr0,table_tr_Content=table_tr1,test_class=class_type,test_type=test_type,test_plat=test_platform,case_name=test_case,node_num=node_num,input_type=input_type)
   
       #filename=os.path.join(dir,filename)
       filename = htmlFileName

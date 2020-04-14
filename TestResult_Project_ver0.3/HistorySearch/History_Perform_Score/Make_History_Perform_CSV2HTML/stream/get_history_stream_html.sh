@@ -18,8 +18,8 @@ class_type="$3"
 #-------------------------------------------------------
 
 #stream 单核测试 写csv文件
-sh get_history_stream_1core.sh $TestType $Platform $class_type
+sh get_history_stream_1core_html.sh $TestType $Platform $class_type
 
 #stream 多核测试 写csv文件
-sh get_history_stream_ncore.sh $TestType $Platform $class_type
+sh get_history_stream_ncore_html.sh $TestType $Platform $class_type
 

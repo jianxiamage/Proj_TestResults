@@ -88,8 +88,8 @@ class Template_mixin(object):
                 </colgroup>
                 <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
                     <th>节点序号</th>
-                    <th>版本历史查看</th>
-                    <th>版本历史表格</th>
+                    <th>网页查看</th>
+                    <th>表格查看</th>
                 </tr>
                 %(table_tr)s
  
@@ -100,8 +100,8 @@ class Template_mixin(object):
     TABLE_TMPL_TOTAL = """
         <tr class='failClass warning'>
             <td>%(node_num)s</td>
-            <td><a href="%(file_path)s" target="_blank">查看</a></td>
-            <td><a href="%(file_path)s" target="_blank">查看</a></td>
+            <td><a href="%(file_path_html)s" target="_blank">转到</a></td>
+            <td><a href="%(file_path_csv)s" target="_blank">转到</a></td>
         </tr>"""
  
 if __name__ == '__main__':
@@ -152,10 +152,11 @@ if __name__ == '__main__':
       MaxCount=3  #并发节点最大为3个
       Relative_Path = '../../' + case_results_path + '/' + test_case
       for i in range(1,MaxCount+1):
-        #file_path = srcPath + '/' + csvFilePre + str(i) + csvFileEnd
-        file_path = Relative_Path + '/' + csvFilePre + str(i) + csvFileEnd
-        #print(file_path)
-        table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,file_path=file_path)
+        #file_path_csv = srcPath + '/' + csvFilePre + str(i) + csvFileEnd
+        file_path_csv = Relative_Path + '/' + csvFilePre + str(i) + csvFileEnd
+        file_path_html = Relative_Path + '/' + csvFilePre + str(i) + htmlFileEnd
+        #print(file_path_csv)
+        table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,file_path_csv=file_path_csv,file_path_html=file_path_html)
         table_tr0 += table_td
 
       #生成html文件

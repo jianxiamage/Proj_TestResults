@@ -88,8 +88,10 @@ class Template_mixin(object):
                 </colgroup>
                 <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
                     <th>节点序号</th>
-                    <th>网页查看</th>
-                    <th>表格查看</th>
+                    <th>性能指标一</th>
+                    <th>性能指标二</th>
+                    <th>性能指标三</th>
+                    <th>性能指标四</th>
                 </tr>
                 %(table_tr)s
  
@@ -100,8 +102,10 @@ class Template_mixin(object):
     TABLE_TMPL_TOTAL = """
         <tr class='failClass warning'>
             <td>%(node_num)s</td>
-            <td><a href="%(file_path_html)s" target="_blank">转到</a></td>
-            <td><a href="%(file_path_csv)s" target="_blank">转到</a></td>
+            <td><a href="%(BASELINE_path)s" target="_blank">BASELINE</a></td>
+            <td><a href="%(RESULT_path)s" target="_blank">RESULT</a></td>
+            <td><a href="%(INDEX_path)s" target="_blank">INDEX</a></td>
+            <td><a title="System Benchmarks Index Score" href="%(Benchmarks_path)s" target="_blank">Benchmarks</a></td>
         </tr>"""
  
 if __name__ == '__main__':
@@ -115,12 +119,12 @@ if __name__ == '__main__':
       test_platform = sys.argv[2]
       class_type = sys.argv[3]
       test_case = sys.argv[4]
+      test_mode = sys.argv[5]
       #-------------------------------------------------------------------------------
       search_path = 'Search'
       case_results_path = 'performScore'
       html_path = 'performScoreHtml'
 
-      test_dir = 'spec2000-1core'
 
       table_tr0 = ''
       table_tr1=""
@@ -129,20 +133,23 @@ if __name__ == '__main__':
       
       #数据
 
+      iniFilePre = test_case + '_'
+      iniFileEnd = '.ini'
+
       csvFilePre = test_case + '_'
       csvFileEnd = '.csv'
 
       htmlFileEnd = '.html'
 
       #拼接csv文件路径与目标html文件路径
-      srcPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_path + '/' +  case_results_path + '/' + test_dir
+      srcPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_path + '/' +  case_results_path + '/' + test_case
       destPath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_path + '/'
       dest_scorePath = web_Path + class_type + '/' + test_platform + '/' + test_type + '/' + search_path + '/' + html_path + '/' + test_case
 
       mkdirlambda =lambda x: os.makedirs(x) if not os.path.exists(x)  else True  # 目录是否存在,不存在则创建
       mkdirlambda(dest_scorePath)
 
-      htmlFileName = dest_scorePath + '/' + test_case + htmlFileEnd
+      htmlFileName = dest_scorePath + '/' + test_case + '_' + test_mode + htmlFileEnd
 
  
       print('---------生成html文件-----------------')
@@ -151,13 +158,18 @@ if __name__ == '__main__':
       #sys.exit(0)
 
       MaxCount=3  #并发节点最大为3个
-      Relative_Path = '../../' + case_results_path + '/' + test_dir
+      Relative_Path = '../../' + case_results_path + '/' + test_case
       for i in range(1,MaxCount+1):
-        #file_path_csv = srcPath + '/' + csvFilePre + str(i) + csvFileEnd
-        file_path_csv = Relative_Path + '/' + csvFilePre + str(i) + csvFileEnd
-        file_path_html = Relative_Path + '/' + csvFilePre + str(i) + htmlFileEnd
-        #print(file_path_csv)
-        table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,file_path_csv=file_path_csv,file_path_html=file_path_html)
+        #BASELINE_path = srcPath + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
+        BASELINE_path = Relative_Path + '/' + csvFilePre + test_mode + '_BASELINE_' + str(i) + csvFileEnd
+        #RESULT_path = srcPath + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
+        RESULT_path = Relative_Path + '/' + csvFilePre + test_mode + '_RESULT_' + str(i) + csvFileEnd
+        #INDEX_path = srcPath + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
+        INDEX_path = Relative_Path + '/' + csvFilePre + test_mode + '_INDEX_' + str(i) + csvFileEnd
+        #Benchmarks_path = srcPath + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
+        Benchmarks_path = Relative_Path + '/' + csvFilePre + test_mode + '_Benchmarks_' + str(i) + csvFileEnd
+        #print(file_path)
+        table_td = html.TABLE_TMPL_TOTAL % dict(node_num=i,BASELINE_path=BASELINE_path,RESULT_path=RESULT_path,INDEX_path=INDEX_path,Benchmarks_path=Benchmarks_path)
         table_tr0 += table_td
 
       #生成html文件
