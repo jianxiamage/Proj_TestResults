@@ -214,6 +214,19 @@ echo $cmdStr
 write_log "INFO" "${cmdStr}"
 echo "*********************************************************"
 
+#获取历史记录
+echo "*********************************************************"
+cmdStr="Begin to search the history results..."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+pushd HistorySearch
+sh Get_History_Mark.sh ${TestType} ${Platform}
+popd
+cmdStr="To search the history results End."
+echo $cmdStr
+write_log "INFO" "${cmdStr}"
+echo "*********************************************************"
+
 
 stop_time=`date +%s`  #定义脚本运行的结束时间
 
