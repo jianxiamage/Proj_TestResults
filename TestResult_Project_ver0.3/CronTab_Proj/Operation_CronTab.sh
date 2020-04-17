@@ -72,7 +72,7 @@ function remove_crontab(){
     crontab -l > ${CRONTAB_BAK_FILE} 2>/dev/null
     #sed -i "/.*${SCRIPT_NAME}/d" ${CRONTAB_BAK_FILE}
     #sed -i "/${Para_Tag}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
-    sed -i "/${keyword}/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加
+    sed -i "/${keyword}$/d" ${CRONTAB_BAK_FILE}  # 已存在任务时会被sed删除，防止重复添加,加$符号用于确定字符串结尾，防止删除7A时，将7A_2way这种删除
     crontab ${CRONTAB_BAK_FILE}
     
     echo 'Delete task Complete'
