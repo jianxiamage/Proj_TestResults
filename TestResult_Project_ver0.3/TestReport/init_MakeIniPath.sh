@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-set -e
-
 if [ $# -ne 3 ];then
  echo "usage: $0 TestType Platform Proj_Name" 
  exit 1
