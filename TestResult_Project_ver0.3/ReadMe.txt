@@ -15,6 +15,7 @@ GetResultsXls      //生成性能跑分Excel文件
 Backup_Tool        //备份测试结果到指定目录
 Classify_Results   //重新将当前测试结果分类(最新要求为PC,Server,KVM)
 DataBase_Results   //将测试结果及备份数据写入数据库
+HistorySearch      //历史记录功能(包括测试用例结果历史记录以及性能跑分历史记录)
 
 CronTab_Proj       //定时任务,用于定时收集测试结果
 Rsync_Tool         //同步任务,将服务器上的测试结果文件同步到本地服务器
