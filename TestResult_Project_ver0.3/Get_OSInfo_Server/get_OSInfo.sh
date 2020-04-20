@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#####################################################################
+#脚本功能:
+#用于获取指定测试类型和平台的每个测试用例对应的三个并发节点的系统信息
+#####################################################################
+
+#--------------------------------------------
+#变量初始化
 #--------------------------------------------
 ServerIP='auto_test.loongson.cn'
 ServerUser='loongson-test'
@@ -11,6 +18,9 @@ ServerTestDir='autotest_result'
 #items_count=3
 #--------------------------------------------
 
+#--------------------------------------------
+#判断输入参数
+#--------------------------------------------
 if [ $# -ne 3 ];then
    echo "usage: $0 TestType Platform TestCase" 
    exit 0
@@ -54,7 +64,10 @@ IPListIniFile='ip_list.ini'
 ip_list_path=${resultsPath}/${TestType}/${Platform}/${IPListIniFile}
 echo "ip_list_path is:$ip_list_path"
 
-
+#-----------------------------------
+#函数功能:
+#生成每个测试用例对应的ip列表文件
+#-----------------------------------
 function writeIPFile()
 {
    if [ $# -ne 1 ];then
@@ -64,22 +77,13 @@ function writeIPFile()
 
    retCode=0
    opt_name="$1"
-   #opt_num="$2"
 
-   #count_items=`python get_node_count.py $opt_name`
-
-   #count_items=`python -c "import get_node_count;get_node_count.getSectionCount($opt_name)"`
-   #count_items=$(python -c 'import get_node_count; print get_node_count.getSectionCount("'$TestType'","'$Platform'","'$opt_name'")')
    count_items=$(cat node_count.cfg)
    echo count_items is:$count_items 
-  
-   #readIni $TestcaseGroupPath $sectionName $TestCase
 
    for((i=1;i<=count_items;i++));
    do
      NodeNum=$i
-     #IP_testcase=`python get_node_ip.py $opt_name $i`
-     #IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
      Group_num=$(sh get_GroupNum.sh $TestType $opt_name)
      sectionName="Group${Group_num}"
      keyName="ip_${NodeNum}"
@@ -90,23 +94,26 @@ function writeIPFile()
      echo $IP_testcase  >>  $testcase_ip_path
    done
 
-
-#   for((i=1;i<=count_items;i++));
-#   do
-#     #IP_testcase=`python get_node_ip.py $opt_name $i`
-#     IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
-#     echo 第[$i]个ip:$IP_testcase
-#     echo $IP_testcase  >>  $testcase_ip_path
-#   done
+   #python方法读ini文件
+   #for((i=1;i<=count_items;i++));
+   #do
+   #  #IP_testcase=`python get_node_ip.py $opt_name $i`
+   #  IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
+   #  echo 第[$i]个ip:$IP_testcase
+   #  echo $IP_testcase  >>  $testcase_ip_path
+   #done
 
 }
 
-#--------------------------------------------
-check_result()
+#---------------------------------------------
+#函数功能:
+#生成每个测试用例对应的所有节点对应的系统信息
+#---------------------------------------------
+make_OSInfo()
 {
 
     if [ $# -ne 1 ];then
-      echo "usage: check_result TestName"
+      echo "usage: $0 TestName"
       return 1
     fi
 
@@ -138,6 +145,7 @@ check_result()
         #|| (echo "${TestName}_${host}_osinfo.txt Not exists!"; retCode=1);
         retCode=$?
 
+        #如果没有找到对应的系统信息文件,就使用默认文件(字段值为:Unknown)取代，以防止出错
         if [ $retCode -ne 0 ];then
            echo "${TestName}_${host}_osinfo.txt Not exists!"
            echo "Node:[${host}]:Get OS Info file failed."
@@ -151,9 +159,10 @@ check_result()
 }
 
 
+#清空原有ip列表文件(目录)
 rm -rf $testcase_ip_path
 
-#writeIPFile stressapp 
+#调用函数,生成ip列表文件(目录)
 writeIPFile $TestCase
 
 
@@ -161,11 +170,9 @@ writeIPFile $TestCase
 sed '/^#.*\|^[[:space:]]*$/d' $testcase_ip_path > $testcase_ip_path_tmp
 
 
-#check_result testcase 
-check_result $TestCase
+#调用函数,生成所有测试用例对应节点的系统信息
+make_OSInfo $TestCase
 
 rm -rf $testcase_ip_path_tmp
 
 echo "--------------------------------------------------------"
-retCode=$onLineFlag
-exit $retCode
