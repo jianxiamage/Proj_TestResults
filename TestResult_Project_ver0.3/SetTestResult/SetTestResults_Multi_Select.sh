@@ -98,7 +98,7 @@ do
 done
 
 success_count=$(cat ${okfile}|wc -l)
-echo "**********************************************"
-echo "The count of the test case result is:${success_count}"
-echo "**********************************************"
+echo "**************************************************"
+echo "The success count of the test case result is:[${success_count}]"
+echo "**************************************************"
 echo "Setting the Results file success."
