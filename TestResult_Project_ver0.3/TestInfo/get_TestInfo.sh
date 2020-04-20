@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#####################################################################
+#脚本功能:
+#用于获取指定测试类型和平台的每个测试用例对应的三个并发节点的测试信息
+#当前测试信息，主要是测试用例开始测试时间
+#####################################################################
+
 #--------------------------------------------
 ServerIP='auto_test.loongson.cn'
 ServerUser='loongson-test'
@@ -14,6 +20,9 @@ time_dir=Time_Begin
 #items_count=3
 #--------------------------------------------
 
+#--------------------------------------------
+#判断输入参数
+#--------------------------------------------
 if [ $# -ne 3 ];then
    echo "usage: $0 TestType Platform TestCase" 
    exit 0
@@ -30,7 +39,6 @@ TestCase="$3"
 
 #--------------------------------------------
 retCode=0
-onLineFlag=0
 #--------------------------------------------
 resultsPath="/data"
 detailDir="Detail"
@@ -57,6 +65,10 @@ testcase_ip_path_tmp="$testcaseDir/$tmpipList_TestCase_File"
 #每次执行程序，都把之前生成的ip列表文件删除,重新生成一次，方便ip改变后，及时更新
 rm -rf $testcase_ip_path
 
+#-----------------------------------
+#函数功能:
+#生成每个测试用例对应的ip列表文件
+#-----------------------------------
 function writeIPFile()
 {
    if [ $# -ne 1 ];then
@@ -66,24 +78,13 @@ function writeIPFile()
 
    retCode=0
    opt_name="$1"
-   #opt_num="$2"
-
-   #count_items=`python get_node_count.py $opt_name`
-
-   #count_items=`python -c "import get_node_count;get_node_count.getSectionCount($opt_name)"`
-   #count_items=$(python -c 'import get_node_count; print get_node_count.getSectionCount("'$TestType'","'$Platform'","'$opt_name'")')
-   #echo count_items is:$count_items 
 
    count_items=$(cat node_count.cfg)
    echo count_items is:$count_items 
 
-   #readIni $TestcaseGroupPath $sectionName $TestCase
-
    for((i=1;i<=count_items;i++));
    do
      NodeNum=$i
-     #IP_testcase=`python get_node_ip.py $opt_name $i`
-     #IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
      Group_num=$(sh get_GroupNum.sh $TestType $opt_name)
      sectionName="Group${Group_num}"
      keyName="ip_${NodeNum}"
@@ -93,23 +94,17 @@ function writeIPFile()
      echo $IP_testcase  >>  $testcase_ip_path
    done
 
-  
-#   for((i=1;i<=count_items;i++));
-#   do
-#     #IP_testcase=`python get_node_ip.py $opt_name $i`
-#     IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
-#     echo 第[$i]个ip:$IP_testcase
-#     echo $IP_testcase  >>  $testcase_ip_path
-#   done
-
 }
 
-#--------------------------------------------
-check_result()
+#------------------------------------------------------------
+#函数功能:
+#生成每个测试用例对应的所有节点对应的测试信息(测试开始时间)
+#------------------------------------------------------------
+make_TestInfo()
 {
 
     if [ $# -ne 1 ];then
-      echo "usage: check_result TestName"
+      echo "usage: make_TestInfo TestName"
       return 1
     fi
 
@@ -126,14 +121,6 @@ check_result()
         workdir=$(cd $(dirname $0); pwd)
 
         echo 第[$i]个ip:$host
-        #ping -c3 -i0.3 -W1 $host &>/dev/null
-        #if [ $? -ne 0 ] ;then
-        #   echo "[${host}] can not be connected!"
-        #   onLineFlag=1
-        #   \cp $workdir/StdTestInfo.ini "$destPath/Node${i}_${host}.ini" -f
-        #   continue
-        #fi
-
          
         #sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r \
         #$ServerUser@$ServerIP:~/$ServerTestDir/$TestName/*_${host}.out ${testcaseDir}/${TestName}
@@ -141,7 +128,6 @@ check_result()
         retCode=0
         \cp ${AutoTestDir}/$ServerTestDir/$TestName/${time_dir}/*_${host}.out ${testcaseDir}/${TestName} || (echo "${host}.out Not exists!"; retCode=1);
 
-        #if [ $? -ne 0 ];then
         if [ ${retCode} -ne 0 ];then
            echo "Node:[${host}]:Get time file failed."
            \cp $workdir/StdTestInfo.ini "$destPath/Node${i}_${host}.ini" -f
@@ -149,9 +135,6 @@ check_result()
         fi
 
         echo "-----------------------获取测试信息文件---------------------------"
-        #echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        #ls -1 $workdir/$TestType/$Platform/$TestName
-        #echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
         hostFileCount=`ls $workdir/$TestType/$Platform/$TestName |grep _${host}.out |wc -l`
         #echo "===The number of files currently containing IP:$host is:$hostFileCount"
@@ -171,11 +154,6 @@ check_result()
         testInfo_content=$(cat $testInfo_absFile)
         echo "[TestInfo]" > "$destPath/Node${i}_${host}.ini"
         echo "StartTime:$testInfo_content" >> "$destPath/Node${i}_${host}.ini"
-        #echo --------------------------------------------------------------------------------   
-        #echo 测试用例:$TestCase 的测试结果文件为:
-        #echo [$testInfo_absFile]
-        #echo --------------------------------------------------------------------------------   
-        #\cp $workdir/$TestType/$Platform/$TestName/*_${host}.out "$destPath/Node${i}_${host}.txt" -f
 
     done < $testcase_ip_path_tmp
 
@@ -185,19 +163,19 @@ check_result()
 
 rm -rf $testcase_ip_path
 
-#writeIPFile stressapp 
+#-----------------------------
+#调用函数,生成ip列表文件
+#-----------------------------
 writeIPFile $TestCase
-
 
 #Delete the space lines and comment lines
 sed '/^#.*\|^[[:space:]]*$/d' $testcase_ip_path > $testcase_ip_path_tmp
 
-
-#check_result testcase 
-check_result $TestCase
+#-------------------------------------------
+#调用函数,生成所有测试用例对应节点的系统信息
+#-------------------------------------------
+make_TestInfo $TestCase
 
 rm -rf $testcase_ip_path_tmp
 
 echo "--------------------------------------------------------"
-retCode=$onLineFlag
-exit $retCode

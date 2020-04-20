@@ -113,7 +113,7 @@ make_OSInfo()
 {
 
     if [ $# -ne 1 ];then
-      echo "usage: $0 TestName"
+      echo "usage: make_OSInfo TestName"
       return 1
     fi
 
