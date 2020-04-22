@@ -1,0 +1,17 @@
+Run is compliant
+
+================================
+compiler                      106.79                                  
+compress                      117.13                                  
+crypto                        164.2                                   
+derby                         100.39                                  
+mpegaudio                     72.12                                   
+scimark.large                 23.81                                   
+scimark.small                 102.4                                   
+serial                        43.1                                    
+startup                       7.34                                    
+sunflow                       22.64                                   
+xml                           160.88                                  
+Composite result: 60.77 SPECjvm2008 Base ops/m
+================================
+

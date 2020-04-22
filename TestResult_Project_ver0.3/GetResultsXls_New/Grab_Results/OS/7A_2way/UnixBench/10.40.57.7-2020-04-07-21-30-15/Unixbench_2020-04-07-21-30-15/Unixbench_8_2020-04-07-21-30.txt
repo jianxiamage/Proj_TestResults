@@ -1,0 +1,106 @@
+make all
+make[1]: Entering directory `/home/UnixBench'
+Checking distribution of files
+./pgms  exists
+./src  exists
+./testdir  exists
+./tmp  exists
+./results  exists
+make[1]: Leaving directory `/home/UnixBench'
+
+   #    #  #    #  #  #    #          #####   ######  #    #   ####   #    #
+   #    #  ##   #  #   #  #           #    #  #       ##   #  #    #  #    #
+   #    #  # #  #  #    ##            #####   #####   # #  #  #       ######
+   #    #  #  # #  #    ##            #    #  #       #  # #  #       #    #
+   #    #  #   ##  #   #  #           #    #  #       #   ##  #    #  #    #
+    ####   #    #  #  #    #          #####   ######  #    #   ####   #    #
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+
+8 x Dhrystone 2 using register variables  1 2 3 4 5 6 7 8 9 10
+
+8 x Double-Precision Whetstone  1 2 3 4 5 6 7 8 9 10
+
+8 x Execl Throughput  1 2 3
+
+8 x File Copy 1024 bufsize 2000 maxblocks  1 2 3
+
+8 x File Copy 256 bufsize 500 maxblocks  1 2 3
+
+8 x File Copy 4096 bufsize 8000 maxblocks  1 2 3
+
+8 x Pipe Throughput  1 2 3 4 5 6 7 8 9 10
+
+8 x Pipe-based Context Switching  1 2 3 4 5 6 7 8 9 10
+
+8 x Process Creation  1 2 3
+
+8 x System Call Overhead  1 2 3 4 5 6 7 8 9 10
+
+8 x Shell Scripts (1 concurrent)  1 2 3
+
+8 x Shell Scripts (8 concurrent)  1 2 3
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: localhost.localdomain: GNU/Linux
+   OS: GNU/Linux -- 3.10.0-693.lns7.10.mips64el -- #1 SMP PREEMPT Fri Apr 3 15:51:01 CST 2020
+   Machine: mips64 (mips64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 1: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 2: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 3: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 4: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 5: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 6: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   CPU 7: Loongson-3A R3 (Loongson-3B3000) @ 1450MHz (0.0 bogomips)
+          
+   21:59:09 up 12:15,  0 users,  load average: 7.41, 3.69, 1.82; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: 二 4月 07 2020 21:59:09 - 22:28:22
+8 CPUs in system; running 8 parallel copies of tests
+
+Dhrystone 2 using register variables       67028129.6 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                    10399.1 MWIPS (9.8 s, 7 samples)
+Execl Throughput                               4446.5 lps   (29.7 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        117578.0 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks           28919.1 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks        296076.9 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             3104764.0 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 645110.0 lps   (10.0 s, 7 samples)
+Process Creation                              10600.1 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   9093.3 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                   1330.4 lpm   (60.1 s, 2 samples)
+System Call Overhead                         262144.3 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   67028129.6   5743.6
+Double-Precision Whetstone                       55.0      10399.1   1890.8
+Execl Throughput                                 43.0       4446.5   1034.1
+File Copy 1024 bufsize 2000 maxblocks          3960.0     117578.0    296.9
+File Copy 256 bufsize 500 maxblocks            1655.0      28919.1    174.7
+File Copy 4096 bufsize 8000 maxblocks          5800.0     296076.9    510.5
+Pipe Throughput                               12440.0    3104764.0   2495.8
+Pipe-based Context Switching                   4000.0     645110.0   1612.8
+Process Creation                                126.0      10600.1    841.3
+Shell Scripts (1 concurrent)                     42.4       9093.3   2144.6
+Shell Scripts (8 concurrent)                      6.0       1330.4   2217.4
+System Call Overhead                          15000.0     262144.3    174.8
+                                                                   ========
+System Benchmarks Index Score                                         985.3
+

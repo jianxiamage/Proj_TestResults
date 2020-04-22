@@ -1,0 +1,130 @@
+##############################################################################
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+#                                                                            #
+# 'reportable' flag not set during run                                       #
+#                                                                            #
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+##############################################################################
+                            SPEC CINT2006 Summary
+                                  ICT 3A2000
+                           Tue Apr  7 11:17:05 2020
+
+SPEC License #0     Test date: Feb-2015     Hardware availability: Feb-2015
+Test sponsor: ICT                           Software availability: Feb-2015
+
+                                  Estimated                       Estimated
+                Base     Base       Base        Peak     Peak       Peak
+Benchmarks      Ref.   Run Time     Ratio       Ref.   Run Time     Ratio
+-------------- ------  ---------  ---------    ------  ---------  ---------
+400.perlbench    9770       1284       7.61 *                                  
+400.perlbench    9770       1282       7.62 S                                  
+400.perlbench    9770       1301       7.51 S                                  
+401.bzip2        9650       1831       5.27 *                                  
+401.bzip2        9650       1829       5.28 S                                  
+401.bzip2        9650       1833       5.26 S                                  
+403.gcc          8050        928       8.68 S                                  
+403.gcc          8050        941       8.56 S                                  
+403.gcc          8050        931       8.65 *                                  
+429.mcf          9120        682      13.4  *                                  
+429.mcf          9120        659      13.8  S                                  
+429.mcf          9120        686      13.3  S                                  
+445.gobmk       10490       1259       8.33 *                                  
+445.gobmk       10490       1271       8.25 S                                  
+445.gobmk       10490       1258       8.34 S                                  
+456.hmmer        9330       1076       8.67 *                                  
+456.hmmer        9330       1079       8.65 S                                  
+456.hmmer        9330       1076       8.67 S                                  
+458.sjeng       12100       1577       7.67 S                                  
+458.sjeng       12100       1575       7.68 S                                  
+458.sjeng       12100       1576       7.68 *                                  
+462.libquantum  20720        871      23.8  S                                  
+462.libquantum  20720        860      24.1  *                                  
+462.libquantum  20720        851      24.3  S                                  
+464.h264ref     22130       1748      12.7  S                                  
+464.h264ref     22130       1713      12.9  *                                  
+464.h264ref     22130       1712      12.9  S                                  
+471.omnetpp      6250       1065       5.87 S                                  
+471.omnetpp      6250       1062       5.89 *                                  
+471.omnetpp      6250       1058       5.91 S                                  
+473.astar        7020        953       7.37 *                                  
+473.astar        7020        952       7.38 S                                  
+473.astar        7020        966       7.27 S                                  
+483.xalancbmk    6900        864       7.98 S                                  
+483.xalancbmk    6900        866       7.96 *                                  
+483.xalancbmk    6900        871       7.92 S                                  
+==============================================================================
+400.perlbench    9770       1284       7.61 *                                  
+401.bzip2        9650       1831       5.27 *                                  
+403.gcc          8050        931       8.65 *                                  
+429.mcf          9120        682      13.4  *                                  
+445.gobmk       10490       1259       8.33 *                                  
+456.hmmer        9330       1076       8.67 *                                  
+458.sjeng       12100       1576       7.68 *                                  
+462.libquantum  20720        860      24.1  *                                  
+464.h264ref     22130       1713      12.9  *                                  
+471.omnetpp      6250       1062       5.89 *                                  
+473.astar        7020        953       7.37 *                                  
+483.xalancbmk    6900        866       7.96 *                                  
+ Est. SPECint_base2006                 8.98
+ Est. SPECint2006                                                   Not Run
+
+
+                                   HARDWARE
+                                   --------
+            CPU Name: Loongson
+ CPU Characteristics:  
+             CPU MHz: 1000
+                 FPU: Integrated
+      CPU(s) enabled: 1 core, 1 chip, 1 core/chip
+    CPU(s) orderable: 1
+       Primary Cache: 64KB I + 64KB D
+     Secondary Cache: 4096KB(I + D)
+            L3 Cache: --
+         Other Cache: --
+              Memory: 2 x 2GB DDR600 
+      Disk Subsystem: --
+      Other Hardware: --
+
+
+                                   SOFTWARE
+                                   --------
+    Operating System: Centos
+            Compiler: gcc , g++ & gfortran 4.8
+       Auto Parallel: --
+         File System: ext3
+        System State: runlevel 3
+      Other Software: --
+
+
+                                General Notes
+                                -------------
+    
+     400.perlbench: -DSPEC_CPU_LINUX_IA32
+     462.libquantum: -DSPEC_CPU_LINUX
+     C/C++ base flags:   -flto -Ofast
+     Fortran base flags: -flto -Ofast
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+##############################################################################
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+#                                                                            #
+# 'reportable' flag not set during run                                       #
+#                                                                            #
+#   INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN -- INVALID RUN  #
+##############################################################################
+-----------------------------------------------------------------------------
+For questions about this result, please contact the tester.
+For other inquiries, please contact webmaster@spec.org.
+Copyright 2006 Standard Performance Evaluation Corporation
+Generated on Wed Apr  8 17:23:26 2020 by SPEC CPU2006 ASCII formatter v4286
