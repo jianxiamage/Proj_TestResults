@@ -1,1 +1,0 @@
-3.10.0-2.fc21.loongson.2k.24.mips64el
