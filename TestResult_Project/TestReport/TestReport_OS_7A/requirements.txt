@@ -33,7 +33,7 @@ python-xlib==0.15rc1
 pytz===2012d
 pyxattr==0.5.3
 PyXB==1.2.3
-pyxdg==0.25
+pyxdg==0.26
 rpm-python==4.12.0.1
 scdate==1.10.7
 selenium==3.141.0
