@@ -132,7 +132,7 @@ echo "*********************************************************"
 cmdStr="Begin to make Points Files for Performance Test Cases..."
 echo $cmdStr
 write_log "INFO" "${cmdStr}"
-pushd GetResultsXls
+pushd GetResultsXls_New
 sh OneKey_Results_Multi_Select.sh ${TestType} ${Platform}
 popd
 cmdStr="Make Points Files for Performance Test Cases End."
