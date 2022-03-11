@@ -17,7 +17,7 @@ linecache2==1.0.0
 lxml==3.3.6
 ntplib==0.3.2
 pexpect==3.1
-Pillow==2.6.1
+Pillow==9.0.1
 policycoreutils-default-encoding==0.1
 pwquality==1.2.4
 pycurl==7.19.3.1
