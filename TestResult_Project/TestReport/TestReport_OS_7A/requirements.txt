@@ -14,7 +14,7 @@ javapackages==4.1.0
 kitchen==1.1.1
 langtable==0.0.27
 linecache2==1.0.0
-lxml==3.3.6
+lxml==4.9.1
 ntplib==0.3.2
 pexpect==3.1
 Pillow==2.6.1
